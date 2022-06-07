@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">MathApp</string>
+    <string name="signInText2">Connecte toi et défis d\'autres utilisateurs !</string>
+    <string name="singInTitle">Connexion</string>
+    <string name="hintPassword">Password</string>
+    <string name="mailHint">Mail address</string>
+    <string name="logInBtn">Se Connecter</string>
 </resources>

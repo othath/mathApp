@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -10,60 +10,76 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="280dp"
+        android:layout_marginTop="-80dp"
         android:background="@drawable/box"
         android:maxWidth="24dp"
         android:maxHeight="24dp"
         android:scaleType="fitCenter"
-        android:layout_marginTop="-80dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+       />
 
     <TextView
+        android:id="@+id/signInText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/muli_extrabold"
-        android:text="Connexion"
-        android:gravity="center"
         android:layout_marginTop="20dp"
+        android:fontFamily="@font/muli_extrabold"
+        android:gravity="center"
+        android:text="@string/singInTitle"
         android:textColor="@color/white"
-        android:textSize="36dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="36dp" />
 
 
     <TextView
+        android:id="@+id/signInText2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/muli_extrabold"
-        android:text="Connecte toi et défis d'autres utilisateurs !"
-        android:gravity="center"
-        android:layout_marginTop="150dp"
-        android:textColor="@color/purplemenu"
-        android:textSize="25dp"
+        android:layout_below="@+id/signInText"
         android:layout_marginHorizontal="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-
+        android:layout_marginTop="72dp"
+        android:fontFamily="@font/muli_extrabold"
+        android:gravity="center"
+        android:text="@string/signInText2"
+        android:textColor="@color/purplemenu"
+        android:textSize="25dp" />
 
     <androidx.appcompat.widget.AppCompatButton
 
-        android:id="@+id/button2"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="600dp"
-        android:layout_marginHorizontal="55dp"
-        android:background="@drawable/greybutton"
-        app:layout_constraintTop_toTopOf="@+id/textView2"
-        tools:layout_editor_absoluteX="48dp"
-        android:text="Se connecter"
-        android:textAllCaps="false"
-        android:textSize="25dp"
-        />
+        android:id="@+id/logInBtn"
+        android:layout_width="283dp"
+        android:layout_height="71dp"
+        android:layout_below="@+id/passwordField"
+        android:layout_marginTop="57dp"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:text="@string/logInBtn"
+        android:backgroundTint="@color/orangemenu"
+        android:contentDescription="@string/app_name" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <EditText
+        android:id="@+id/mailField"
+        android:layout_width="320dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/signInText2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="40dp"
+        android:gravity="center"
+        android:ems="10"
+        android:hint="@string/mailHint"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/passwordField"
+        android:layout_width="320dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/mailField"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="35dp"
+        android:ems="10"
+        android:hint="@string/hintPassword"
+        android:gravity="center"
+        android:inputType="textPassword" />
+
+
+</RelativeLayout>
