@@ -6,11 +6,195 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MainActivity">
+
     <TextView
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="280dp"
+        android:maxWidth="24dp"
+        android:maxHeight="24dp"
+        android:scaleType="fitCenter"
         android:background="@drawable/box"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/pointNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="52dp"
+        android:fontFamily="@font/muli_extrabold"
+        android:text="698"
+
+
+        android:textColor="@color/orangemenu"
+        android:textSize="28dp"
+        app:layout_constraintBottom_toBottomOf="@+id/progress_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/progress_bar"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/pointNumber2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="160dp"
+        android:fontFamily="@font/muli_extrabold"
+        android:text="débutant"
+
+
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/progress_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/progress_bar"
+        app:layout_constraintTop_toTopOf="@+id/progress_bar"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/muli_regular"
+        android:text="Points"
+        android:textColor="@color/white"
+
+        app:layout_constraintEnd_toEndOf="@+id/pointNumber"
+        app:layout_constraintTop_toBottomOf="@+id/pointNumber" />
+
+    <TextView
+        android:id="@+id/niveau"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:fontFamily="@font/muli_regular"
+        android:text="%"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/pointNumber2"
+        app:layout_constraintStart_toStartOf="@+id/pointNumber2"
+        app:layout_constraintTop_toBottomOf="@+id/pointNumber2" />
+
+    <TextView
+        android:id="@+id/pourcentage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="4dp"
+        android:fontFamily="@font/muli_regular"
+        android:text="62"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toStartOf="@+id/niveau"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/pointNumber2"
+        app:layout_constraintTop_toTopOf="@+id/niveau" />
+
+    <ImageButton
+        android:layout_width="37dp"
+        android:layout_height="34dp"
+        android:layout_marginEnd="32dp"
+        android:adjustViewBounds="true"
+        android:background="@android:color/transparent"
+        android:maxWidth="24dp"
+
+        android:maxHeight="24dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/settings"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="110dp"
+        android:layout_height="68dp"
+
+        android:layout_marginTop="40dp"
+        android:adjustViewBounds="true"
+        android:background="@android:color/transparent"
+        android:maxWidth="24dp"
+        android:maxHeight="24dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/defaultuser"
+        app:layout_constraintEnd_toEndOf="@+id/progress_bar"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/progress_bar"
+        app:layout_constraintTop_toTopOf="@+id/progress_bar" />
+
+    <ImageButton
+        android:id="@+id/tuto"
+        android:layout_width="30dp"
+        android:layout_height="26dp"
+
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="3dp"
+        android:adjustViewBounds="true"
+        android:background="@android:color/transparent"
+        android:maxWidth="24dp"
+        android:maxHeight="24dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/tuto"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView2" />
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="109dp"
+        android:layout_height="134dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="40dp"
+        android:indeterminateOnly="false"
+        android:progressDrawable="@drawable/circle"
+        android:rotation="-90"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:progress="62" />
+
+    <androidx.appcompat.widget.AppCompatButton
+
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="240dp"
+        android:layout_marginHorizontal="35dp"
+        android:background="@drawable/whitebutton"
+        app:layout_constraintTop_toTopOf="@+id/textView2"
+        tools:layout_editor_absoluteX="48dp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="35dp"
+        android:layout_marginHorizontal="35dp"
+        android:background="@drawable/whitebutton"
+        app:layout_constraintEnd_toEndOf="@+id/button2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/button2"
+        app:layout_constraintTop_toBottomOf="@+id/button2" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button3"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="35dp"
+        android:layout_marginHorizontal="35dp"
+        android:background="@drawable/whitebutton"
+        app:layout_constraintEnd_toEndOf="@+id/button2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/button2"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
+
+
+    <!--Increment button that will decrement the progress by 10%-->
+
+    <!--Increment button that will increment the progress by 10%-->
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
