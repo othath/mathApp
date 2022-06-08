@@ -7,10 +7,15 @@
     android:layout_height="match_parent">
 
     <TextView
+        android:layout_width="match_parent"
+        android:layout_height="190dp"
+        android:background="@drawable/background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="280dp"
-        android:background="@drawable/box"
         android:maxWidth="24dp"
         android:maxHeight="24dp"
         android:scaleType="fitCenter"
@@ -36,7 +41,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/muli_extrabold"
-        android:text="Inscrit toi et défis d'autres utilisateurs !"
+        android:text="Inscris toi et défies d'autres utilisateurs !"
         android:gravity="center"
         android:layout_marginTop="150dp"
         android:textColor="@color/purplemenu"
@@ -47,8 +52,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-
-
     <androidx.appcompat.widget.AppCompatButton
 
         android:id="@+id/button2"
@@ -56,14 +59,13 @@
         android:layout_height="80dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="600dp"
         android:layout_marginHorizontal="55dp"
+        android:layout_marginBottom="24dp"
         android:background="@drawable/greybutton"
-        app:layout_constraintTop_toTopOf="@+id/textView2"
-        tools:layout_editor_absoluteX="48dp"
         android:text="S'inscrire"
         android:textAllCaps="false"
         android:textSize="25dp"
-        />
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="55dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

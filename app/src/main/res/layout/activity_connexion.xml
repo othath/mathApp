@@ -6,16 +6,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="280dp"
-        android:layout_marginTop="-80dp"
-        android:background="@drawable/box"
-        android:maxWidth="24dp"
-        android:maxHeight="24dp"
-        android:scaleType="fitCenter"
-       />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="190dp"
+        android:background="@drawable/background"/>
+
 
     <TextView
         android:id="@+id/signInText"
@@ -60,11 +55,11 @@
         android:layout_width="320dp"
         android:layout_height="60dp"
         android:layout_below="@id/userField"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="32dp"
         android:ems="10"
         android:gravity="center"
         android:hint="@string/hintPassword"
-        android:layout_centerHorizontal="true"
         android:inputType="textPassword" />
 
     <EditText
@@ -72,19 +67,21 @@
         android:layout_width="320dp"
         android:layout_height="60dp"
         android:layout_below="@+id/signInText2"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="85dp"
         android:gravity="center"
-        android:layout_centerHorizontal="true"
-        android:hint="@string/hintUser"/>
+        android:hint="@string/hintUser" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/toSignUp"
-        android:layout_width="188dp"
-        android:layout_height="70dp"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
         android:layout_below="@+id/logInBtn"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="0dp"
+        android:background="@drawable/greybutton"
         android:contentDescription="@string/app_name"
+        android:layout_marginVertical="15dp"
         android:gravity="center"
         android:text="@string/toSignUp" />
 
