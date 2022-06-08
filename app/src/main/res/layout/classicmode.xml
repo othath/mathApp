@@ -45,7 +45,7 @@
 
             <androidx.appcompat.widget.AppCompatButton
 
-                android:id="@+id/button2"
+                android:id="@+id/test"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:layout_below="@+id/passwordField"

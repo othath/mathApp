@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".activity.logInActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -40,8 +41,8 @@
     <androidx.appcompat.widget.AppCompatButton
 
         android:id="@+id/logInBtn"
-        android:layout_width="188dp"
-        android:layout_height="70dp"
+        android:layout_width="156dp"
+        android:layout_height="82dp"
         android:layout_below="@+id/passwordField"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="57dp"
@@ -74,20 +75,20 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/toSignUp"
-        android:layout_width="160dp"
-        android:layout_height="40dp"
+        android:layout_width="151dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/logInBtn"
         android:layout_centerHorizontal="true"
+        android:layout_marginVertical="15dp"
         android:layout_marginTop="0dp"
         android:background="@drawable/greybutton"
         android:contentDescription="@string/app_name"
-        android:layout_marginVertical="15dp"
         android:gravity="center"
         android:text="@string/toSignUp" />
 
     <TextView
         android:id="@+id/userMessage"
-        android:layout_width="wrap_content"
+        android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_centerHorizontal="true"
