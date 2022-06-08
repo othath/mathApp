@@ -1,9 +1,14 @@
-package com.example.projets6.back;
+package com.example.projets6.activity;
 
+
+
+import android.os.Bundle;
 import android.text.method.PasswordTransformationMethod;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;
@@ -15,11 +20,12 @@ import java.sql.Statement;
 import java.text.BreakIterator;
 import java.util.regex.Pattern;
 
+import com.example.projets6.R;
 import com.example.projets6.back.DbConnector;
 
-public class logInController {
+public class logInActivity extends AppCompatActivity {
     private Button loginBtn;
-    private EditText emailField;
+    private EditText userField;
     private EditText passwordField;//en XML  android:inputType="Password"
     private EditText confirmPasswordField;
     public Pattern p = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
@@ -30,11 +36,29 @@ public class logInController {
     private EditText signUpName;
     private EditText signUpEmail;
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        loginBtn=findViewById(R.id.logInBtn);
+        userField=findViewById(R.id.userField);
+        passwordField=findViewById(R.id.passwordField);
+       // confirmPasswordField=findViewById(R.id.confirmPasswordField);
+        userMessage=findViewById(R.id.userMessage);
+        //signupMessage=findViewById(R.id.signupMessage);
+
+
+
+
+
+    }
+
+
+
     private  String passEncrypted=getSHA(passwordField.getText().toString());
     private String confirmPassEncrypted=getSHA(confirmPasswordField.getText().toString());
     public boolean loginFormIsValid() {
-        if (!p.matcher(emailField.getText()).matches()) {
-            userMessage.setText("Wrong email !");
+        if (!p.matcher(userField.getText()).matches()) {
+            userMessage.setText("Wrong !");
             return false;
         } else {
             userMessage.setText("");
@@ -43,7 +67,7 @@ public class logInController {
     }
 
     public boolean signupFormIsValid() {
-        if (!p.matcher(emailField.getText()).matches()) {
+        if (!p.matcher(userField.getText()).matches()) {
             signupMessage.setText("Wrong email !");
             return false;
         } else if (!passEncrypted.equals(confirmPassEncrypted)) {
@@ -59,14 +83,14 @@ public class logInController {
         DbConnector connect = new DbConnector();
         Connection connectDB = connect.getConnection();
 
-        if (signInOrUp.getText().toString().contains("In") && loginFormIsValid()) {
+        if (loginFormIsValid()) {
             try {
-                String connectQuery = "SELECT id,name,email, password FROM player WHERE email='" + emailField.getText() + "' and password='" + passEncrypted + "';";
+                String connectQuery = "SELECT id,name,email, password FROM player WHERE email='" + userField.getText() + "' and password='" + passEncrypted + "';";
                 Statement statement = connectDB.createStatement();
                 ResultSet queryOutput = statement.executeQuery(connectQuery);
 
                 if (queryOutput.next()) {
-                    if (queryOutput.getString("email").contains(emailField.getText()) && queryOutput.getString("password").contains(passEncrypted)) {
+                    if (queryOutput.getString("email").contains(userField.getText()) && queryOutput.getString("password").contains(passEncrypted)) {
                         //then show l'interface de jeu
                     }
 
@@ -76,7 +100,7 @@ public class logInController {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        } else if(signInOrUp.getText().toString().contains("Up") && signupFormIsValid()) {
+        } else if(signupFormIsValid()) {
             try{
                 String connectQuery = "select count(id) from player;";
                 Statement statement = connectDB.createStatement();
@@ -84,7 +108,7 @@ public class logInController {
                 queryOutput.next();
                 int current_id = queryOutput.getInt(1) + 1;
                 String name =signUpName.getText().toString();
-                String createQuery = String.format("INSERT INTO client VALUES(%d,'%s','%s')",current_id,name, emailField.getText(), passEncrypted);
+                String createQuery = String.format("INSERT INTO client VALUES(%d,'%s','%s')",current_id,name, userField.getText(), passEncrypted);
                 statement.executeUpdate(createQuery);
                 signupMessage.setText("Account created successfully !");
             } catch (Exception e) {
@@ -128,4 +152,5 @@ public class logInController {
         }
     }
 
-    }
+}
+

@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.example.projets6.back.logInController;
+
 
 public class MainActivity extends AppCompatActivity {
 

@@ -45,41 +45,57 @@
     <androidx.appcompat.widget.AppCompatButton
 
         android:id="@+id/logInBtn"
-        android:layout_width="283dp"
-        android:layout_height="71dp"
+        android:layout_width="188dp"
+        android:layout_height="70dp"
         android:layout_below="@+id/passwordField"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="57dp"
-        android:gravity="center"
-        android:layout_centerHorizontal="true"
-        android:text="@string/logInBtn"
         android:backgroundTint="@color/orangemenu"
-        android:contentDescription="@string/app_name" />
-
-    <EditText
-        android:id="@+id/mailField"
-        android:layout_width="320dp"
-        android:layout_height="60dp"
-        android:layout_below="@id/signInText2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="40dp"
+        android:contentDescription="@string/app_name"
         android:gravity="center"
-        android:ems="10"
-        android:hint="@string/mailHint"
-        android:inputType="textEmailAddress" />
+        android:text="@string/logInBtn" />
 
     <EditText
         android:id="@+id/passwordField"
         android:layout_width="320dp"
         android:layout_height="60dp"
-        android:layout_below="@id/mailField"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="35dp"
+        android:layout_below="@id/userField"
+        android:layout_marginTop="32dp"
         android:ems="10"
-        android:hint="@string/hintPassword"
         android:gravity="center"
+        android:hint="@string/hintPassword"
+        android:layout_centerHorizontal="true"
         android:inputType="textPassword" />
+
+    <EditText
+        android:id="@+id/userField"
+        android:layout_width="320dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/signInText2"
+        android:layout_marginTop="85dp"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:hint="@string/hintUser"/>
+
+    <Button
+        android:id="@+id/toSignUp"
+        android:layout_width="188dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/logInBtn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="0dp"
+        android:contentDescription="@string/app_name"
+        android:gravity="center"
+        android:text="@string/toSignUp" />
+
+    <TextView
+        android:id="@+id/userMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/passwordField"
+        android:text="" />
 
 
 </RelativeLayout>

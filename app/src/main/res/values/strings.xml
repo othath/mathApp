@@ -5,4 +5,6 @@
     <string name="hintPassword">Password</string>
     <string name="mailHint">Mail address</string>
     <string name="logInBtn">Se Connecter</string>
+    <string name="hintUser">Nom des utilisateurs</string>
+    <string name="toSignUp">Créer un compte.</string>
 </resources>
