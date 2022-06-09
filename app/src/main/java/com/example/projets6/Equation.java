@@ -21,9 +21,174 @@ public class Equation {
     }
 
     private String generateEquation(int points) {
+        String res;
+        int[][] un = {{1,1}},
+                deux = {{1,1}},
+                trois={{1,2}},
+                quatre = {{2,2},{3,1}},
+                cinq = {{3,2},{4,1}},
+                six={{5,1},{4,2},{3,3}},
+                sept={{6,1},{5,2},{4,3}},
+                huit={{1,7},{2,6},{3,5},{4,4}},
+                neuf={{1,8},{2,7},{3,6},{4,5},{5,4}},
+                dix={{1,9},{2,8},{3,7},{4,6},{5,5}};
+
+        switch(points){
+            case 1:
+                break;
+
+
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 5:
+                break;
+            case 6:
+                break;
+            case 7:
+                break;
+            case 8:
+                break;
+            case 9:
+                break;
+            case 10:
+                break;
+
+        }
 
         return "equation";
     }
+
+
+    public String generate1(){
+        int r = (new Random()).nextInt(5);
+        String res="";
+        switch(r){
+            case 1:
+                res = un();
+                break;
+            case 2:
+                res = cinq();
+                break;
+            case 3:
+                res = Xmodulo10();
+                break;
+        }
+        return res;
+    }
+
+    public String generate2(){
+        int r = (new Random()).nextInt(7);
+        String res="";
+        switch(r){
+            case 1:
+                res = Xinf10();
+                break;
+            case 2:
+                res = Xmodulo5();
+                break;
+            case 3:
+                res = Xmodulo2();
+                break;
+            case 4:
+                res = minusXmodulo10();
+                break;
+            case 5:
+                res = timesXmodulo10();
+                break;
+            case 6:
+                res = times2();
+                break;
+        }
+        return res;
+    }
+    public String generate3(){
+        int r = (new Random()).nextInt(3);
+        String res="";
+        switch(r) {
+            case 1:
+                res = Xinf100sup5();
+                break;
+            case 2:
+                res = minusXinf10();
+                break;
+        }
+        return res;
+    }
+    public String generate4(){
+        int r = (new Random()).nextInt(3);
+        String res="";
+        switch(r) {
+            case 1:
+                res = minusX100();
+                break;
+            case 2:
+                res = diveXmodulo2();
+                break;
+        }
+        return res;
+    }
+    public String generate5(){
+        int r = (new Random()).nextInt(2);
+        String res="";
+        switch(r) {
+            case 1:
+                res = timesXinf10();
+                break;
+        }
+        return res;
+    }
+    public String generate6(){
+        int r = (new Random()).nextInt(4);
+        String res="";
+        switch(r){
+            case 1:
+                res = timesminusX100();
+                break;
+            case 2:
+                res = Xcoeff10();
+                break;
+            case 3:
+                res = Xcoeff100();
+                break;
+        }
+        return res;
+    }
+    public String generate7(){
+        int r = (new Random()).nextInt(2);
+        String res=divinf10();
+
+        return res;
+    }
+    public String generate8(){
+        int r = (new Random()).nextInt(2);
+        String res=Xsqrt2();
+        return res;
+    }
+    public String generate9(){
+        int r = (new Random()).nextInt(3);
+        String res="";
+        switch(r){
+            case 1:
+                res = Xsup100sqrt();
+                break;
+            case 2:
+                res = Xsqrt3();
+                break;
+
+        }
+        return res;
+    }
+    public String generate10(){
+        int r = (new Random()).nextInt(2);
+        String res=Xsup10sqrtY();
+        return res;
+    }
+
+
 //niveau 1
 
     public String un(){
@@ -77,10 +242,14 @@ public class Equation {
 
         return Integer.toString((-((int)(Math.random()*10))*10 -10));// nombre entre 10 et 100
     }
-    public String times2(){
 
-        return "*2";
+    public String timesXmodulo10(){
+        String res="";
+        res= "*" + Integer.toString((-((int)(Math.random()*10))*10 -10));
+        return res;// nombre entre 10 et 100
     }
+
+    public String times2(){return "*2";}
 
 
     //Niveau 3
@@ -96,34 +265,33 @@ public class Equation {
         return res;
     }
 
-    public String divisionXmodulo10(){
+    /*public String divisionXmodulo10(){
 
         String res ="/" + Integer.toString(((int)(Math.random()*10))*10 +10);
         return res;
-    }
+    }*/
 
     //Niveau 4
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
     public String minusX100(){
-        int[] arr = IntStream.rangeClosed(11, 100).toArray();
-        int r = (new Random()).nextInt(89);
-        String res="-" + Integer.toString(arr[r]);
+        int r = (new Random()).nextInt(90)+10;
+        String res="-" + Integer.toString(r);
         return res;
     }
 
     public String diveXmodulo2(){
         int pas=2;
         Random rand = new Random();
+        Random rand2 = new Random();
         List<Integer> modulo = new ArrayList<>();
         modulo.add(pas);
         for(int i=1; i<50; i++) {
             pas += 2;
             modulo.add(pas);
-        }
-        String res="/"+ Integer.toString(modulo.get(rand.nextInt(modulo.size())));
-        return res;
 
+        }
+        String res="+"+Integer.toString(modulo.get(rand2.nextInt(modulo.size())))+"/"+ Integer.toString(modulo.get(rand.nextInt(modulo.size())));
+        return res;
     }
 
     //Niveau 5
@@ -135,19 +303,15 @@ public class Equation {
 
     //Niveau 6
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
     public String timesminusX100(){
-        int[] arr = IntStream.rangeClosed(11, 100).toArray();
-        int r = (new Random()).nextInt(89);
-        String res="*" + Integer.toString(arr[r]);
+        int r = (new Random()).nextInt(90)+10;
+        String res="*" + Integer.toString(r);
         return res;
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
     public String Xcoeff10(){
-        int[] arr = IntStream.rangeClosed(2, 10).toArray();
-        int r = (new Random()).nextInt(8);
-        String res= "+"+Integer.toString(arr[r])+"^2";
+        int r = (new Random()).nextInt(10)+1;
+        String res= "+"+Integer.toString(r)+"^2";
         return res;
     }
 
@@ -172,11 +336,9 @@ public class Equation {
 
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
     public String Xcoeff100(){
-        int[] arr = IntStream.rangeClosed(101, 1000).toArray();
-        int r = (new Random()).nextInt(899);
-        String res= "+"+Integer.toString(arr[r]);
+        int r = (new Random()).nextInt(900)+100;
+        String res= "+"+Integer.toString(r);
         return res;
     }
 
@@ -208,13 +370,13 @@ public class Equation {
 
     //Niveau 9
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
+   /* @RequiresApi(api = Build.VERSION_CODES.N)
     public String divXinf10(){
         int[] arr = IntStream.rangeClosed(2, 9).toArray();
         int r = (new Random()).nextInt(7);
         String res= "/"+Integer.toString(arr[r]);
         return res;
-    }
+    }*/
 
     public String Xsqrt3(){
         Random rand = new Random();
@@ -234,23 +396,18 @@ public class Equation {
     }
 
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
     public String Xsup100sqrt(){
-        int[] arr = IntStream.rangeClosed(2, 100).toArray();
-        int r = (new Random()).nextInt(98);
-        String res= "+"+Integer.toString(arr[r])+"^(1/2)";
+        int r = (new Random()).nextInt(100)+1;
+        String res= "+"+Integer.toString(r)+"^(1/2)";
         return res;
     }
 
     //Niveau 10
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
     public String Xsup10sqrtY(){
-        int[] arr = IntStream.rangeClosed(11, 100).   toArray();
-        int r = (new Random()).nextInt(89);
-        int[] sqrt = IntStream.rangeClosed(2, 9).toArray();
-        int coeff = (new Random()).nextInt(7);
-        String res= Integer.toString(arr[r])+"^"+Integer.toString(sqrt[coeff]);
+        int r = (new Random()).nextInt(90)+10;
+        int coeff = (new Random()).nextInt(9)+1;
+        String res= Integer.toString(r)+"^"+Integer.toString(coeff);
         return res;
     }
 
