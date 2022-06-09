@@ -25,7 +25,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.projets6.activity.logInActivity"></activity>
+            android:name="com.example.projets6.activity.logInActivity">
+        </activity>
+        <activity
+            android:name="com.example.projets6.activity_classicmode">
+        </activity>
+
+        <activity
+            android:name="com.example.projets6.activity_settings"
+            android:screenOrientation="portrait">
+        </activity>
     </application>
 
 </manifest>

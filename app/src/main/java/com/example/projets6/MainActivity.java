@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-import com.example.projets6.activity.activity_settings;
 import com.example.projets6.activity.logInActivity;
 
 

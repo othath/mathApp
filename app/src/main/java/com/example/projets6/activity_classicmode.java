@@ -1,11 +1,13 @@
 package com.example.projets6;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.SpannableStringBuilder;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import org.mariuszgromada.math.mxparser.Expression;
 
@@ -19,6 +21,8 @@ public class activity_classicmode<editingActionListener> extends AppCompatActivi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_classicmode);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
         answer = findViewById(R.id.inputanswer);
         answer.setShowSoftInputOnFocus(false);
         answer.setOnClickListener(new View.OnClickListener() {
