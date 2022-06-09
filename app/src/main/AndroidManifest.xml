@@ -16,6 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjetS6">
         <activity
+            android:name=".activity_classicmode"
+            android:exported="false" />
+        <activity
             android:name=".activity.activity_settings"
             android:exported="false"
             android:label="@string/title_activity_settings"

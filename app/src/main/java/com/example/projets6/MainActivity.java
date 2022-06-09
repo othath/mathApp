@@ -24,6 +24,10 @@ public class MainActivity extends AppCompatActivity {
         Button test=(Button) findViewById(R.id.test);
         test.setOnClickListener(v -> login());
 
+        Button classicmode=(Button) findViewById(R.id.classicmode);
+        classicmode.setOnClickListener(v -> openclassicmode());
+
+
         ImageButton settings = (ImageButton) findViewById(R.id.btnSettings);
         settings.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -31,6 +35,11 @@ public class MainActivity extends AppCompatActivity {
                 openSettings();
             }
         });
+    }
+
+    private void openclassicmode() {
+        Intent intent = new Intent(this, activity_classicmode.class);
+        startActivity(intent);
     }
 
     private void openSettings() {

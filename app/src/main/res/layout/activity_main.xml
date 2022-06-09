@@ -176,7 +176,7 @@
                 tools:layout_editor_absoluteX="48dp" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button"
+                android:id="@+id/classicmode"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_alignParentLeft="true"

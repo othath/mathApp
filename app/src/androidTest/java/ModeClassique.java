@@ -1,10 +1,17 @@
+import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.projets6.R;
+
 import org.mariuszgromada.math.mxparser.Expression;
 
-public class ModeClassique {
+public class ModeClassique extends AppCompatActivity {
 
-    Equation equation = new Equation();
-    int scores;
-
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.classicmode);
+    }
 
     public String StringToCalcul(String exp){
         String sol="";

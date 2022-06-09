@@ -29,18 +29,21 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
-        android:layout_width="411dp"
-        android:layout_height="567dp"
-        android:layout_marginTop="136dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="130dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="visible">
 
             <Switch
                 android:id="@+id/switch1"
@@ -51,8 +54,7 @@
                 android:layout_marginBottom="35dp"
                 android:background="@drawable/whitebutton"
                 android:paddingLeft="30dp"
-                android:text="Dark thème"
-                />
+                android:text="Dark thème" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -134,10 +136,9 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="25dp"
                 android:background="@drawable/whitebutton"
-                android:paddingLeft="30dp"
-                android:text="Musique de fond"
                 android:checked="true"
-                />
+                android:paddingLeft="30dp"
+                android:text="Musique de fond" />
 
             <Switch
                 android:id="@+id/bruitage"
@@ -146,9 +147,9 @@
                 android:layout_marginHorizontal="35dp"
                 android:layout_marginBottom="35dp"
                 android:background="@drawable/whitebutton"
+                android:checked="true"
                 android:paddingLeft="30dp"
-                android:text="Bruitages"
-                android:checked="true" />
+                android:text="Bruitages" />
 
         </LinearLayout>
     </ScrollView>
