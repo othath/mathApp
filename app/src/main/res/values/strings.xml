@@ -19,7 +19,7 @@
     <string name="nine">9</string>
     <string name="minus">−</string>
     <string name="division">/</string>
-    <string name="delall">AC</string>
+    <string name="delall">C</string>
     <string name="del">⌫</string>
     <string name="comma">,</string>
     <string name="title_activity_settings">activity_settings</string>
