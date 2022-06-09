@@ -1,11 +1,9 @@
 package com.example.projets6;
-
+/*
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
-
-import com.example.projets6.R;
 
 import org.mariuszgromada.math.mxparser.Expression;
 
@@ -72,7 +70,7 @@ public class TestAnswer extends AppCompatActivity {
 
     }*/
 
-
+/*
     public boolean isCorrectAnswer(String sol, String rep_joueur){
         if(sol == rep_joueur){
             return true;
@@ -94,7 +92,7 @@ public class TestAnswer extends AppCompatActivity {
         return Integer.parseInt(coefficient);
     }*/
 
-}
+//}
 
 
 

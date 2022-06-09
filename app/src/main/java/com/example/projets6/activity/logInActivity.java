@@ -26,6 +26,7 @@ import java.sql.Statement;
 import java.text.BreakIterator;
 import java.util.regex.Pattern;
 
+import com.example.projets6.MainActivity;
 import com.example.projets6.Player;
 import com.example.projets6.R;
 import com.example.projets6.back.DbConnector;
@@ -91,7 +92,7 @@ public class logInActivity extends AppCompatActivity {
 
                 if(passDb.equals("root")){
                     Log.i("DEBUG","equal");
-                    Intent i = new Intent(logInActivity.this,GameActivity.class);
+                    Intent i = new Intent(logInActivity.this, MainActivity.class);
                     startActivity(i);
 
                     userMessage.setText("successful");
