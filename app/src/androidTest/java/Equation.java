@@ -2,7 +2,7 @@ import java.lang.Math;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
+import java.util.stream.IntStream;
 
 
 public class Equation {
@@ -85,10 +85,44 @@ public class Equation {
     }
 
 
-    /*public String minusXinf10(){
+    public String minusXinf10(){
         String res = Integer.toString(-((int)(Math.random()*10)) -1);
-        return res; //chiffre entre 1 et 10
-    }*/
+        return res;
+    }
+
+    public String divisionXmodulo10(){
+
+        String res ="/" + Integer.toString(((int)(Math.random()*10))*10 +10);
+        return res;
+    }
+
+    //Niveau 4
+
+    public String minusX100(){
+        int[] arr = IntStream.rangeClosed(11, 100).toArray();
+        int r = (new Random()).nextInt(89);
+        String res="-" + Integer.toString(arr[r]);
+        return res; // renvoie des nombres entre 2 et 100 avec un pas de 2
+    }
+
+    public String diveXmodulo2(){
+        int pas=2;
+        Random rand = new Random();
+        List<Integer> modulo = new ArrayList<>();
+        modulo.add(pas);
+        for(int i=1; i<50; i++) {
+            pas += 2;
+            modulo.add(pas);
+        }
+        String res="/"+ Integer.toString(modulo.get(rand.nextInt(modulo.size())));
+        return res;
+
+    }
+
+    //Niveau 5
+
+
+
 
 
 
