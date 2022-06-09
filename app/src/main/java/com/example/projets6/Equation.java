@@ -109,7 +109,7 @@ public class Equation {
         int[] arr = IntStream.rangeClosed(11, 100).toArray();
         int r = (new Random()).nextInt(89);
         String res="-" + Integer.toString(arr[r]);
-        return res; // renvoie des nombres entre 2 et 100 avec un pas de 2
+        return res;
     }
 
     public String diveXmodulo2(){
@@ -128,13 +128,130 @@ public class Equation {
 
     //Niveau 5
 
+    public String timesXinf10(){
+        String res = "*" + Integer.toString(((int)(Math.random()*10)) -1);
+        return res;
+    }
+
+    //Niveau 6
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    public String timesminusX100(){
+        int[] arr = IntStream.rangeClosed(11, 100).toArray();
+        int r = (new Random()).nextInt(89);
+        String res="*" + Integer.toString(arr[r]);
+        return res;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    public String Xcoeff10(){
+        int[] arr = IntStream.rangeClosed(2, 10).toArray();
+        int r = (new Random()).nextInt(8);
+        String res= "+"+Integer.toString(arr[r])+"^2";
+        return res;
+    }
 
 
+    //{2,3,4,5,6,7,8,9,10,11,12}
+
+    public String Xsqrt(){
+        Random rand = new Random();
+        List<Integer> square = new ArrayList<>();
+        square.add(2);
+        square.add(3);
+        square.add(4);
+        square.add(5);
+        square.add(6);
+        square.add(7);
+        square.add(8);
+        square.add(9);
+        square.add(10);
+
+        String res="+"+ Integer.toString(square.get(rand.nextInt(square.size())))+"^(1/2)";
+        return res;
+
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    public String Xcoeff100(){
+        int[] arr = IntStream.rangeClosed(101, 1000).toArray();
+        int r = (new Random()).nextInt(899);
+        String res= "+"+Integer.toString(arr[r]);
+        return res;
+    }
+
+    //Niveau 7
+
+    public String divinf10(){
+        String res = "/"+Integer.toString(((int)(Math.random()*10))+1);
+        return res;
+    }
+
+    //Niveau 8
+
+    public String Xsqrt2(){
+        Random rand = new Random();
+        List<Integer> square = new ArrayList<>();
+        square.add(11);
+        square.add(12);
+        square.add(13);
+        square.add(14);
+        square.add(15);
+        square.add(16);
+        square.add(18);
+        square.add(19);
+        square.add(20);
+
+        String res="+"+ Integer.toString(square.get(rand.nextInt(square.size())))+"^2";
+        return res;
+    }
+
+    //Niveau 9
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    public String divXinf10(){
+        int[] arr = IntStream.rangeClosed(2, 9).toArray();
+        int r = (new Random()).nextInt(7);
+        String res= "/"+Integer.toString(arr[r]);
+        return res;
+    }
+
+    public String Xsqrt3(){
+        Random rand = new Random();
+        List<Integer> element = new ArrayList<>();
+        List<Integer> square = new ArrayList<>();
+        element.add(2);
+        element.add(3);
+        element.add(4);
+        element.add(5);
+        element.add(6);
+        element.add(7);
+        element.add(8);
+        element.add(9);
+        element.add(10);
+        String res="+"+ Integer.toString(element.get(rand.nextInt(element.size())))+"^3";
+        return res;
+    }
 
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    public String Xsup100sqrt(){
+        int[] arr = IntStream.rangeClosed(2, 100).toArray();
+        int r = (new Random()).nextInt(98);
+        String res= "+"+Integer.toString(arr[r])+"^(1/2)";
+        return res;
+    }
 
+    //Niveau 10
 
-
-
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    public String Xsup10sqrtY(){
+        int[] arr = IntStream.rangeClosed(11, 100).   toArray();
+        int r = (new Random()).nextInt(89);
+        int[] sqrt = IntStream.rangeClosed(2, 9).toArray();
+        int coeff = (new Random()).nextInt(7);
+        String res= Integer.toString(arr[r])+"^"+Integer.toString(sqrt[coeff]);
+        return res;
+    }
 
 }
