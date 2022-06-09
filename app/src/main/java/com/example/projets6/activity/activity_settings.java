@@ -13,4 +13,5 @@ public class activity_settings extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
     }
+
 }

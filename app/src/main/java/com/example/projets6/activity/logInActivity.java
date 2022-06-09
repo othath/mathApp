@@ -3,9 +3,7 @@ package com.example.projets6.activity;
 
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.os.Bundle;
-import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;

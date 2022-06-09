@@ -1,3 +1,9 @@
+package com.example.projets6;
+
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
+
 import java.lang.Math;
 import java.util.ArrayList;
 import java.util.List;
@@ -98,6 +104,7 @@ public class Equation {
 
     //Niveau 4
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     public String minusX100(){
         int[] arr = IntStream.rangeClosed(11, 100).toArray();
         int r = (new Random()).nextInt(89);

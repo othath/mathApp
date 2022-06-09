@@ -1,17 +1,16 @@
 package com.example.projets6;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.text.SpannableStringBuilder;
-import android.view.KeyEvent;
 import android.view.View;
-import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.TextView;
 
 public class activity_classicmode<editingActionListener> extends AppCompatActivity {
     EditText answer;
+    Equation equation;
+    int point;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,9 +20,10 @@ public class activity_classicmode<editingActionListener> extends AppCompatActivi
         answer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
             }
         });
+
+        equation = new Equation(point);
         TextView textequation = findViewById(R.id.textequation);
     }
 
