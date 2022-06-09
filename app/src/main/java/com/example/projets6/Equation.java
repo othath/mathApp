@@ -1,65 +1,109 @@
 package com.example.projets6;
-
-import android.os.Build;
-
-import androidx.annotation.RequiresApi;
-
 import java.lang.Math;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.stream.IntStream;
 
 
 public class Equation {
-    int points;
     String equations;
-    public Equation(int points){
-        this.points = points;
-        this.equations = generateEquation(points);
 
+    public Equation(int points){
+        this.equations = generateEquation(points);
     }
 
     private String generateEquation(int points) {
-        String res;
-        int[][] un = {{1,1}},
-                deux = {{1,1}},
-                trois={{1,2}},
-                quatre = {{2,2},{3,1}},
-                cinq = {{3,2},{4,1}},
-                six={{5,1},{4,2},{3,3}},
-                sept={{6,1},{5,2},{4,3}},
-                huit={{1,7},{2,6},{3,5},{4,4}},
-                neuf={{1,8},{2,7},{3,6},{4,5},{5,4}},
-                dix={{1,9},{2,8},{3,7},{4,6},{5,5}};
-
+        String res="";
+        int r;
         switch(points){
             case 1:
+                res = generate1()+generate1();
                 break;
-
-
             case 2:
+                res = generate1()+generate1();
                 break;
             case 3:
+                res = generate1()+generate2();
                 break;
             case 4:
+                r=(new Random()).nextInt(3);
+                if (r==1){
+                    res = generate1()+generate3();
+                }else{
+                    res = generate2()+generate2();
+                }
                 break;
             case 5:
+                r=(new Random()).nextInt(3);
+                if (r==1){
+                    res = generate4()+generate1();
+                }else{
+                    res = generate3()+generate2();
+                }
                 break;
             case 6:
+                r=(new Random()).nextInt(4);
+                if (r==1){
+                    res = generate3()+generate3();
+                }else if (r==2){
+                    res = generate5()+generate1();
+                }else{
+                    res = generate4()+generate2();
+                }
                 break;
             case 7:
+                r=(new Random()).nextInt(4);
+                if (r==1){
+                    res = generate6()+generate1();
+                }else if (r==2){
+                    res = generate5()+generate2();
+                }else{
+                    res = generate4()+generate3();
+                }
                 break;
             case 8:
+                r=(new Random()).nextInt(5);
+                if (r==1){
+                    res = generate7()+generate1();
+                }else if (r==2){
+                    res = generate6()+generate2();
+                }else if (r==3){
+                    res = generate4()+generate4();
+                }else{
+                    res = generate5()+generate3();
+                }
                 break;
             case 9:
+                r=(new Random()).nextInt(6);
+                if (r==1){
+                    res = generate8()+generate1();
+                }else if (r==2){
+                    res = generate7()+generate2();
+                }else if (r==3){
+                    res = generate6()+generate3();
+                }else if (r==4){
+                    res = generate5()+generate4();
+                }else{
+                    res = generate4()+generate5();
+                }
                 break;
             case 10:
+                r=(new Random()).nextInt(6);
+                if (r==1){
+                    res = generate9()+generate1();
+                }else if (r==2){
+                    res = generate8()+generate2();
+                }else if (r==3){
+                    res = generate7()+generate3();
+                }else if (r==4){
+                    res = generate5()+generate5();
+                }else{
+                    res = generate6()+generate4();
+                }
                 break;
 
         }
-
-        return "equation";
+        return Integer.toString(new Random().nextInt(28))+res;
     }
 
 
@@ -333,7 +377,6 @@ public class Equation {
 
         String res="+"+ Integer.toString(square.get(rand.nextInt(square.size())))+"^(1/2)";
         return res;
-
     }
 
     public String Xcoeff100(){
@@ -345,7 +388,16 @@ public class Equation {
     //Niveau 7
 
     public String divinf10(){
-        String res = "/"+Integer.toString(((int)(Math.random()*10))+1);
+        Random rand = new Random();
+        List<Integer> square = new ArrayList<>();
+        square.add(2);
+        square.add(4);
+        square.add(5);
+        square.add(6);
+        square.add(7);
+        square.add(8);
+        square.add(9);
+        String res = "+"+ Integer.toString((new Random()).nextInt(90)+20)+"/"+Integer.toString(square.get(rand.nextInt(square.size())));
         return res;
     }
 
