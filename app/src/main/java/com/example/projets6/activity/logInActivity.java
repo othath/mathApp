@@ -4,6 +4,7 @@ package com.example.projets6.activity;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
@@ -12,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.math.BigInteger;
@@ -24,8 +26,14 @@ import java.sql.Statement;
 import java.text.BreakIterator;
 import java.util.regex.Pattern;
 
+import com.example.projets6.Player;
 import com.example.projets6.R;
 import com.example.projets6.back.DbConnector;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class logInActivity extends AppCompatActivity {
     private Button loginBtn;
@@ -34,40 +42,82 @@ public class logInActivity extends AppCompatActivity {
     private EditText confirmPasswordField;
    // public Pattern p = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
     //Pattern.compile("^(.+)@(.+)$");
-    public Pattern p=Pattern.compile("^[A-Z]+[A-Z0-9._-]+");
+    public Pattern p=Pattern.compile("^[A-Za-z]+[A-Za-z0-9._-]+");
     private TextView userMessage;
     private TextView signUpMessage;
     private EditText signUpName;
     private EditText signUpUser;
     private Context context;
+    private DatabaseReference mDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_connexion);
-
+        mDatabase = FirebaseDatabase.getInstance().getReference("Player");
         loginBtn=(Button)findViewById(R.id.logInBtn);
-        userField=(EditText) findViewById(R.id.userField);
-        passwordField=(EditText) findViewById(R.id.passwordField);
+
        // confirmPasswordField=findViewById(R.id.confirmPasswordField);
         userMessage=(TextView) findViewById(R.id.userMessage);
         //signInMessage=findViewById(R.id.signInMessage);
         //signInUser=findViewById(R.id.)
+            userField=(EditText) findViewById(R.id.userField);
+            passwordField=(EditText) findViewById(R.id.passwordField);
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                connectBtn(v);
-                Log.i("DEBUG","clicked");
+
+                    Log.i("DEBUG",userField.getText().toString());
+                    logIn(userField.getText().toString());
+
             }
         });
 
 
 
     }
+
+    public void logIn( String userName) {
+                mDatabase.child(userName).addListenerForSingleValueEvent(valueEventListener); //listner on userName he msut be unique
+
+    }
+    ValueEventListener valueEventListener =new ValueEventListener() {
+        @Override
+        public void onDataChange(@NonNull DataSnapshot snapshot) {
+            Log.i("DEBUG",snapshot.toString());
+            if(snapshot.exists()){
+                String passEncrypted=getSHA(passwordField.getText().toString());
+                String passDb=snapshot.child("password").getValue(String.class);
+
+                if(passDb.equals("root")){
+                    Log.i("DEBUG","equal");
+                    Intent i = new Intent(logInActivity.this,GameActivity.class);
+                    startActivity(i);
+
+                    userMessage.setText("successful");
+                }
+                else {
+                    Log.i("DEBUG","wrong");
+                    userMessage.setText("Wrong Password");
+                }
+            }
+            else {
+                Log.i("DEBUG","not found");
+                userMessage.setText("Account not found !");
+            }
+        }
+
+        @Override
+        public void onCancelled(@NonNull DatabaseError error) {
+            userMessage.setText("Error");
+            Log.i("DEBUG",error.toString());
+        }
+    };
+
+
     //private  String passEncrypted=getSHA(passwordField.getText().toString());
     //private String confirmPassEncrypted=getSHA(confirmPasswordField.getText().toString());
-    private String passEncrypted=getSHA("TEST");
-    private String confirmPassEncrypted=getSHA("ee");
+
     public boolean loginFormIsValid() {
         if (!p.matcher(userField.getText()).matches()) {
             userMessage.setText("Wrong !");
@@ -91,27 +141,21 @@ public class logInActivity extends AppCompatActivity {
         }
     }*/
 
-    public void connectBtn(View view) {
-        DbConnector connect = new DbConnector();
-        Connection connectDB = connect.getConnection();
+    /*public void connectBtn(View view) {
+
         Log.i("DEBUG","on fucntion");
         if (loginFormIsValid()) {
-            try {
                 String connectQuery = "SELECT id,name,email, password FROM player WHERE email='" + userField.getText() + "' and password='" + passEncrypted + "';";
-                Statement statement = connectDB.createStatement();
-                ResultSet queryOutput = statement.executeQuery(connectQuery);
 
-                if (queryOutput.next()) {
+                if () {
+              /*  if (queryOutput.next()) {
                     if (queryOutput.getString("email").contains(userField.getText()) && queryOutput.getString("password").contains(passEncrypted)) {
                         //then show l'interface de jeu
-                    }
+                    }*/
 
-                } else {
+              /*  } else {
                     userMessage.setText("Account not found !");
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
         }
         /*else if(signupFormIsValid()) {
             try{
@@ -127,7 +171,7 @@ public class logInActivity extends AppCompatActivity {
             } catch (Exception e) {
                 e.printStackTrace();
             }*/
-        }
+        //}
 
 
     public static String getSHA(String input) {
