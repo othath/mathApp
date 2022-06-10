@@ -1,14 +1,12 @@
 <resources>
     <string name="app_name">MathApp</string>
     <string name="signInText2">Connecte toi et défis d\'autres utilisateurs !</string>
-    <string name="singInTitle">Connexion</string>
+    <string name="singInTitle">TEST</string>
     <string name="hintPassword">Password</string>
     <string name="mailHint">Mail address</string>
     <string name="logInBtn">Se Connecter</string>
     <string name="hintUser">Nom des utilisateurs</string>
     <string name="toSignUp">Créer un compte.</string>
-    <string name="classicmode">Mode Classique</string>
-    <string name="score">Score</string>
     <string name="zero">0</string>
     <string name="one">1</string>
     <string name="two">2</string>
@@ -34,4 +32,10 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="hintconfirmPassword">Confirm Password</string>
+    <string name="signInBtn">S\'inscrire</string>
+    <string name="toLogIn">Avez vous un compte?</string>
+    <string name="singUpTitle">signUpTitle</string>
+    <string name="signUpTitle">Sign Up</string>
+    <string name="classicmode">classic mode</string>
 </resources>

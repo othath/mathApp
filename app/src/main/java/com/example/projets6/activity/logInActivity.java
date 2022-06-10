@@ -22,6 +22,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.regex.Pattern;
 
 import com.example.projets6.MainActivity;
+import com.example.projets6.Player;
 import com.example.projets6.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -37,6 +38,7 @@ public class logInActivity extends AppCompatActivity {
    // public Pattern p = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
     //Pattern.compile("^(.+)@(.+)$");
     public Pattern p=Pattern.compile("^[A-Za-z]+[A-Za-z0-9._-]+");
+    private Button toSignUp;
     private TextView userMessage;
     private TextView signUpMessage;
     private EditText signUpName;
@@ -50,13 +52,22 @@ public class logInActivity extends AppCompatActivity {
         setContentView(R.layout.activity_connexion);
         mDatabase = FirebaseDatabase.getInstance().getReference("Player");
         loginBtn=(Button)findViewById(R.id.logInBtn);
+        toSignUp=(Button)findViewById(R.id.toSignUp) ;
 
-       // confirmPasswordField=findViewById(R.id.confirmPasswordField);
+
         userMessage=(TextView) findViewById(R.id.userMessage);
         //signInMessage=findViewById(R.id.signInMessage);
         //signInUser=findViewById(R.id.)
             userField=(EditText) findViewById(R.id.userField);
             passwordField=(EditText) findViewById(R.id.passwordField);
+            toSignUp.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(logInActivity.this, InscriptionActivity.class);
+                    startActivity(i);
+                }
+            });
+
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,8 +77,6 @@ public class logInActivity extends AppCompatActivity {
 
             }
         });
-
-
 
     }
 
@@ -80,12 +89,16 @@ public class logInActivity extends AppCompatActivity {
         public void onDataChange(@NonNull DataSnapshot snapshot) {
             Log.i("DEBUG",snapshot.toString());
             if(snapshot.exists()){
+                String userName=snapshot.child("userName").getValue(String.class);
                 String passEncrypted=getSHA(passwordField.getText().toString());
                 String passDb=snapshot.child("password").getValue(String.class);
-
-                if(passDb.equals("root")){
-                    Log.i("DEBUG","equal");
+                int score=snapshot.child("score").getValue(int.class);
+                Player p=new Player(userName,passDb,score);
+                if(passDb.equals(passwordField.getText().toString())){
+                    Log.i("DEBUG",passwordField.getText().toString());
                     Intent i = new Intent(logInActivity.this, MainActivity.class);
+                    i.putExtra("userName",userName);
+                    i.putExtra("password",passDb);
                     startActivity(i);
 
                     userMessage.setText("successful");

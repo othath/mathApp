@@ -1,5 +1,5 @@
 package com.example.projets6;
-/*
+
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -41,7 +41,7 @@ public class TestAnswer extends AppCompatActivity {
         return result;
     }
 
-    /*public int Occurence(String text, String lettre){
+     public int Occurence(String text, String lettre){
         int c = 0;
         for (int j = 0; j < text.length(); j++) {
             if (text.contains(lettre)) {
@@ -68,9 +68,9 @@ public class TestAnswer extends AppCompatActivity {
 
         return 1;
 
-    }*/
+    }
 
-/*
+
     public boolean isCorrectAnswer(String sol, String rep_joueur){
         if(sol == rep_joueur){
             return true;
@@ -80,7 +80,7 @@ public class TestAnswer extends AppCompatActivity {
         }
     }
 
-    /*public static int getCoefficient(String variable){
+     public static int getCoefficient(String variable){
         String coefficient = "";
         if(variable.length() == 1) return 1;
         else if(variable.length() == 2 && variable.charAt(0) == '-') return -1;
@@ -90,9 +90,9 @@ public class TestAnswer extends AppCompatActivity {
         }
         if(variable.charAt(0) == '-')return Integer.parseInt("-" + coefficient);
         return Integer.parseInt(coefficient);
-    }*/
+    }
 
-//}
+}
 
 
 

@@ -1,71 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".activity.InscriptionActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="190dp"
-        android:background="@drawable/background"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="280dp"
-        android:maxWidth="24dp"
-        android:maxHeight="24dp"
-        android:scaleType="fitCenter"
-        android:layout_marginTop="-80dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:background="@drawable/background"/>
+
 
     <TextView
+        android:id="@+id/signUpText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/muli_extrabold"
-        android:text="Inscription"
-        android:gravity="center"
         android:layout_marginTop="20dp"
+        android:fontFamily="@font/muli_extrabold"
+        android:gravity="center"
+        android:text="@string/signUpTitle"
         android:textColor="@color/white"
-        android:textSize="36dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="36dp" />
 
 
     <TextView
+        android:id="@+id/signUpText2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/muli_extrabold"
-        android:text="Inscris toi et défies d'autres utilisateurs !"
-        android:gravity="center"
-        android:layout_marginTop="150dp"
-        android:textColor="@color/purplemenu"
-        android:textSize="25dp"
+        android:layout_below="@+id/signUpText"
         android:layout_marginHorizontal="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        android:layout_marginTop="72dp"
+        android:fontFamily="@font/muli_extrabold"
+        android:gravity="center"
+        android:text="@string/signInText2"
+        android:textColor="@color/purplemenu"
+        android:textSize="25dp" />
 
     <androidx.appcompat.widget.AppCompatButton
 
-        android:id="@+id/test"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginHorizontal="55dp"
-        android:layout_marginBottom="24dp"
-        android:background="@drawable/greybutton"
-        android:text="S'inscrire"
-        android:textAllCaps="false"
-        android:textSize="25dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="55dp" />
+        android:id="@+id/signUpButton"
+        android:layout_width="156dp"
+        android:layout_height="82dp"
+        android:layout_below="@+id/confirmPasswordField"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="57dp"
+        android:backgroundTint="@color/orangemenu"
+        android:contentDescription="@string/app_name"
+        android:gravity="center"
+        android:text="@string/signInBtn" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <EditText
+        android:id="@+id/passwordField"
+        android:layout_width="320dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/userField"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="@string/hintPassword"
+        android:inputType="textPassword" />
+    <EditText
+        android:id="@+id/confirmPasswordField"
+        android:layout_width="320dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/passwordField"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="@string/hintconfirmPassword"
+        android:inputType="textPassword" />
+
+    <EditText
+        android:id="@+id/userField"
+        android:layout_width="320dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/signUpText2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="85dp"
+        android:gravity="center"
+        android:hint="@string/hintUser" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/tologIn"
+        android:layout_width="151dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/signUpButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginVertical="15dp"
+        android:layout_marginTop="0dp"
+        android:contentDescription="@string/app_name"
+        android:gravity="center"
+        android:minHeight="48dp"
+        android:text="@string/toLogIn"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <TextView
+        android:id="@+id/userMessage"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/confirmPasswordField"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text="test" />
+
+
+</RelativeLayout>

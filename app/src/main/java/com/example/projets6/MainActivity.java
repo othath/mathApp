@@ -26,6 +26,11 @@ public class MainActivity extends AppCompatActivity {
         Button classicmode=(Button) findViewById(R.id.classicmode);
         classicmode.setOnClickListener(v -> openclassicmode());
 
+        String s = getIntent().getStringExtra("userName");
+        String pass = getIntent().getStringExtra("password");
+
+            test.setText(s);
+            classicmode.setText(pass);
 
         ImageButton settings = (ImageButton) findViewById(R.id.btnSettings);
         settings.setOnClickListener(new View.OnClickListener() {
