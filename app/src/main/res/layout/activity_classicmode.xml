@@ -307,11 +307,11 @@
         </TableRow>
     </TableLayout>
 
+
     <TextView
         android:id="@+id/textequation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="236dp"
         android:focusedByDefault="true"
         android:fontFamily="@font/muli_regular"
         android:inputType="textPersonName"
@@ -319,32 +319,61 @@
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="35dp"
+        app:layout_constraintBottom_toTopOf="@+id/inputanswer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/points" />
 
     <EditText
 
         android:id="@+id/inputanswer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="48dp"
-        android:ems="10"
+        android:layout_marginBottom="44dp"
         android:cursorVisible="true"
+        android:ems="10"
+        android:focusableInTouchMode="false"
         android:focusedByDefault="true"
+        android:imeOptions="actionDone"
         android:inputType="textPersonName"
         android:text=""
-        app:layout_constraintBottom_toTopOf="@+id/tableLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        android:imeOptions="actionDone"
         android:textAlignment="center"
         android:textSize="30dp"
-        android:focusableInTouchMode="false"
+        app:layout_constraintBottom_toTopOf="@+id/tableLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
 
         />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/muli_extrabold"
+        android:gravity="center"
+        android:text="@string/classicmode"
+        android:textColor="@color/white"
+        android:textSize="36dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/points"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="148dp"
+        android:fontFamily="@font/muli_extrabold"
+        android:gravity="center"
+        android:text="Points"
+        android:textColor="@color/orangemenu"
+        android:textSize="36dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

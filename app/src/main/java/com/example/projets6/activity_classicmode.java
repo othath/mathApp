@@ -13,10 +13,11 @@ import org.mariuszgromada.math.mxparser.Expression;
 
 public class activity_classicmode<editingActionListener> extends AppCompatActivity {
     EditText answer;
-    int point = 6;
-    Equation eq = new Equation(point);
+    float point = 1;
+    Equation eq = new Equation((int)point);
     String res;
     TextView textequation;
+    TextView textpoint;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,9 +33,13 @@ public class activity_classicmode<editingActionListener> extends AppCompatActivi
         });
 
         //equation = new Equation(point);
-        res =StringToCalcul(eq.equations);
+        res = StringToCalcul(eq.equations);
         textequation = findViewById(R.id.textequation);
         textequation.setText(eq.equations);
+        textpoint = findViewById(R.id.points);
+        textpoint.setText(Integer.toString((int)(point*100)));
+
+
     }
 
     private void updateAnswer(String strToAdd){
@@ -47,7 +52,15 @@ public class activity_classicmode<editingActionListener> extends AppCompatActivi
         String an = StringToCalcul(answer.getText().toString());
 
         if (res.equals(an)){
-            eq = new Equation(point);
+            answer.setText("");
+            eq = new Equation((int)point);
+            res = StringToCalcul(eq.equations);
+            textequation = findViewById(R.id.textequation);
+            textequation.setText(eq.equations);
+            textpoint = findViewById(R.id.points);
+            point+=0.1;
+            textpoint.setText(Integer.toString((int)(point*100)));
+
         }
     }
     public void button0(View view){

@@ -1,12 +1,14 @@
 <resources>
     <string name="app_name">MathApp</string>
     <string name="signInText2">Connecte toi et défis d\'autres utilisateurs !</string>
-    <string name="singInTitle">TEST</string>
+    <string name="singInTitle">Connexion</string>
     <string name="hintPassword">Password</string>
     <string name="mailHint">Mail address</string>
     <string name="logInBtn">Se Connecter</string>
     <string name="hintUser">Nom des utilisateurs</string>
     <string name="toSignUp">Créer un compte.</string>
+    <string name="classicmode">Mode Classique</string>
+    <string name="score">Score</string>
     <string name="zero">0</string>
     <string name="one">1</string>
     <string name="two">2</string>
