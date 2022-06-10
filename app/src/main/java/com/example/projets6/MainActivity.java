@@ -45,15 +45,24 @@ public class MainActivity extends AppCompatActivity {
     private void openclassicmode() {
         Intent intent = new Intent(this, activity_classicmode.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
     private void openSettings() {
         Intent intent = new Intent(this, activity_settings.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
     public void login(){
         Intent intent=new Intent(this,logInActivity.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+    }
+
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+
     }
 }

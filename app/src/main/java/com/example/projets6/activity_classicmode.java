@@ -142,4 +142,9 @@ public class activity_classicmode<editingActionListener> extends AppCompatActivi
         //int res = Integer.parseInt(result);
         return result;
     }
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+
+    }
 }
