@@ -13,7 +13,7 @@ import org.mariuszgromada.math.mxparser.Expression;
 
 public class activity_classicmode<editingActionListener> extends AppCompatActivity {
     EditText answer;
-    int point = 10;
+    int point = 6;
     Equation eq = new Equation(point);
     String res;
     TextView textequation;
@@ -47,7 +47,7 @@ public class activity_classicmode<editingActionListener> extends AppCompatActivi
         String an = StringToCalcul(answer.getText().toString());
 
         if (res.equals(an)){
-            textequation.setText("oui");
+            eq = new Equation(point);
         }
     }
     public void button0(View view){
@@ -94,7 +94,6 @@ public class activity_classicmode<editingActionListener> extends AppCompatActivi
 
     public void buttondel(View view){
         int textLen = answer.getText().length();
-
         if(textLen!=0){
             SpannableStringBuilder selection = (SpannableStringBuilder)  answer.getText();
             selection.replace(textLen-1 , textLen,"");

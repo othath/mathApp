@@ -26,7 +26,7 @@ public class Equation {
                 res = generate1()+generate2();
                 break;
             case 4:
-                r=(new Random()).nextInt(3);
+                r=(new Random()).nextInt(2)+1;
                 if (r==1){
                     res = generate1()+generate3();
                 }else{
@@ -34,7 +34,7 @@ public class Equation {
                 }
                 break;
             case 5:
-                r=(new Random()).nextInt(3);
+                r=(new Random()).nextInt(2)+1;
                 if (r==1){
                     res = generate4()+generate1();
                 }else{
@@ -42,7 +42,7 @@ public class Equation {
                 }
                 break;
             case 6:
-                r=(new Random()).nextInt(4);
+                r=(new Random()).nextInt(3)+1;
                 if (r==1){
                     res = generate3()+generate3();
                 }else if (r==2){
@@ -52,7 +52,7 @@ public class Equation {
                 }
                 break;
             case 7:
-                r=(new Random()).nextInt(4);
+                r=(new Random()).nextInt(3)+1;
                 if (r==1){
                     res = generate6()+generate1();
                 }else if (r==2){
@@ -62,7 +62,7 @@ public class Equation {
                 }
                 break;
             case 8:
-                r=(new Random()).nextInt(5);
+                r=(new Random()).nextInt(4)+1;
                 if (r==1){
                     res = generate7()+generate1();
                 }else if (r==2){
@@ -74,7 +74,7 @@ public class Equation {
                 }
                 break;
             case 9:
-                r=(new Random()).nextInt(6);
+                r=(new Random()).nextInt(5)+1;
                 if (r==1){
                     res = generate8()+generate1();
                 }else if (r==2){
@@ -88,7 +88,7 @@ public class Equation {
                 }
                 break;
             case 10:
-                r=(new Random()).nextInt(6);
+                r=(new Random()).nextInt(5)+1;
                 if (r==1){
                     res = generate9()+generate1();
                 }else if (r==2){
@@ -103,12 +103,12 @@ public class Equation {
                 break;
 
         }
-        return Integer.toString(new Random().nextInt(28))+res;
+        return Integer.toString(new Random().nextInt(28)+1)+res;
     }
 
 
     public String generate1(){
-        int r = (new Random()).nextInt(5);
+        int r = (new Random()).nextInt(3)+1;
         String res="";
         switch(r){
             case 1:
@@ -125,7 +125,7 @@ public class Equation {
     }
 
     public String generate2(){
-        int r = (new Random()).nextInt(7);
+        int r = (new Random()).nextInt(6)+1;
         String res="";
         switch(r){
             case 1:
@@ -150,7 +150,7 @@ public class Equation {
         return res;
     }
     public String generate3(){
-        int r = (new Random()).nextInt(3);
+        int r = (new Random()).nextInt(2)+1;
         String res="";
         switch(r) {
             case 1:
@@ -163,7 +163,7 @@ public class Equation {
         return res;
     }
     public String generate4(){
-        int r = (new Random()).nextInt(3);
+        int r = (new Random()).nextInt(2)+1;
         String res="";
         switch(r) {
             case 1:
@@ -176,7 +176,7 @@ public class Equation {
         return res;
     }
     public String generate5(){
-        int r = (new Random()).nextInt(2);
+        int r = (new Random()).nextInt(1)+1;
         String res="";
         switch(r) {
             case 1:
@@ -186,7 +186,7 @@ public class Equation {
         return res;
     }
     public String generate6(){
-        int r = (new Random()).nextInt(4);
+        int r = (new Random()).nextInt(3)+1;
         String res="";
         switch(r){
             case 1:
@@ -202,18 +202,16 @@ public class Equation {
         return res;
     }
     public String generate7(){
-        int r = (new Random()).nextInt(2);
         String res=divinf10();
 
         return res;
     }
     public String generate8(){
-        int r = (new Random()).nextInt(2);
         String res=Xsqrt2();
         return res;
     }
     public String generate9(){
-        int r = (new Random()).nextInt(3);
+        int r = (new Random()).nextInt(2)+1;
         String res="";
         switch(r){
             case 1:
@@ -227,7 +225,6 @@ public class Equation {
         return res;
     }
     public String generate10(){
-        int r = (new Random()).nextInt(2);
         String res=Xsup10sqrtY();
         return res;
     }
@@ -289,7 +286,7 @@ public class Equation {
 
     public String timesXmodulo10(){
         String res="";
-        res= "*" + Integer.toString((-((int)(Math.random()*10))*10 -10));
+        res= "*" +"("+Integer.toString((-((int)(Math.random()*10))*10 -10))+")";
         return res;// nombre entre 10 et 100
     }
 
@@ -334,7 +331,7 @@ public class Equation {
             modulo.add(pas);
 
         }
-        String res="+"+Integer.toString(modulo.get(rand2.nextInt(modulo.size())))+"/"+ Integer.toString(modulo.get(rand.nextInt(modulo.size())));
+        String res="+"+"("+Integer.toString(modulo.get(rand2.nextInt(modulo.size())))+"/"+ Integer.toString(modulo.get(rand.nextInt(modulo.size())))+")";
         return res;
     }
 
@@ -364,18 +361,18 @@ public class Equation {
 
     public String Xsqrt(){
         Random rand = new Random();
-        List<Integer> square = new ArrayList<>();
-        square.add(2);
-        square.add(3);
-        square.add(4);
-        square.add(5);
-        square.add(6);
-        square.add(7);
-        square.add(8);
-        square.add(9);
-        square.add(10);
+        List<Integer> element = new ArrayList<>();
+        element.add(4);
+        element.add(9);
+        element.add(16);
+        element.add(25);
+        element.add(36);
+        element.add(49);
+        element.add(64);
+        element.add(81);
+        element.add(100);
 
-        String res="+"+ Integer.toString(square.get(rand.nextInt(square.size())))+"^(1/2)";
+        String res="+"+ Integer.toString(element.get(rand.nextInt(element.size())))+"^(1/2)";
         return res;
     }
 
@@ -397,7 +394,7 @@ public class Equation {
         square.add(7);
         square.add(8);
         square.add(9);
-        String res = "+"+ Integer.toString((new Random()).nextInt(90)+20)+"/"+Integer.toString(square.get(rand.nextInt(square.size())));
+        String res = "+"+"("+ Integer.toString((new Random()).nextInt(90)+20)+"/"+Integer.toString(square.get(rand.nextInt(square.size())))+")";
         return res;
     }
 
@@ -449,8 +446,31 @@ public class Equation {
 
 
     public String Xsup100sqrt(){
-        int r = (new Random()).nextInt(100)+1;
-        String res= "+"+Integer.toString(r)+"^(1/2)";
+        Random rand = new Random();
+        List<Integer> element = new ArrayList<>();
+        element.add(121);
+        element.add(144);
+        element.add(169);
+        element.add(196);
+        element.add(225);
+        element.add(256);
+        element.add(289);
+        element.add(324);
+        element.add(361);
+        element.add(400);
+        element.add(441);
+        element.add(484);
+        element.add(529);
+        element.add(576);
+        element.add(625);
+        element.add(676);
+        element.add(729);
+        element.add(784);
+        element.add(841);
+        element.add(900);
+        element.add(961);
+        element.add(1024);
+        String res= "+"+Integer.toString(element.get(rand.nextInt(element.size())))+"^(1/2)";
         return res;
     }
 

@@ -19,17 +19,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.text.BreakIterator;
 import java.util.regex.Pattern;
 
 import com.example.projets6.MainActivity;
-import com.example.projets6.Player;
 import com.example.projets6.R;
-import com.example.projets6.back.DbConnector;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
