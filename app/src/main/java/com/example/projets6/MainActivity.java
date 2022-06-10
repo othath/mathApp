@@ -26,6 +26,10 @@ public class MainActivity extends AppCompatActivity {
         Button classicmode=(Button) findViewById(R.id.classicmode);
         classicmode.setOnClickListener(v -> openclassicmode());
 
+        Button runfox=(Button) findViewById(R.id.runfox);
+        runfox.setOnClickListener(v -> openrunfox());
+
+
         String s = getIntent().getStringExtra("userName");
         String pass = getIntent().getStringExtra("password");
 
@@ -46,6 +50,11 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, activity_classicmode.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+    }
+
+    private void openrunfox(){
+        Intent intent = new Intent(this, RunningFow.class);
+        startActivity(intent);
     }
 
     private void openSettings() {
