@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
 import org.mariuszgromada.math.mxparser.Expression;
+import android.media.MediaPlayer;
 
 public class activity_classicmode<editingActionListener> extends AppCompatActivity {
     EditText answer;
@@ -59,6 +60,8 @@ public class activity_classicmode<editingActionListener> extends AppCompatActivi
             textequation.setText(eq.equations);
             textpoint = findViewById(R.id.points);
             point+=0.1;
+            MediaPlayer sound= MediaPlayer.create(activity_classicmode.this,R.raw.bonne_reponse);
+            sound.start();
             textpoint.setText(Integer.toString((int)(point*100)));
 
         }

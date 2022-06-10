@@ -9,6 +9,7 @@ import android.view.View;
 
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.example.projets6.activity.logInActivity;
 
@@ -65,4 +66,7 @@ public class MainActivity extends AppCompatActivity {
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
 
     }
+
+
+
 }

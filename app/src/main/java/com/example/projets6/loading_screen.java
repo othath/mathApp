@@ -3,6 +3,7 @@ package com.example.projets6;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -28,6 +29,7 @@ import android.graphics.drawable.AnimationDrawable;
 
 public class loading_screen extends AppCompatActivity{
     Button start_button;
+    MediaPlayer sound;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +40,8 @@ public class loading_screen extends AppCompatActivity{
         start_button=(Button) findViewById(R.id.button_start);
         Animation animation= AnimationUtils.loadAnimation(loading_screen.this,R.anim.blink_anim);
         start_button.startAnimation(animation);
+        sound= MediaPlayer.create(loading_screen.this,R.raw.musique_menu);
+        sound.start();
 
 
     }
@@ -48,6 +52,7 @@ public class loading_screen extends AppCompatActivity{
         Intent intent=new Intent(this,MainActivity.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        sound.stop();
     }
 
 
