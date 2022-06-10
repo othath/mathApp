@@ -180,7 +180,7 @@ public class Equation {
         String res="";
         switch(r) {
             case 1:
-                res = timesXinf10();
+                res = timesminusX100();
                 break;
         }
         return res;
@@ -190,7 +190,7 @@ public class Equation {
         String res="";
         switch(r){
             case 1:
-                res = timesminusX100();
+                res = timesXinf10();
                 break;
             case 2:
                 res = Xcoeff10();
@@ -337,27 +337,7 @@ public class Equation {
 
     //Niveau 5
 
-    public String timesXinf10(){
-        String res = "*" + Integer.toString(((int)(Math.random()*10)) -1);
-        return res;
-    }
 
-    //Niveau 6
-
-    public String timesminusX100(){
-        int r = (new Random()).nextInt(90)+10;
-        String res="*" + Integer.toString(r);
-        return res;
-    }
-
-    public String Xcoeff10(){
-        int r = (new Random()).nextInt(10)+1;
-        String res= "+"+Integer.toString(r)+"^2";
-        return res;
-    }
-
-
-    //{2,3,4,5,6,7,8,9,10,11,12}
 
     public String Xsqrt(){
         Random rand = new Random();
@@ -375,6 +355,32 @@ public class Equation {
         String res="+"+ Integer.toString(element.get(rand.nextInt(element.size())))+"^(1/2)";
         return res;
     }
+
+    //Niveau 6
+
+    public String timesminusX100(){
+        int r = (new Random()).nextInt(90)+10;
+        String res="*" + Integer.toString(r);
+        return res;
+    }
+
+    public String Xcoeff10(){
+        int r = (new Random()).nextInt(10)+1;
+        String res= "+"+Integer.toString(r)+"^2";
+        return res;
+    }
+
+    public String timesXinf10(){
+        String res = "*" + Integer.toString(((int)(Math.random()*10)) -1);
+        if(res.equals("*0")){
+            res="*7";
+        }
+        else if(res.equals("*1") ){
+            res ="*8";
+        }
+        return res;
+    }
+
 
     public String Xcoeff100(){
         int r = (new Random()).nextInt(900)+100;
