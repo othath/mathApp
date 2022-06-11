@@ -136,7 +136,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="25dp"
                 android:background="@drawable/whitebutton"
-                android:checked="true"
+
                 android:paddingLeft="30dp"
                 android:text="Musique de fond" />
 
@@ -150,6 +150,7 @@
                 android:checked="true"
                 android:paddingLeft="30dp"
                 android:text="Bruitages" />
+
 
         </LinearLayout>
     </ScrollView>
