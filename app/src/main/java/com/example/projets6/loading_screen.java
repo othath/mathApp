@@ -33,14 +33,13 @@ import android.widget.Toast;
 public class loading_screen extends AppCompatActivity{
     Button start_button;
     MediaPlayer sound;
-    Switch switch1;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.loading);
 
-        switch1 = (Switch) this.findViewById(R.id.fond);
         SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
 
 
