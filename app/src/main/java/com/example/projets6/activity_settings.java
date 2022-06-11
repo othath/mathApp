@@ -37,6 +37,8 @@ public class activity_settings extends AppCompatActivity {
 
     Switch switch1;
     Switch switch2;
+    MediaPlayer coche;
+    MediaPlayer decoche;
 
 
 
@@ -60,7 +62,11 @@ public class activity_settings extends AppCompatActivity {
                     editor.putBoolean("value",true);
                     editor.apply();
                     switch1.setChecked(true);
-                    Toast.makeText(activity_settings.this, "Musique de fond activée", Toast.LENGTH_LONG).show();
+                    Toast.makeText(activity_settings.this, "Musique de fond activée", Toast.LENGTH_SHORT).show();
+                    if (sharedPreferences.getBoolean("value2",true)) {
+                        coche = MediaPlayer.create(activity_settings.this, R.raw.case_coche);
+                        coche.start();
+                    }
                 }
                 else
                 {
@@ -68,7 +74,11 @@ public class activity_settings extends AppCompatActivity {
                     editor.putBoolean("value",false);
                     editor.apply();
                     switch1.setChecked(false);
-                    Toast.makeText(activity_settings.this, "Musique de fond désactivée", Toast.LENGTH_LONG).show();
+                    Toast.makeText(activity_settings.this, "Musique de fond désactivée", Toast.LENGTH_SHORT).show();
+                    if (sharedPreferences.getBoolean("value2",true)) {
+                        decoche = MediaPlayer.create(activity_settings.this, R.raw.case_decoche);
+                        decoche.start();
+                    }
                 }
             }
         });
@@ -82,7 +92,11 @@ public class activity_settings extends AppCompatActivity {
                     editor.putBoolean("value2",true);
                     editor.apply();
                     switch2.setChecked(true);
-                    Toast.makeText(activity_settings.this, "Bruitage activé", Toast.LENGTH_LONG).show();
+                    Toast.makeText(activity_settings.this, "Bruitage activé", Toast.LENGTH_SHORT).show();
+                    if (sharedPreferences.getBoolean("value2",true)) {
+                        coche = MediaPlayer.create(activity_settings.this, R.raw.case_coche);
+                        coche.start();
+                    }
                 }
                 else
                 {
@@ -90,7 +104,11 @@ public class activity_settings extends AppCompatActivity {
                     editor.putBoolean("value2",false);
                     editor.apply();
                     switch2.setChecked(false);
-                    Toast.makeText(activity_settings.this, "Bruitage désactivé", Toast.LENGTH_LONG).show();
+                    Toast.makeText(activity_settings.this, "Bruitage désactivé", Toast.LENGTH_SHORT).show();
+                    if (sharedPreferences.getBoolean("value2",true)) {
+                        decoche = MediaPlayer.create(activity_settings.this, R.raw.case_decoche);
+                        decoche.start();
+                    }
                 }
             }
         });

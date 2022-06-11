@@ -151,6 +151,17 @@
                 android:paddingLeft="30dp"
                 android:text="Bruitages" />
 
+            <Switch
+                android:id="@+id/notifications"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginHorizontal="35dp"
+                android:layout_marginBottom="35dp"
+                android:background="@drawable/whitebutton"
+
+                android:paddingLeft="30dp"
+                android:text="Notifications" />
+
 
         </LinearLayout>
     </ScrollView>
