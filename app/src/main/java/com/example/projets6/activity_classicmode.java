@@ -1,5 +1,6 @@
 package com.example.projets6;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.SpannableStringBuilder;
 import android.view.View;
@@ -60,8 +61,11 @@ public class activity_classicmode<editingActionListener> extends AppCompatActivi
             textequation.setText(eq.equations);
             textpoint = findViewById(R.id.points);
             point+=0.1;
-            MediaPlayer sound= MediaPlayer.create(activity_classicmode.this,R.raw.bonne_reponse);
-            sound.start();
+            SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
+            if (sharedPreferences.getBoolean("value2",true)) {
+                MediaPlayer sound= MediaPlayer.create(activity_classicmode.this,R.raw.bonne_reponse);
+                sound.start();
+            }
             textpoint.setText(Integer.toString((int)(point*100)));
 
         }

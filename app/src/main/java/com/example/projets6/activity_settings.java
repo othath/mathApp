@@ -36,7 +36,8 @@ public class activity_settings extends AppCompatActivity {
 
 
     Switch switch1;
-    Button save;
+    Switch switch2;
+
 
 
     @Override
@@ -45,8 +46,10 @@ public class activity_settings extends AppCompatActivity {
         setContentView(R.layout.activity_settings);
 
         switch1 = (Switch) this.findViewById(R.id.fond);
+        switch2 = (Switch) this.findViewById(R.id.bruitage);
         SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
         switch1.setChecked(sharedPreferences.getBoolean("value",true));
+        switch2.setChecked(sharedPreferences.getBoolean("value2",true));
 
         switch1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,6 +60,7 @@ public class activity_settings extends AppCompatActivity {
                     editor.putBoolean("value",true);
                     editor.apply();
                     switch1.setChecked(true);
+                    Toast.makeText(activity_settings.this, "Musique de fond activée", Toast.LENGTH_LONG).show();
                 }
                 else
                 {
@@ -64,6 +68,29 @@ public class activity_settings extends AppCompatActivity {
                     editor.putBoolean("value",false);
                     editor.apply();
                     switch1.setChecked(false);
+                    Toast.makeText(activity_settings.this, "Musique de fond désactivée", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
+        switch2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (switch2.isChecked())
+                {
+                    SharedPreferences.Editor editor=getSharedPreferences("save",MODE_PRIVATE).edit();
+                    editor.putBoolean("value2",true);
+                    editor.apply();
+                    switch2.setChecked(true);
+                    Toast.makeText(activity_settings.this, "Bruitage activé", Toast.LENGTH_LONG).show();
+                }
+                else
+                {
+                    SharedPreferences.Editor editor=getSharedPreferences("save",MODE_PRIVATE).edit();
+                    editor.putBoolean("value2",false);
+                    editor.apply();
+                    switch2.setChecked(false);
+                    Toast.makeText(activity_settings.this, "Bruitage désactivé", Toast.LENGTH_LONG).show();
                 }
             }
         });
