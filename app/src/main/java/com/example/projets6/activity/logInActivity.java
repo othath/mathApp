@@ -4,7 +4,10 @@ package com.example.projets6.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.Preference;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -90,13 +93,14 @@ public class logInActivity extends AppCompatActivity {
                 String userName=snapshot.child("userName").getValue(String.class);
                 String passEncrypted=getSHA(passwordField.getText().toString());
                 String passDb=snapshot.child("password").getValue(String.class);
-                int score=snapshot.child("score").getValue(int.class);
-                Player p=new Player(userName,passDb,score);
+                int score=snapshot.child("score").getValue(Integer.class);
+                Player p=new Player(userName,passDb, score);
                 if(passDb.equals(passEncrypted)){//passEncrypted
                     Log.i("DEBUG",passwordField.getText().toString());
                     Intent i = new Intent(logInActivity.this, MainActivity.class);
                     i.putExtra("userName",userName);
                     i.putExtra("password",passDb);
+                    i.putExtra("score",score);
                     startActivity(i);
                     overridePendingTransition(R.anim.slide_in_right, R.anim.slide_in_left);
 

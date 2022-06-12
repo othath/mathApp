@@ -47,9 +47,10 @@ public class MainActivity extends AppCompatActivity {
 
         String user = getIntent().getStringExtra("userName");
         String pass = getIntent().getStringExtra("password");
-        String point = getIntent().getStringExtra("score");
+        int point = getIntent().getIntExtra("score",0);
         usertext.setText(user);
-        pointtext.setText(point);
+        pointtext.setText(String.valueOf(point));
+
         classicmode.setText(pass);
 
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
