@@ -25,19 +25,19 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.projets6.MainActivity">
+            android:name="com.example.projets6.activity.MainActivity">
         </activity>
         <activity
             android:name="com.example.projets6.activity.logInActivity">
         </activity>
         <activity android:name=".activity.InscriptionActivity"></activity>
         <activity
-            android:name="com.example.projets6.activity_classicmode">
+            android:name="com.example.projets6.activity.activity_classicmode">
         </activity>
 
 
         <activity
-            android:name="com.example.projets6.activity_settings"
+            android:name="com.example.projets6.activity.activity_settings"
             android:screenOrientation="portrait">
         </activity>
     </application>

@@ -1,4 +1,4 @@
-package com.example.projets6;
+package com.example.projets6.activity;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -12,6 +12,9 @@ import androidx.appcompat.app.AppCompatDelegate;
 
 import org.mariuszgromada.math.mxparser.Expression;
 import android.media.MediaPlayer;
+
+import com.example.projets6.Equation;
+import com.example.projets6.R;
 
 public class activity_classicmode<editingActionListener> extends AppCompatActivity {
     EditText answer;
@@ -35,9 +38,9 @@ public class activity_classicmode<editingActionListener> extends AppCompatActivi
         });
 
         //equation = new Equation(point);
-        res = StringToCalcul(eq.equations);
+        res = StringToCalcul(eq.getEquations());
         textequation = findViewById(R.id.textequation);
-        textequation.setText(eq.equations);
+        textequation.setText(eq.getEquations());
         textpoint = findViewById(R.id.points);
         textpoint.setText(Integer.toString((int)(point*100)));
 
@@ -56,9 +59,9 @@ public class activity_classicmode<editingActionListener> extends AppCompatActivi
         if (res.equals(an)){
             answer.setText("");
             eq = new Equation((int)point);
-            res = StringToCalcul(eq.equations);
+            res = StringToCalcul(eq.getEquations());
             textequation = findViewById(R.id.textequation);
-            textequation.setText(eq.equations);
+            textequation.setText(eq.getEquations());
             textpoint = findViewById(R.id.points);
             point+=0.1;
             SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);

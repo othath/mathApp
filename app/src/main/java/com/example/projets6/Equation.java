@@ -8,6 +8,10 @@ import java.util.Random;
 public class Equation {
     String equations;
 
+    public String getEquations() {
+        return equations;
+    }
+
     public Equation(int points){
         this.equations = generateEquation(points);
     }

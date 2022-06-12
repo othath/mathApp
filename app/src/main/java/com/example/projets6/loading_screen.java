@@ -5,29 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
-import android.os.Build;
 import android.os.Bundle;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.Switch;
-import android.widget.ImageButton;
 
-import com.example.projets6.activity.activity_settings;
+import com.example.projets6.activity.MainActivity;
 import com.example.projets6.activity.logInActivity;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.graphics.Color;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.graphics.Color;
-import android.graphics.drawable.AnimationDrawable;
 import android.widget.Toast;
 
 public class loading_screen extends AppCompatActivity{
@@ -63,7 +48,7 @@ public class loading_screen extends AppCompatActivity{
 
 
     public void change(){
-        Intent intent=new Intent(this,MainActivity.class);
+        Intent intent=new Intent(this, logInActivity.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);

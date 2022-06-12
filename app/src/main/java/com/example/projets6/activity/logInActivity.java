@@ -3,10 +3,8 @@ package com.example.projets6.activity;
 
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -21,7 +19,6 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.regex.Pattern;
 
-import com.example.projets6.MainActivity;
 import com.example.projets6.Player;
 import com.example.projets6.R;
 import com.google.firebase.database.DataSnapshot;
@@ -65,6 +62,7 @@ public class logInActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     Intent i = new Intent(logInActivity.this, InscriptionActivity.class);
                     startActivity(i);
+                    overridePendingTransition(R.anim.slide_out_left, R.anim.slide_in_right);
                 }
             });
 
@@ -72,9 +70,9 @@ public class logInActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                    Log.i("DEBUG",userField.getText().toString());
-                    logIn(userField.getText().toString());
-
+                    if(loginFormIsValid()) {
+                        logIn(userField.getText().toString());
+                    }
             }
         });
 
@@ -94,12 +92,13 @@ public class logInActivity extends AppCompatActivity {
                 String passDb=snapshot.child("password").getValue(String.class);
                 int score=snapshot.child("score").getValue(int.class);
                 Player p=new Player(userName,passDb,score);
-                if(passDb.equals(passwordField.getText().toString())){
+                if(passDb.equals(passEncrypted)){//passEncrypted
                     Log.i("DEBUG",passwordField.getText().toString());
                     Intent i = new Intent(logInActivity.this, MainActivity.class);
                     i.putExtra("userName",userName);
                     i.putExtra("password",passDb);
                     startActivity(i);
+                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_in_left);
 
                     userMessage.setText("successful");
                 }
@@ -127,58 +126,13 @@ public class logInActivity extends AppCompatActivity {
 
     public boolean loginFormIsValid() {
         if (!p.matcher(userField.getText()).matches()) {
-            userMessage.setText("Wrong !");
+            userMessage.setText("userName Invalid !");
             return false;
         } else {
             userMessage.setText("true");
             return true;
         }
     }
-
-/*    public boolean signupFormIsValid() {
-        if (!p.matcher(userField.getText()).matches()) {
-            signUpMessage.setText("Wrong email !");
-            return false;
-        } else if (!passEncrypted.equals(confirmPassEncrypted)) {
-            signUpMessage.setText("Passwords don't match");
-            return false;
-        } else {
-            signUpMessage.setText("");
-            return true;
-        }
-    }*/
-
-    /*public void connectBtn(View view) {
-
-        Log.i("DEBUG","on fucntion");
-        if (loginFormIsValid()) {
-                String connectQuery = "SELECT id,name,email, password FROM player WHERE email='" + userField.getText() + "' and password='" + passEncrypted + "';";
-
-                if () {
-              /*  if (queryOutput.next()) {
-                    if (queryOutput.getString("email").contains(userField.getText()) && queryOutput.getString("password").contains(passEncrypted)) {
-                        //then show l'interface de jeu
-                    }*/
-
-              /*  } else {
-                    userMessage.setText("Account not found !");
-                }
-        }
-        /*else if(signupFormIsValid()) {
-            try{
-                String connectQuery = "select count(id) from player;";
-                Statement statement = connectDB.createStatement();
-                ResultSet queryOutput = statement.executeQuery(connectQuery);
-                queryOutput.next();
-                //int current_id = queryOutput.getInt(1) + 1;
-                String name =signUpName.getText().toString();
-                String createQuery = String.format("INSERT INTO player(userName,password) VALUES('%s','%s')",userField.getText(), passEncrypted);
-                statement.executeUpdate(createQuery);
-                signUpMessage.setText("Account created successfully !");
-            } catch (Exception e) {
-                e.printStackTrace();
-            }*/
-        //}
 
 
     public static String getSHA(String input) {

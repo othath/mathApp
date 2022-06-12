@@ -1,4 +1,4 @@
-package com.example.projets6;
+package com.example.projets6.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
@@ -9,8 +9,10 @@ import android.view.View;
 
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
+import com.example.projets6.R;
+import com.example.projets6.activity.activity_classicmode;
+import com.example.projets6.activity.activity_settings;
 import com.example.projets6.activity.logInActivity;
 
 
