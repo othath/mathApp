@@ -1,10 +1,14 @@
 package com.example.projets6.activity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.Html;
 import android.text.SpannableStringBuilder;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,10 +20,10 @@ import android.media.MediaPlayer;
 import com.example.projets6.Equation;
 import com.example.projets6.R;
 
-public class activity_classicmode<editingActionListener> extends AppCompatActivity {
+public class activity_classicmode extends AppCompatActivity {
     EditText answer;
-    float point = 1;
-    Equation eq = new Equation((int)point);
+    int point = 100;
+    Equation eq;
     String res;
     TextView textequation;
     TextView textpoint;
@@ -28,6 +32,9 @@ public class activity_classicmode<editingActionListener> extends AppCompatActivi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_classicmode);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
+        ImageButton retour=findViewById(R.id.retour);
+        retour.setOnClickListener(v -> retour());
 
         answer = findViewById(R.id.inputanswer);
         answer.setShowSoftInputOnFocus(false);
@@ -38,13 +45,22 @@ public class activity_classicmode<editingActionListener> extends AppCompatActivi
         });
 
         //equation = new Equation(point);
-        res = StringToCalcul(eq.getEquations());
-        textequation = findViewById(R.id.textequation);
-        textequation.setText(eq.getEquations());
+        generatEquation();
         textpoint = findViewById(R.id.points);
-        textpoint.setText(Integer.toString((int)(point*100)));
+        textpoint.setText(Integer.toString((int)(point)));
 
+    }
 
+    private void generatEquation(){
+        eq= new Equation((int)(point/100));
+        res = StringToCalcul(eq.equations);
+        textequation = findViewById(R.id.textequation);
+        textequation.setText(affichageEquation(eq.equations));
+    }
+
+    private void retour() {
+        Intent intent = new Intent(this, com.example.projets6.activity.MainActivity.class);
+        startActivity(intent);
     }
 
     private void updateAnswer(String strToAdd){
@@ -58,18 +74,15 @@ public class activity_classicmode<editingActionListener> extends AppCompatActivi
 
         if (res.equals(an)){
             answer.setText("");
-            eq = new Equation((int)point);
-            res = StringToCalcul(eq.getEquations());
-            textequation = findViewById(R.id.textequation);
-            textequation.setText(eq.getEquations());
+            generatEquation();
             textpoint = findViewById(R.id.points);
-            point+=0.1;
+            point+=10;
             SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
             if (sharedPreferences.getBoolean("value2",true)) {
                 MediaPlayer sound= MediaPlayer.create(activity_classicmode.this,R.raw.bonne_reponse);
                 sound.start();
             }
-            textpoint.setText(Integer.toString((int)(point*100)));
+            textpoint.setText(Integer.toString((int)(point)));
 
         }
     }
@@ -111,6 +124,14 @@ public class activity_classicmode<editingActionListener> extends AppCompatActivi
     }
     public void buttondivision(View view){
         updateAnswer("/");
+    }
+    public void buttonskip(View view){
+        updateAnswer("");
+        generatEquation();
+        point-=5;
+        textpoint = findViewById(R.id.points);
+        textpoint.setText(Integer.toString((int)(point)));
+
     }
 
 
@@ -156,5 +177,50 @@ public class activity_classicmode<editingActionListener> extends AppCompatActivi
         super.finish();
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
 
+    }
+
+    public String affichageEquation(String equation){
+
+        equation = equation.replaceAll("\\*","×");
+        equation = equation.replace("^(2)", "² ");
+        equation = equation.replace("^(3)", "³ ");
+        equation = equation.replace("^(4)", "⁴ ");
+        equation = equation.replace("^(5)", "⁵ ");
+        equation = equation.replace("^(6)", "⁶ ");
+        equation = equation.replace("^(7)", "⁷ ");
+        equation = equation.replace("^(8)", "⁸ ");
+        equation = equation.replace("^(9)", "⁹ ");
+
+        if (equation.contains("+(")){
+            String frac = equation.substring(equation.indexOf("+(")+2, equation.indexOf(")"));
+            String numerateur= frac.split("/")[0], denominateur = frac.split("/")[1];
+            equation = equation.replace("("+numerateur+"/"+denominateur+")"," "+numerateur+"/"+denominateur+ " ");
+        }
+        if (equation.contains("^(1/2)")){
+            String res="";
+            int i=i=equation.indexOf("^(1/2)");
+            while(isInteger(String.valueOf(equation.charAt(i-1)))){
+                res+=equation.charAt(i-1);
+                i--;
+            }
+            res = new StringBuilder(res).reverse().toString();
+            equation = equation.replace(res+"^(1/2)"," √("+res+") ");
+        }
+        return equation;
+    }
+    public static boolean isInteger(String s) {
+        return isInteger(s,10);
+    }
+
+    public static boolean isInteger(String s, int radix) {
+        if(s.isEmpty()) return false;
+        for(int i = 0; i < s.length(); i++) {
+            if(i == 0 && s.charAt(i) == '-') {
+                if(s.length() == 1) return false;
+                else continue;
+            }
+            if(Character.digit(s.charAt(i),radix) < 0) return false;
+        }
+        return true;
     }
 }

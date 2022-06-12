@@ -5,33 +5,56 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".activity.MainActivity">
+    tools:context=".MainActivity">
+
 
     <ImageView
+        android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="350dp"
         android:background="@drawable/background"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
     <TextView
         android:id="@+id/pointNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="52dp"
+        android:layout_marginEnd="56dp"
         android:fontFamily="@font/muli_extrabold"
+
+
         android:text="698"
 
 
         android:textColor="@color/orangemenu"
         android:textSize="28dp"
-        app:layout_constraintBottom_toBottomOf="@+id/pointNumber2"
+        app:layout_constraintBottom_toBottomOf="@+id/progress_bar"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/progress_bar"
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/pointNumber2"
+        android:id="@+id/username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="160dp"
+        android:fontFamily="@font/muli_extrabold"
+        android:text="username"
+
+
+        android:textColor="@color/white"
+        android:textSize="22dp"
+        app:layout_constraintBottom_toBottomOf="@+id/progress_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/lvlplayer"
+        app:layout_constraintTop_toTopOf="@+id/progress_bar"
+        app:layout_constraintVertical_bias="0.377"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/lvlplayer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="160dp"
@@ -40,18 +63,18 @@
 
 
         android:textColor="@color/white"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="@+id/progress_bar"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.153"
         app:layout_constraintStart_toEndOf="@+id/imageButton"
-        app:layout_constraintTop_toTopOf="@+id/progress_bar"
-        app:layout_constraintVertical_bias="0.377"
         tools:ignore="MissingConstraints" />
 
     <TextView
+        android:id="@+id/niveau"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
         android:fontFamily="@font/muli_regular"
         android:text="Points"
         android:textColor="@color/white"
@@ -60,36 +83,24 @@
         app:layout_constraintTop_toBottomOf="@+id/pointNumber" />
 
     <TextView
-        android:id="@+id/niveau"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:fontFamily="@font/muli_regular"
-        android:text="%"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="@+id/pointNumber2"
-        app:layout_constraintTop_toBottomOf="@+id/pointNumber2" />
-
-    <TextView
-        android:id="@+id/pourcentage"
+        android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
         android:layout_marginStart="4dp"
         android:fontFamily="@font/muli_regular"
-        android:text="62"
+        android:text="60%"
         android:textColor="@color/white"
-        app:layout_constraintEnd_toStartOf="@+id/niveau"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/pointNumber2"
-        app:layout_constraintTop_toTopOf="@+id/niveau" />
+        app:layout_constraintEnd_toEndOf="@+id/lvlplayer"
+        app:layout_constraintTop_toBottomOf="@+id/lvlplayer" />
 
     <ImageButton
         android:id="@+id/btnSettings"
         android:layout_width="37dp"
         android:layout_height="34dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="20dp"
         android:adjustViewBounds="true"
+        android:layout_marginTop="6dp"
         android:background="@android:color/transparent"
         android:maxWidth="24dp"
 
@@ -121,9 +132,8 @@
         android:id="@+id/tuto"
         android:layout_width="30dp"
         android:layout_height="26dp"
-
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="3dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
         android:adjustViewBounds="true"
         android:background="@android:color/transparent"
         android:maxWidth="24dp"
@@ -131,14 +141,29 @@
         android:scaleType="fitCenter"
         android:src="@drawable/tuto"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView2" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/logo"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:adjustViewBounds="true"
+        android:background="@android:color/transparent"
+        android:maxWidth="24dp"
+        android:maxHeight="24dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/foxlogo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
     <ProgressBar
         android:id="@+id/progress_bar"
         android:layout_width="109dp"
         android:layout_height="134dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="48dp"
         android:indeterminateOnly="false"
         android:progressDrawable="@drawable/circle"
         android:rotation="-90"
@@ -183,6 +208,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginHorizontal="35dp"
                 android:layout_marginTop="35dp"
+                android:text="@string/classicmode"
                 android:background="@drawable/whitebutton"
                 app:layout_constraintEnd_toEndOf="@+id/test"
                 app:layout_constraintHorizontal_bias="0.0"

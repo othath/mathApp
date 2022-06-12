@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/imageView2"
+    <TextView
+        android:id="@+id/textView3"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="190dp"
         android:background="@drawable/background"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -275,7 +275,9 @@
 
             <androidx.appcompat.widget.AppCompatButton
 
-                android:id="@+id/buttondot"
+                android:id="@+id/buttonskip"
+                android:onClick="buttonskip"
+
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:layout_below="@+id/passwordField"
@@ -285,7 +287,7 @@
                 android:background="@drawable/greybutton"
                 android:fontFamily="@font/muli_semibold"
                 android:gravity="center"
-                android:text="@string/comma"
+                android:text="@string/skip"
                 android:textSize="30dp" />
 
             <androidx.appcompat.widget.AppCompatButton
@@ -306,7 +308,6 @@
                 android:textSize="30dp" />
         </TableRow>
     </TableLayout>
-
 
     <TextView
         android:id="@+id/textequation"
@@ -348,16 +349,16 @@
         />
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/muli_extrabold"
         android:gravity="center"
         android:text="@string/classicmode"
         android:textColor="@color/white"
         android:textSize="36dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -373,6 +374,24 @@
         android:textSize="36dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/retour"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginHorizontal="35dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="4dp"
+
+        android:background="@color/purplemenu"
+        android:scaleType="fitCenter"
+        android:src="@drawable/retour"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
