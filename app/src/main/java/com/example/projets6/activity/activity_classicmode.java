@@ -3,6 +3,7 @@ package com.example.projets6.activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.Html;
 import android.text.SpannableStringBuilder;
 import android.view.View;
@@ -20,13 +21,27 @@ import android.media.MediaPlayer;
 import com.example.projets6.Equation;
 import com.example.projets6.R;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class activity_classicmode extends AppCompatActivity {
     EditText answer;
-    int point = 100;
+    MainActivity main = new MainActivity();
+    int point = main.point;
     Equation eq;
     String res;
     TextView textequation;
     TextView textpoint;
+
+
+    private TextView plusTen;
+    private TextView minusFive;
+
+    int count = 0;
+    private Handler handler = new Handler();
+    private Timer timer = new Timer();
+    int coordY,moovY;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,13 +57,33 @@ public class activity_classicmode extends AppCompatActivity {
             @Override
             public void onClick(View view) {
             }
+
         });
+        //animation
+        plusTen =  (TextView)findViewById(R.id.plusTen);
+        minusFive = (TextView)findViewById(R.id.minusFive);
+        moovY = 400;
+        coordY =moovY;
+
 
         //equation = new Equation(point);
         generatEquation();
         textpoint = findViewById(R.id.points);
         textpoint.setText(Integer.toString((int)(point)));
 
+    }
+
+
+
+    private void changePosWin() {
+        coordY -= 1;
+        plusTen.setY(coordY);
+
+
+    }
+    private void  changeposLoose(){
+        coordY -=1;
+        minusFive.setY(coordY);
     }
 
     private void generatEquation(){
@@ -77,12 +112,41 @@ public class activity_classicmode extends AppCompatActivity {
             generatEquation();
             textpoint = findViewById(R.id.points);
             point+=10;
+            main.setPoint(point);
             SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
             if (sharedPreferences.getBoolean("value2",true)) {
                 MediaPlayer sound= MediaPlayer.create(activity_classicmode.this,R.raw.bonne_reponse);
                 sound.start();
             }
             textpoint.setText(Integer.toString((int)(point)));
+
+
+
+            //animation +10
+            handler = new Handler();
+            timer = new Timer();
+            coordY = moovY;
+            count = 0;
+            plusTen.setVisibility(View.VISIBLE);
+            timer.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+
+                            changePosWin();
+                            count+=1;
+                            if (count>40){
+                                plusTen.setVisibility(View.INVISIBLE);
+                                timer.cancel();
+                                timer.purge();
+
+                            }
+                        }
+                    });
+                }
+            },0,15);
 
         }
     }
@@ -128,7 +192,36 @@ public class activity_classicmode extends AppCompatActivity {
     public void buttonskip(View view){
         updateAnswer("");
         generatEquation();
-        point-=5;
+        if (point>0) {
+            point -= 5;
+            main.setPoint(point);
+            //animation -5
+            handler = new Handler();
+            timer = new Timer();
+            coordY = moovY;
+            count = 0;
+            minusFive.setVisibility(View.VISIBLE);
+            timer.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+
+                            changeposLoose();
+                            count+=1;
+                            if (count>40){
+                                minusFive.setVisibility(View.INVISIBLE);
+                                timer.cancel();
+                            }
+                        }
+                    });
+                }
+            },0,15);
+        }
+        else {
+            point = 0;
+        }
         textpoint = findViewById(R.id.points);
         textpoint.setText(Integer.toString((int)(point)));
 

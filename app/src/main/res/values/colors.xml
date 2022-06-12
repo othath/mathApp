@@ -9,4 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="purplemenu">#121137</color>
     <color name="orangemenu">#E99805</color>
+    <color name="bluevictory">#246FC2</color>
+    <color name="redskip">#EA4335</color>
 </resources>

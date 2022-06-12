@@ -16,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjetS6">
         <activity
-            android:name=".loading_screen"
+            android:name=".activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,22 +24,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.example.projets6.loading_screen"></activity>
+        <activity android:name=".activity.logInActivity"></activity>
+        <activity android:name=".activity.InscriptionActivity" />
+        <activity android:name=".activity.activity_classicmode"></activity>
         <activity
-            android:name="com.example.projets6.activity.MainActivity">
-        </activity>
-        <activity
-            android:name="com.example.projets6.activity.logInActivity">
-        </activity>
-        <activity android:name=".activity.InscriptionActivity"></activity>
-        <activity
-            android:name="com.example.projets6.activity.activity_classicmode">
-        </activity>
-
-
-        <activity
-            android:name="com.example.projets6.activity.activity_settings"
-            android:screenOrientation="portrait">
-        </activity>
+            android:name=".activity.activity_settings"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

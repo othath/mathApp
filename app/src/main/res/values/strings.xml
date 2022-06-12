@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">FoxMaths</string>
     <string name="signInText2">Connecte toi et défis d\'autres utilisateurs !</string>
-    <string name="singInTitle">TEST</string>
+    <string name="singInTitle">Connexion</string>
     <string name="hintPassword">Password</string>
     <string name="mailHint">Mail address</string>
     <string name="logInBtn">Se Connecter</string>
@@ -40,5 +40,6 @@
     <string name="classicmode">Mode Classique</string>
     <string name="skip">skip</string>
     <string name="startgame">START GAME</string>
+    <string name="dailymode">Calcul du jour</string>
 
 </resources>
