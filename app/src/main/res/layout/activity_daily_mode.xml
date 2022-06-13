@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.DailyMode">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="190dp"
+            android:background="@drawable/background"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TableLayout
+            android:id="@+id/tableLayout"
+            android:layout_width="match_parent"
+            android:layout_height="322dp"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginBottom="15dp"
+            android:weightSum="4"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="4"
+            app:layout_constraintStart_toStartOf="parent">
+
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
+
+                <androidx.appcompat.widget.AppCompatButton
+
+                    android:id="@+id/button1"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_below="@+id/passwordField"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/greybutton"
+                    android:fontFamily="@font/muli_semibold"
+                    android:gravity="center"
+                    android:onClick="button1"
+                    android:text="@string/one"
+                    android:textSize="30dp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+
+                    android:id="@+id/button2"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_below="@+id/passwordField"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/greybutton"
+                    android:fontFamily="@font/muli_semibold"
+                    android:gravity="center"
+                    android:onClick="button2"
+                    android:text="@string/two"
+                    android:textSize="30dp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+
+                    android:id="@+id/button3"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_below="@+id/passwordField"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/greybutton"
+                    android:fontFamily="@font/muli_semibold"
+                    android:gravity="center"
+                    android:onClick="button3"
+                    android:text="@string/three"
+                    android:textSize="30dp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+
+                    android:id="@+id/buttonclear"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_below="@+id/passwordField"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/orangebutton"
+                    android:fontFamily="@font/muli_semibold"
+                    android:gravity="center"
+                    android:onClick="buttondel"
+                    android:text="@string/del"
+                    android:textColor="@color/white"
+                    android:textSize="30dp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="288dp">
+
+                <androidx.appcompat.widget.AppCompatButton
+
+                    android:id="@+id/button4"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_below="@+id/passwordField"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/greybutton"
+                    android:fontFamily="@font/muli_semibold"
+                    android:gravity="center"
+                    android:onClick="button4"
+                    android:text="@string/four"
+                    android:textSize="30dp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+
+                    android:id="@+id/button5"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_below="@+id/passwordField"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/greybutton"
+                    android:fontFamily="@font/muli_semibold"
+                    android:gravity="center"
+                    android:onClick="button5"
+                    android:text="@string/five"
+                    android:textSize="30dp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+
+                    android:id="@+id/button6"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_below="@+id/passwordField"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/greybutton"
+                    android:fontFamily="@font/muli_semibold"
+                    android:gravity="center"
+                    android:onClick="button6"
+                    android:text="@string/six"
+                    android:textSize="30dp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+
+                    android:id="@+id/buttonclearall"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_below="@+id/passwordField"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/orangebutton"
+                    android:fontFamily="@font/muli_semibold"
+                    android:gravity="center"
+                    android:onClick="buttondelall"
+                    android:text="@string/delall"
+                    android:textColor="@color/white"
+                    android:textSize="30dp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="288dp">
+
+                <androidx.appcompat.widget.AppCompatButton
+
+                    android:id="@+id/button7"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_below="@+id/passwordField"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/greybutton"
+                    android:fontFamily="@font/muli_semibold"
+                    android:gravity="center"
+                    android:onClick="button7"
+                    android:text="@string/seven"
+                    android:textSize="30dp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+
+                    android:id="@+id/button8"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_below="@+id/passwordField"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/greybutton"
+                    android:fontFamily="@font/muli_semibold"
+                    android:gravity="center"
+                    android:onClick="button8"
+                    android:text="@string/height"
+                    android:textSize="30dp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+
+                    android:id="@+id/button9"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_below="@+id/passwordField"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/greybutton"
+                    android:fontFamily="@font/muli_semibold"
+                    android:gravity="center"
+                    android:onClick="button9"
+                    android:text="@string/nine"
+                    android:textSize="30dp" />
+
+
+                <androidx.appcompat.widget.AppCompatButton
+
+                    android:id="@+id/buttonc"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_below="@+id/passwordField"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/orangebutton"
+                    android:fontFamily="@font/muli_semibold"
+                    android:gravity="center"
+                    android:onClick="buttonminus"
+                    android:text="@string/minus"
+                    android:textColor="@color/white"
+                    android:textSize="30dp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="77dp">
+
+                <androidx.appcompat.widget.AppCompatButton
+
+                    android:id="@+id/button0"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_below="@+id/passwordField"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/greybutton"
+                    android:fontFamily="@font/muli_semibold"
+                    android:gravity="center"
+                    android:onClick="button0"
+                    android:text="@string/zero"
+                    android:textSize="30dp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+
+                    android:id="@+id/buttoncomma"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_below="@+id/passwordField"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/greybutton"
+                    android:fontFamily="@font/muli_semibold"
+                    android:gravity="center"
+                    android:onClick="buttoncomma"
+                    android:text="@string/comma"
+                    android:textSize="30dp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+
+                    android:layout_width="70dp"
+
+                    android:layout_height="70dp"
+                    android:layout_below="@+id/passwordField"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/greybutton"
+                    android:fontFamily="@font/muli_semibold"
+                    android:gravity="center"
+                    android:text=""
+                    android:textSize="30dp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+
+                    android:id="@+id/buttonenter"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_below="@+id/passwordField"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/orangebutton"
+                    android:fontFamily="@font/muli_semibold"
+                    android:gravity="center"
+                    android:onClick="buttondivision"
+                    android:text="@string/division"
+                    android:textColor="@color/white"
+                    android:textSize="30dp" />
+            </TableRow>
+        </TableLayout>
+
+        <TextView
+            android:id="@+id/textequation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:focusedByDefault="true"
+            android:fontFamily="@font/muli_regular"
+            android:inputType="textPersonName"
+            android:text="Equation"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="35dp"
+            app:layout_constraintBottom_toTopOf="@+id/inputanswer"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/points" />
+
+        <EditText
+
+            android:id="@+id/inputanswer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="44dp"
+            android:cursorVisible="true"
+            android:ems="10"
+            android:focusableInTouchMode="false"
+            android:focusedByDefault="true"
+            android:imeOptions="actionDone"
+            android:inputType="textPersonName"
+            android:text=""
+            android:textAlignment="center"
+            android:textSize="30dp"
+            app:layout_constraintBottom_toTopOf="@+id/tableLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintStart_toStartOf="parent"
+
+            />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/muli_extrabold"
+            android:gravity="center"
+            android:text="@string/dailymode"
+            android:textColor="@color/white"
+            android:textSize="36dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/timer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="148dp"
+            android:fontFamily="@font/muli_extrabold"
+            android:gravity="center"
+            android:text="Timer"
+            android:textColor="@color/orangemenu"
+            android:textSize="36dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/retour"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginHorizontal="35dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="4dp"
+
+            android:background="@color/purplemenu"
+            android:scaleType="fitCenter"
+            android:src="@drawable/retour"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/plusTen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/muli_extrabold"
+            android:text="+10"
+            android:textColor="@color/bluevictory"
+            android:textSize="20dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/points"
+            app:layout_constraintStart_toEndOf="@+id/points"
+            app:layout_constraintTop_toTopOf="@+id/points"
+            app:layout_constraintVertical_bias="0.4" />
+
+        <TextView
+            android:id="@+id/minusFive"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/muli_extrabold"
+            android:text="-5"
+            android:textColor="@color/redskip"
+            android:textSize="20dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/points"
+            app:layout_constraintStart_toEndOf="@+id/points"
+            app:layout_constraintTop_toTopOf="@+id/points"
+            app:layout_constraintVertical_bias="0.4" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>

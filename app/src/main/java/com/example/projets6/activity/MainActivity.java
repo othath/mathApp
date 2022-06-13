@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
 import com.example.projets6.R;
+import com.example.projets6.RunningFow;
 import com.example.projets6.activity.activity_settings;
 import com.example.projets6.activity.logInActivity;
 
@@ -23,8 +24,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         ImageButton test=(ImageButton) findViewById(R.id.userprofile);
         test.setOnClickListener(v -> login());
+
+        Button runfox=(Button) findViewById(R.id.runfox);
+        runfox.setOnClickListener(v -> openrunfox());
+
 
         classicmode=(Button) findViewById(R.id.classicmode);
         classicmode.setOnClickListener(new View.OnClickListener() {
@@ -58,6 +64,11 @@ public class MainActivity extends AppCompatActivity {
 
 
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+    }
+
+    private void openrunfox(){
+        Intent intent = new Intent(this, RunningFow.class);
+        startActivity(intent);
     }
 
     private void openclassicmode() {

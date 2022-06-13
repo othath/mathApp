@@ -105,23 +105,34 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
-        android:id="@+id/userprofile"
-        android:layout_width="110dp"
-        android:layout_height="68dp"
-
-        android:layout_marginTop="40dp"
+    <FrameLayout
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="27dp"
         android:adjustViewBounds="true"
-        android:background="@android:color/transparent"
         android:maxWidth="24dp"
         android:maxHeight="24dp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/defaultuser"
         app:layout_constraintEnd_toEndOf="@+id/progress_bar"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/progress_bar"
-        app:layout_constraintTop_toTopOf="@+id/progress_bar" />
+        app:layout_constraintTop_toTopOf="@+id/progress_bar" >
+        <ImageButton
+            android:id="@+id/userprofile"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@null"
+            />
 
+        <ImageView android:id="@+id/pic"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/userimage" />
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/circleuser" />
+
+    </FrameLayout>
 
     <ImageButton
         android:id="@+id/tuto"
@@ -234,6 +245,7 @@
 
         </LinearLayout>
     </ScrollView>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
