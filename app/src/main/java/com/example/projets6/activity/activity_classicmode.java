@@ -69,8 +69,7 @@ public class activity_classicmode extends AppCompatActivity {
         //equation = new Equation(point);
         generatEquation();
         textpoint = findViewById(R.id.points);
-        textpoint.setText(Integer.toString((int)(point)));
-
+        textpoint.setText("Score : " +Integer.toString((int)(point)));
     }
 
 
@@ -118,7 +117,7 @@ public class activity_classicmode extends AppCompatActivity {
                 MediaPlayer sound= MediaPlayer.create(activity_classicmode.this,R.raw.bonne_reponse);
                 sound.start();
             }
-            textpoint.setText(Integer.toString((int)(point)));
+            textpoint.setText("Score : "+Integer.toString((int)(point)));
 
 
 
@@ -223,7 +222,7 @@ public class activity_classicmode extends AppCompatActivity {
             point = 0;
         }
         textpoint = findViewById(R.id.points);
-        textpoint.setText(Integer.toString((int)(point)));
+        textpoint.setText("Score : " +Integer.toString((int)(point)));
 
     }
 

@@ -122,10 +122,12 @@
             android:background="@null"
             />
 
-        <ImageView android:id="@+id/pic"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:src="@drawable/userimage" />
+        <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/pic"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/foxprofil"
+        />
 
         <ImageView
             android:layout_width="80dp"
