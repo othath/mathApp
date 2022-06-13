@@ -4,5 +4,8 @@
     <string name="reglage">Settings</string>
     <string name="langue">Language</string>
     <string name="musique">Music</string>
+    <string name="fond">Background music</string>
+    <string name="bruitage">Sound effects</string>
     <string name="start">Start Game !</string>
+    <string name="credit">Credit</string>
 </resources>

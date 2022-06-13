@@ -34,6 +34,10 @@ public class activity_settings extends AppCompatActivity {
     Resources resources;
     TextView messageView;
     TextView messageView2;
+    TextView messageView3;
+    TextView messageView4;
+    Switch messageView5;
+    Button messageView6;
     Button btn_credit;
 
 
@@ -46,6 +50,10 @@ public class activity_settings extends AppCompatActivity {
         switch2 = (Switch) this.findViewById(R.id.bruitage);
         messageView = (TextView) findViewById(R.id.textView);
         messageView2 = (TextView) findViewById(R.id.musique);
+        messageView3 = (TextView) findViewById(R.id.langue);
+        messageView4 = (TextView) findViewById(R.id.fond);
+        messageView5 = (Switch) findViewById(R.id.bruitage);
+        messageView6 = (Button) findViewById(R.id.credit);
         btnFr = findViewById(R.id.french);
         btnEn = findViewById(R.id.english);
         SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
@@ -62,12 +70,20 @@ public class activity_settings extends AppCompatActivity {
             resources = context.getResources();
             messageView.setText(resources.getString(R.string.reglage));
             messageView2.setText(resources.getString(R.string.musique));
+            messageView3.setText(resources.getString(R.string.langue));
+            messageView4.setText(resources.getString(R.string.fond));
+            messageView5.setText(resources.getString(R.string.bruitage));
+            messageView6.setText(resources.getString(R.string.credit));
         }
         else{
             context = LocaleHelper.setLocale(activity_settings.this, "fr");
             resources = context.getResources();
             messageView.setText(resources.getString(R.string.reglage));
             messageView2.setText(resources.getString(R.string.musique));
+            messageView3.setText(resources.getString(R.string.langue));
+            messageView4.setText(resources.getString(R.string.fond));
+            messageView5.setText(resources.getString(R.string.bruitage));
+            messageView6.setText(resources.getString(R.string.credit));
         }
         btn_credit=(Button) findViewById(R.id.credit);
         btn_credit.setOnClickListener(new View.OnClickListener() {
@@ -90,8 +106,10 @@ public class activity_settings extends AppCompatActivity {
                 resources = context.getResources();
                 messageView.setText(resources.getString(R.string.reglage));
                 messageView2.setText(resources.getString(R.string.musique));
-                // messageView.setText(resources.getString(R.string.langue));
-                //messageView.setText(resources.getString(R.string.start));
+                messageView3.setText(resources.getString(R.string.langue));
+                messageView4.setText(resources.getString(R.string.fond));
+                messageView5.setText(resources.getString(R.string.bruitage));
+                messageView6.setText(resources.getString(R.string.credit));
 
             }
         });
@@ -106,8 +124,10 @@ public class activity_settings extends AppCompatActivity {
                 resources = context.getResources();
                 messageView.setText(resources.getString(R.string.reglage));
                 messageView2.setText(resources.getString(R.string.musique));
-                // messageView.setText(resources.getString(R.string.langue));
-                // messageView.setText(resources.getString(R.string.start));
+                messageView3.setText(resources.getString(R.string.langue));
+                messageView4.setText(resources.getString(R.string.fond));
+                messageView5.setText(resources.getString(R.string.bruitage));
+                messageView6.setText(resources.getString(R.string.credit));
             }
         });
 

@@ -45,26 +45,16 @@
             android:orientation="vertical"
             android:visibility="visible">
 
-            <Switch
-                android:id="@+id/switch1"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginHorizontal="35dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="35dp"
-                android:background="@drawable/whitebutton"
-                android:paddingLeft="30dp"
-                android:textSize="15dp"
-                android:text="Dark thème" />
 
             <TextView
+                android:id="@+id/langue"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginHorizontal="20dp"
                 android:background="@drawable/whitebutton"
                 android:backgroundTint="@color/orangemenu"
                 android:fontFamily="@font/muli_extrabold"
-                android:text="Langues"
+                android:text="@string/langue"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="30dp" />
@@ -141,7 +131,7 @@
                 android:background="@drawable/whitebutton"
 
                 android:paddingLeft="30dp"
-                android:text="Musique de fond" />
+                android:text="@string/fond" />
 
             <Switch
                 android:id="@+id/bruitage"
@@ -152,7 +142,7 @@
                 android:background="@drawable/whitebutton"
                 android:textSize="15dp"
                 android:paddingLeft="30dp"
-                android:text="Bruitages" />
+                android:text="@string/bruitage" />
 
             <Button
                 android:id="@+id/credit"
