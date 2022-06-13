@@ -26,8 +26,7 @@ import java.util.TimerTask;
 
 public class activity_classicmode extends AppCompatActivity {
     EditText answer;
-    MainActivity main = new MainActivity();
-    int point = main.point;
+    int point ;
     Equation eq;
     String res;
     TextView textequation;
@@ -47,6 +46,7 @@ public class activity_classicmode extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_classicmode);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        point=
 
         ImageButton retour=findViewById(R.id.retour);
         retour.setOnClickListener(v -> retour());

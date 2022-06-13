@@ -21,7 +21,7 @@ import com.example.projets6.loading_screen;
 
 
 public class MainActivity extends AppCompatActivity {
-    static int point;
+    int point;
     String username;
     Boolean multij;
     TextView pointtext;
