@@ -62,7 +62,7 @@ public class activity_classicmode extends AppCompatActivity {
         //animation
         plusTen =  (TextView)findViewById(R.id.plusTen);
         minusFive = (TextView)findViewById(R.id.minusFive);
-        moovY = 400;
+        moovY = 330 ;
         coordY =moovY;
 
 
@@ -97,7 +97,7 @@ public class activity_classicmode extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void updateAnswer(String strToAdd){
+    public void updateAnswer(String strToAdd){
         String oldString = answer.getText().toString();
         int cursorPos = answer.getSelectionStart();
         String leftStr = oldString.substring(0,cursorPos);
@@ -133,7 +133,6 @@ public class activity_classicmode extends AppCompatActivity {
                     handler.post(new Runnable() {
                         @Override
                         public void run() {
-
                             changePosWin();
                             count+=1;
                             if (count>40){
