@@ -8,4 +8,6 @@
     <string name="bruitage">Sound effects</string>
     <string name="start">Start Game !</string>
     <string name="credit">Credit</string>
+    <string name="dailymode">Calculation of the day</string>
+    <string name="classicmode">Classic Mode</string>
 </resources>
