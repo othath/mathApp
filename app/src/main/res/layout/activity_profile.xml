@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.MainActivity">
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/pointNumber"
+        android:layout_width="138dp"
+        android:layout_height="51dp"
+
+
+        android:fontFamily="@font/muli_extrabold"
+
+        android:gravity="center"
+        android:text="698 points"
+        android:textColor="@color/orangemenu"
+        android:textSize="20dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="166dp"
+        tools:layout_editor_absoluteY="124dp" />
+
+    <TextView
+        android:id="@+id/stats"
+        android:layout_width="229dp"
+        android:layout_height="68dp"
+        android:layout_centerHorizontal="true"
+        android:adjustViewBounds="true"
+        android:background="@android:color/transparent"
+        android:fontFamily="@font/muli_extrabold"
+        android:gravity="center"
+        android:scaleType="fitCenter"
+        android:text="@string/stats"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="64dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="83dp"
+        android:layout_height="96dp"
+        android:indeterminateOnly="false"
+        android:progressDrawable="@drawable/circle"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="266dp"
+        tools:layout_editor_absoluteY="258dp"
+        tools:progress="80" />
+
+    <FrameLayout
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="27dp"
+        android:adjustViewBounds="true"
+        android:maxWidth="24dp"
+        android:maxHeight="24dp"
+
+        >
+
+        <ImageButton
+            android:id="@+id/userprofile"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@null" />
+
+    </FrameLayout>
+
+
+    <TextView
+        android:id="@+id/classement_title"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="35dp"
+        android:background="@drawable/whitebutton"
+        android:fontFamily="@font/muli_semibold"
+        android:gravity="center"
+        android:radius="5dp"
+        android:shadowRadius="@integer/material_motion_duration_long_1"
+        android:text="Classement de l'utilisateur"
+        android:textColor="@color/black"
+        android:textSize="24dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="64dp"
+        tools:layout_editor_absoluteY="263dp" />
+
+    <ImageView
+        android:layout_width="73dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="28dp"
+        android:src="@drawable/circleuser"
+        app:layout_constraintStart_toEndOf="@+id/stats"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/pic"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/foxprofil"
+         />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
