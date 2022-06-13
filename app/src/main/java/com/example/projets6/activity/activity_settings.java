@@ -12,47 +12,29 @@ import android.widget.Switch;
 import android.widget.ImageButton;
 
 import com.example.projets6.R;
-import com.example.projets6.activity.logInActivity;
+import com.example.projets6.activity.LocaleHelper;
+import com.example.projets6.loading_screen;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.graphics.Color;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.graphics.Color;
-import android.graphics.drawable.AnimationDrawable;
-import android.widget.TextView;
 import android.widget.Toast;
-import android.annotation.TargetApi;
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.content.res.Configuration;
-import android.os.Build;
-import android.preference.PreferenceManager;
 import android.content.res.Resources;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
+
+import java.util.Locale;
 
 public class activity_settings extends AppCompatActivity {
 
 
-
+    ImageButton btnFr,btnEn;
     Switch switch1;
     Switch switch2;
     MediaPlayer coche;
     MediaPlayer decoche;
-    ImageButton btnFr, btnEn;
-    TextView Music;
     Context context;
     Resources resources;
+    TextView messageView;
+    TextView messageView2;
     Button btn_credit;
-
 
 
     @Override
@@ -62,6 +44,10 @@ public class activity_settings extends AppCompatActivity {
 
         switch1 = (Switch) this.findViewById(R.id.fond);
         switch2 = (Switch) this.findViewById(R.id.bruitage);
+        messageView = (TextView) findViewById(R.id.textView);
+        messageView2 = (TextView) findViewById(R.id.musique);
+        btnFr = findViewById(R.id.french);
+        btnEn = findViewById(R.id.english);
         SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
         switch1.setChecked(sharedPreferences.getBoolean("value",true));
         switch2.setChecked(sharedPreferences.getBoolean("value2",true));
@@ -69,27 +55,59 @@ public class activity_settings extends AppCompatActivity {
         ImageButton retour= (ImageButton) findViewById(R.id.retour);
         retour.setOnClickListener(v -> retour());
 
-        Music = (TextView) findViewById(R.id.musique);
-        btnFr = findViewById(R.id.french);
-        btnEn = findViewById(R.id.english);
-        btn_credit=findViewById(R.id.credit);
+
+
+        if (sharedPreferences.getBoolean("langue2",true)) {
+            context = LocaleHelper.setLocale(activity_settings.this, "hi");
+            resources = context.getResources();
+            messageView.setText(resources.getString(R.string.reglage));
+            messageView2.setText(resources.getString(R.string.musique));
+        }
+        else{
+            context = LocaleHelper.setLocale(activity_settings.this, "fr");
+            resources = context.getResources();
+            messageView.setText(resources.getString(R.string.reglage));
+            messageView2.setText(resources.getString(R.string.musique));
+        }
+        btn_credit=(Button) findViewById(R.id.credit);
+        btn_credit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                credit();
+
+            }
+        });
 
 
         btnEn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                SharedPreferences.Editor editor=getSharedPreferences("save",MODE_PRIVATE).edit();
+                editor.putBoolean("langue2",true);
+                editor.apply();
                 context = LocaleHelper.setLocale(activity_settings.this, "hi");
                 resources = context.getResources();
-                Music.setText(resources.getString(R.string.musique));
+                messageView.setText(resources.getString(R.string.reglage));
+                messageView2.setText(resources.getString(R.string.musique));
+                // messageView.setText(resources.getString(R.string.langue));
+                //messageView.setText(resources.getString(R.string.start));
+
             }
         });
 
         btnFr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                SharedPreferences.Editor editor=getSharedPreferences("save",MODE_PRIVATE).edit();
+                editor.putBoolean("langue2",false);
+                editor.apply();
                 context = LocaleHelper.setLocale(activity_settings.this, "fr");
                 resources = context.getResources();
-                Music.setText(resources.getString(R.string.musique));
+                messageView.setText(resources.getString(R.string.reglage));
+                messageView2.setText(resources.getString(R.string.musique));
+                // messageView.setText(resources.getString(R.string.langue));
+                // messageView.setText(resources.getString(R.string.start));
             }
         });
 
@@ -152,13 +170,6 @@ public class activity_settings extends AppCompatActivity {
                 }
             }
         });
-        btn_credit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                credit();
-
-            }
-        });
 
 
     }
@@ -170,10 +181,11 @@ public class activity_settings extends AppCompatActivity {
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
-    public void credit() {
+
+    private void credit() {
         Intent intent = new Intent(this, com.example.projets6.credit.class);
         startActivity(intent);
-        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 
 

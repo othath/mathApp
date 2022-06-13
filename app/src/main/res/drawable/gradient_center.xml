@@ -7,4 +7,5 @@
         android:startColor="@color/colorGradientCenter"
         android:centerColor="@color/colorGradientEnd"
         android:endColor="@color/colorGradientStart"/>
+
 </shape>
