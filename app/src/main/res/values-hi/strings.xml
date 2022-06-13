@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FoxMaths</string>
+    <string name="reglage">Settings</string>
+    <string name="langue">Language</string>
+    <string name="musique">Music</string>
+    <string name="start">Start Game !</string>
+</resources>

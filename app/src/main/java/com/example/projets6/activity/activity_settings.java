@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Switch;
 import android.widget.ImageButton;
 
@@ -24,7 +25,19 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.graphics.Color;
 import android.graphics.drawable.AnimationDrawable;
+import android.widget.TextView;
 import android.widget.Toast;
+import android.annotation.TargetApi;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.os.Build;
+import android.preference.PreferenceManager;
+import android.content.res.Resources;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 public class activity_settings extends AppCompatActivity {
 
@@ -34,6 +47,11 @@ public class activity_settings extends AppCompatActivity {
     Switch switch2;
     MediaPlayer coche;
     MediaPlayer decoche;
+    ImageButton btnFr, btnEn;
+    TextView Music;
+    Context context;
+    Resources resources;
+    Button btn_credit;
 
 
 
@@ -50,6 +68,30 @@ public class activity_settings extends AppCompatActivity {
 
         ImageButton retour= (ImageButton) findViewById(R.id.retour);
         retour.setOnClickListener(v -> retour());
+
+        Music = (TextView) findViewById(R.id.musique);
+        btnFr = findViewById(R.id.french);
+        btnEn = findViewById(R.id.english);
+        btn_credit=findViewById(R.id.credit);
+
+
+        btnEn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                context = LocaleHelper.setLocale(activity_settings.this, "hi");
+                resources = context.getResources();
+                Music.setText(resources.getString(R.string.musique));
+            }
+        });
+
+        btnFr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                context = LocaleHelper.setLocale(activity_settings.this, "fr");
+                resources = context.getResources();
+                Music.setText(resources.getString(R.string.musique));
+            }
+        });
 
         switch1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -110,6 +152,13 @@ public class activity_settings extends AppCompatActivity {
                 }
             }
         });
+        btn_credit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                credit();
+
+            }
+        });
 
 
     }
@@ -119,6 +168,12 @@ public class activity_settings extends AppCompatActivity {
     private void retour() {
         Intent intent = new Intent(this, com.example.projets6.activity.MainActivity.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+    }
+    public void credit() {
+        Intent intent = new Intent(this, com.example.projets6.credit.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
 

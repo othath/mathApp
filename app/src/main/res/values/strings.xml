@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">FoxMaths</string>
+    <string name="reglage">Réglages</string>
+    <string name="langue">Langue</string>
+    <string name="musique">Musique</string>
+    <string name="start">Démarrer le jeu</string>
     <string name="signInText2">Connecte toi et défis d\'autres utilisateurs !</string>
     <string name="singInTitle">Connexion</string>
     <string name="hintPassword">Password</string>

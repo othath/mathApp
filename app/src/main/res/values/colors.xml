@@ -11,4 +11,17 @@
     <color name="orangemenu">#E99805</color>
     <color name="bluevictory">#246FC2</color>
     <color name="redskip">#EA4335</color>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="colorTransparent">#00ffffff</color>
+
+    <color name="colorGradientStart">#D9FF43</color>
+    <color name="colorGradientCenter">#F67831</color>
+    <color name="colorGradientEnd">#FF1493</color>
+
+    <color name="colorGradientStart2">#14FF18</color>
+    <color name="colorGradientCenter2">#27CBFF</color>
+    <color name="colorGradientEnd2">#1934F8</color>
 </resources>

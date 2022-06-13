@@ -26,6 +26,7 @@
         </activity>
         <activity android:name="com.example.projets6.loading_screen"></activity>
         <activity android:name=".activity.logInActivity"></activity>
+        <activity android:name=".credit"></activity>
         <activity android:name=".activity.InscriptionActivity" />
         <activity android:name=".activity.activity_classicmode"></activity>
         <activity
