@@ -30,12 +30,9 @@
         <activity
             android:name="com.example.projets6.activity.logInActivity">
         </activity>
+        <activity android:name=".activity.InscriptionActivity"></activity>
         <activity
             android:name="com.example.projets6.activity_classicmode">
-        </activity>
-
-        <activity
-            android:name="com.example.projets6.RunningFow">
         </activity>
 
 

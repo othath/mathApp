@@ -6,7 +6,7 @@ import java.util.Random;
 
 
 public class Equation {
-    String equations;
+    public String equations;
 
     public Equation(int points){
         this.equations = generateEquation(points);
@@ -16,6 +16,9 @@ public class Equation {
         String res="";
         int r;
         switch(points){
+            case 0:
+                res = generate1()+generate1();
+                break;
             case 1:
                 res = generate1()+generate1();
                 break;
@@ -87,7 +90,7 @@ public class Equation {
                     res = generate4()+generate5();
                 }
                 break;
-            case 10:
+            default:
                 r=(new Random()).nextInt(5)+1;
                 if (r==1){
                     res = generate9()+generate1();
@@ -101,6 +104,7 @@ public class Equation {
                     res = generate6()+generate4();
                 }
                 break;
+
 
         }
         return Integer.toString(new Random().nextInt(28)+1)+res;
@@ -125,7 +129,7 @@ public class Equation {
     }
 
     public String generate2(){
-        int r = (new Random()).nextInt(6)+1;
+        int r = (new Random()).nextInt(5)+1;
         String res="";
         switch(r){
             case 1:
@@ -138,19 +142,16 @@ public class Equation {
                 res = Xmodulo2();
                 break;
             case 4:
-                res = minusXmodulo10();
-                break;
-            case 5:
                 res = timesXmodulo10();
                 break;
-            case 6:
+            case 5:
                 res = times2();
                 break;
         }
         return res;
     }
     public String generate3(){
-        int r = (new Random()).nextInt(2)+1;
+        int r = (new Random()).nextInt(3)+1;
         String res="";
         switch(r) {
             case 1:
@@ -158,6 +159,9 @@ public class Equation {
                 break;
             case 2:
                 res = minusXinf10();
+                break;
+            case 3:
+                res = minusXmodulo10();
                 break;
         }
         return res;
@@ -366,7 +370,7 @@ public class Equation {
 
     public String Xcoeff10(){
         int r = (new Random()).nextInt(10)+1;
-        String res= "+"+Integer.toString(r)+"^2";
+        String res= "+"+Integer.toString(r)+"^(2)";
         return res;
     }
 
@@ -419,7 +423,7 @@ public class Equation {
         square.add(19);
         square.add(20);
 
-        String res="+"+ Integer.toString(square.get(rand.nextInt(square.size())))+"^2";
+        String res="+"+ Integer.toString(square.get(rand.nextInt(square.size())))+"^(2)";
         return res;
     }
 
@@ -446,7 +450,7 @@ public class Equation {
         element.add(8);
         element.add(9);
         element.add(10);
-        String res="+"+ Integer.toString(element.get(rand.nextInt(element.size())))+"^3";
+        String res="+"+ Integer.toString(element.get(rand.nextInt(element.size())))+"^(3)";
         return res;
     }
 
