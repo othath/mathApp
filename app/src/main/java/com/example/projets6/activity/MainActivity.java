@@ -17,6 +17,7 @@ import com.example.projets6.R;
 import com.example.projets6.RunningFow;
 import com.example.projets6.activity.activity_settings;
 import com.example.projets6.activity.logInActivity;
+import com.example.projets6.loading_screen;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -26,6 +27,11 @@ public class MainActivity extends AppCompatActivity {
     TextView pointtext;
     TextView messageView;
     TextView messageView2;
+
+    TextView messageView3;
+
+
+
     Button classicmode;
     Context context;
     Resources resources;
@@ -36,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
         messageView = (TextView) findViewById(R.id.classicmode);
         messageView2 = (TextView) findViewById(R.id.dailymode);
+        messageView3 = (TextView) findViewById(R.id.lvlplayer);
         pointtext = findViewById(R.id.pointNumber);
         TextView usertext = findViewById(R.id.username);
         TextView lvlplayer = findViewById(R.id.lvlplayer);
@@ -129,33 +136,112 @@ public class MainActivity extends AppCompatActivity {
         this.point= point;
     }
     public void setlvl(TextView lvlplayer,TextView pourcent){
+        SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
         if (point>0){
-            lvlplayer.setText("Débutant");
+            lvlplayer.setText(R.string.beginner);
+            if (sharedPreferences.getBoolean("langue2",true)) {
+                context = LocaleHelper.setLocale(MainActivity.this, "hi");
+                resources = context.getResources();
+                messageView3.setText(resources.getString(R.string.beginner));
+
+            }
+            else{
+                context = LocaleHelper.setLocale(MainActivity.this, "fr");
+                resources = context.getResources();
+                messageView3.setText(resources.getString(R.string.beginner));
+
+
+            }
             int pc = (int) ((point)/2);
             pourcent.setText(Integer.toString(pc)+"%");
         }
         if (point>200){
-            lvlplayer.setText("Débutant");
+            lvlplayer.setText(R.string.beginner);
+            if (sharedPreferences.getBoolean("langue2",true)) {
+                context = LocaleHelper.setLocale(MainActivity.this, "hi");
+                resources = context.getResources();
+                messageView3.setText(resources.getString(R.string.beginner));
+
+            }
+            else{
+                context = LocaleHelper.setLocale(MainActivity.this, "fr");
+                resources = context.getResources();
+                messageView3.setText(resources.getString(R.string.beginner));
+
+
+            }
             int pc = (int) ((point-200)/2);
             pourcent.setText(Integer.toString(pc)+"%");
         }
         if (point>400){
-            lvlplayer.setText("Intermédiaire");
+            lvlplayer.setText(R.string.intermediary);
+            if (sharedPreferences.getBoolean("langue2",true)) {
+                context = LocaleHelper.setLocale(MainActivity.this, "hi");
+                resources = context.getResources();
+                messageView3.setText(resources.getString(R.string.intermediary));
+
+            }
+            else{
+                context = LocaleHelper.setLocale(MainActivity.this, "fr");
+                resources = context.getResources();
+                messageView3.setText(resources.getString(R.string.intermediary));
+
+
+            }
             int pc = (int) ((point-400)/2);
             pourcent.setText(Integer.toString(pc)+"%");
         }
         if (point>600){
-            lvlplayer.setText("Avancé");
+            lvlplayer.setText(R.string.advanced);
+            if (sharedPreferences.getBoolean("langue2",true)) {
+                context = LocaleHelper.setLocale(MainActivity.this, "hi");
+                resources = context.getResources();
+                messageView3.setText(resources.getString(R.string.advanced));
+
+            }
+            else{
+                context = LocaleHelper.setLocale(MainActivity.this, "fr");
+                resources = context.getResources();
+                messageView3.setText(resources.getString(R.string.advanced));
+
+
+            }
             int pc = (int) ((point-600)/2);
             pourcent.setText(Integer.toString(pc)+"%");
         }
         if (point>800){
-            lvlplayer.setText("Confirmé");
+            lvlplayer.setText(R.string.confirmed);
+            if (sharedPreferences.getBoolean("langue2",true)) {
+                context = LocaleHelper.setLocale(MainActivity.this, "hi");
+                resources = context.getResources();
+                messageView3.setText(resources.getString(R.string.confirmed));
+
+            }
+            else{
+                context = LocaleHelper.setLocale(MainActivity.this, "fr");
+                resources = context.getResources();
+                messageView3.setText(resources.getString(R.string.confirmed));
+
+
+            }
             int pc = (int) ((point-800)/2);
             pourcent.setText(Integer.toString(pc)+"%");
         }
         if (point>1000){
-            lvlplayer.setText("Expert");
+            lvlplayer.setText(R.string.expert);
+            if (sharedPreferences.getBoolean("langue2",true)) {
+                context = LocaleHelper.setLocale(MainActivity.this, "hi");
+                resources = context.getResources();
+                messageView3.setText(resources.getString(R.string.expert));
+
+            }
+            else{
+                context = LocaleHelper.setLocale(MainActivity.this, "fr");
+                resources = context.getResources();
+                messageView3.setText(resources.getString(R.string.expert));
+
+
+            }
             int pc = 100;
             pourcent.setText(Integer.toString(pc)+"%");
         }

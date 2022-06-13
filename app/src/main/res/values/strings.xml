@@ -14,6 +14,12 @@
     <string name="logInBtn">Se Connecter</string>
     <string name="hintUser">Nom d\'utilisateur</string>
     <string name="toSignUp">Créer un compte.</string>
+    <string name="beginner">Débutant</string>
+    <string name="intermediary">Intermédiraire</string>
+    <string name="advanced">Avancé</string>
+    <string name="confirmed">Confirmé</string>
+    <string name="expert">Expert</string>
+
     <string name="zero">0</string>
     <string name="one">1</string>
     <string name="two">2</string>
