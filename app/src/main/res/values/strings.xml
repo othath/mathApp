@@ -49,5 +49,7 @@
     <string name="startgame">Démarrer le jeu</string>
     <string name="dailymode">Calcul du jour</string>
     <string name="developed">Développé par le Groupe 6</string>
+    <string name="stats">Statistiques</string>
+    <string name="classement_text">Classement de l\'utilisateur</string>
 
 </resources>

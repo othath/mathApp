@@ -174,11 +174,10 @@
         android:layout_marginTop="48dp"
         android:indeterminateOnly="false"
         android:progressDrawable="@drawable/circle"
-        android:rotation="-90"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:progress="40" />
+        tools:progress="80" />
 
     <ScrollView
         android:layout_width="match_parent"
