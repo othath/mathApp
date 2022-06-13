@@ -134,13 +134,15 @@ public class logInActivity extends AppCompatActivity {
                 String passEncrypted=getSHA(passwordField.getText().toString());
                 String passDb=snapshot.child("password").getValue(String.class);
                 int score=snapshot.child("score").getValue(Integer.class);
-                Player p=new Player(userName,passDb, score);
+                boolean multij=snapshot.child("multijoueur").getValue(Boolean.class);
+                Player p=new Player(userName,passDb, score,false);
                 if(passDb.equals(passEncrypted)){//passEncrypted
-                    Log.i("DEBUG",passwordField.getText().toString());
                     Intent i = new Intent(logInActivity.this, MainActivity.class);
-                    i.putExtra("userName",userName);
-                    i.putExtra("password",passDb);
-                    i.putExtra("score",score);
+                    SharedPreferences prefs = getSharedPreferences("MyApp", MODE_PRIVATE);
+                    prefs.edit().putString("username", userName).commit();
+                    prefs.edit().putInt("score", score).commit();
+                    prefs.edit().putBoolean("multijoueur",multij).commit();
+
                     startActivity(i);
                     overridePendingTransition(R.anim.slide_in_right, R.anim.slide_in_left);
 

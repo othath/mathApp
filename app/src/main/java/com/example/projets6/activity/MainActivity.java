@@ -21,6 +21,8 @@ import com.example.projets6.activity.logInActivity;
 
 public class MainActivity extends AppCompatActivity {
     static int point;
+    String username;
+    Boolean multij;
     TextView pointtext;
     TextView messageView;
     TextView messageView2;
@@ -34,11 +36,23 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
         messageView = (TextView) findViewById(R.id.classicmode);
         messageView2 = (TextView) findViewById(R.id.dailymode);
+        pointtext = findViewById(R.id.pointNumber);
+        TextView usertext = findViewById(R.id.username);
+        TextView lvlplayer = findViewById(R.id.lvlplayer);
+        TextView pourcent = findViewById(R.id.pourcent);
         ImageButton test=(ImageButton) findViewById(R.id.userprofile);
+       // username = getIntent().getStringExtra("userName");
+
+        SharedPreferences prefs = getSharedPreferences("MyApp", MODE_PRIVATE);
+        username = prefs.getString("username", "UNKNOWN");
+        point = prefs.getInt("score", 0);
+        boolean multi=prefs.getBoolean("multijoueur",false);
+      //  point = getIntent().getIntExtra("score",100);
         if (sharedPreferences.getBoolean("langue2",true)) {
             context = LocaleHelper.setLocale(MainActivity.this, "hi");
             resources = context.getResources();
-            messageView.setText(resources.getString(R.string.classicmode));
+            //messageView.setText(resources.getString(R.string.classicmode));
+            messageView.setText(String.valueOf(multi));
             messageView2.setText(resources.getString(R.string.dailymode));
 
         }
@@ -47,7 +61,6 @@ public class MainActivity extends AppCompatActivity {
             resources = context.getResources();
             messageView.setText(resources.getString(R.string.classicmode));
             messageView2.setText(resources.getString(R.string.dailymode));
-
         }
         test.setOnClickListener(v -> login());
 
@@ -72,17 +85,12 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        pointtext = findViewById(R.id.pointNumber);
-        TextView usertext = findViewById(R.id.username);
-        TextView lvlplayer = findViewById(R.id.lvlplayer);
-        TextView pourcent = findViewById(R.id.pourcent);
+
         setlvl(lvlplayer,pourcent);
 
 
-        String user = getIntent().getStringExtra("userName");
-        String pass = getIntent().getStringExtra("password");
-        point = getIntent().getIntExtra("score",100);
-        usertext.setText(user);
+
+        usertext.setText(username);
         pointtext.setText(String.valueOf(point));
 
 

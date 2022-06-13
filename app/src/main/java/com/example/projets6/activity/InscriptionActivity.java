@@ -57,7 +57,7 @@ public class InscriptionActivity extends Activity {
             public void onClick(View v) {
                 if(signupFormIsValid()){
                     Player j=new Player(userField.getText().toString()
-                    ,passEncrypted,10);
+                    ,passEncrypted,10,false);
                     mDatabase.orderByChild("userName").equalTo(userField.getText().toString()). ///where username= usr
                             addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
