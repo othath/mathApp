@@ -41,6 +41,7 @@ public class activity_settings extends AppCompatActivity {
     Button btn_credit;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

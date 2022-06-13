@@ -22,7 +22,7 @@
         android:layout_marginTop="100dp"
         android:shadowColor="#ff0000"
         android:shadowRadius="2"
-        android:text="Développé par Groupe 6"
+        android:text="@string/developed"
         android:textColor="#673AB7"
         android:textSize="32sp"
         android:textStyle="bold"
@@ -40,7 +40,7 @@
         android:layout_marginHorizontal="35dp"
         android:background="@drawable/orangebutton"
 
-        android:text="START GAME"
+        android:text="@string/startgame"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

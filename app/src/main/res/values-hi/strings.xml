@@ -10,4 +10,6 @@
     <string name="credit">Credit</string>
     <string name="dailymode">Calculation of the day</string>
     <string name="classicmode">Classic Mode</string>
+    <string name="startgame">Start Game</string>
+    <string name="developed">Developed by Group 6</string>
 </resources>

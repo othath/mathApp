@@ -46,7 +46,8 @@
     <string name="signUpTitle">Sign Up</string>
     <string name="classicmode">Mode Classique</string>
     <string name="skip">skip</string>
-    <string name="startgame">START GAME</string>
+    <string name="startgame">Démarrer le jeu</string>
     <string name="dailymode">Calcul du jour</string>
+    <string name="developed">Développé par le Groupe 6</string>
 
 </resources>

@@ -16,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjetS6">
         <activity
-            android:name=".activity.MainActivity"
+            android:name=".loading_screen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,7 +27,7 @@
         <activity
             android:name=".activity.DailyMode"
             android:exported="false" />
-        <activity android:name="com.example.projets6.loading_screen"></activity>
+        <activity android:name="com.example.projets6.activity.MainActivity"></activity>
         <activity android:name=".activity.logInActivity"></activity>
         <activity android:name=".credit"></activity>
         <activity android:name=".activity.InscriptionActivity" />
