@@ -212,14 +212,14 @@
                 tools:layout_editor_absoluteX="48dp" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/dailymode"
+                android:id="@+id/runfox"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginHorizontal="35dp"
                 android:layout_marginTop="35dp"
-                android:text="@string/dailymode"
+                android:text="@string/adventuremode"
                 android:fontFamily="@font/muli_extrabold"
                 android:textSize="24dp"
                 android:textColor="@color/purplemenu"
@@ -230,7 +230,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/classicmode" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/runfox"
+                android:id="@+id/runfoxmulti"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_alignParentLeft="true"
@@ -238,9 +238,11 @@
                 android:layout_marginHorizontal="35dp"
                 android:layout_marginTop="35dp"
                 android:layout_marginBottom="35dp"
+                android:fontFamily="@font/muli_extrabold"
+                android:textSize="24dp"
+                android:text="@string/multimode"
                 android:background="@drawable/whitebutton"
                 app:layout_constraintEnd_toEndOf="@+id/test"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/test"
                 app:layout_constraintTop_toBottomOf="@+id/button" />
 

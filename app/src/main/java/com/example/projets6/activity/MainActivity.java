@@ -139,11 +139,11 @@ public class MainActivity extends AppCompatActivity {
     public void setlvl(TextView lvlplayer,TextView pourcent){
         SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
         if (point>0){
-            lvlplayer.setText(R.string.beginner);
+            lvlplayer.setText(R.string.novice);
             if (sharedPreferences.getBoolean("langue2",true)) {
                 context = LocaleHelper.setLocale(MainActivity.this, "hi");
                 resources = context.getResources();
-                messageView3.setText(resources.getString(R.string.beginner));
+                messageView3.setText(resources.getString(R.string.novice));
 
             }
             else{
