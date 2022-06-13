@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
         messageView = (TextView) findViewById(R.id.classicmode);
-        messageView2 = (TextView) findViewById(R.id.dailymode);
         messageView3 = (TextView) findViewById(R.id.lvlplayer);
         pointtext = findViewById(R.id.pointNumber);
         TextView usertext = findViewById(R.id.username);
@@ -60,14 +59,12 @@ public class MainActivity extends AppCompatActivity {
             resources = context.getResources();
             messageView.setText(resources.getString(R.string.classicmode));
            // messageView.setText(String.valueOf(multi));
-            messageView2.setText(resources.getString(R.string.dailymode));
 
         }
         else{
             context = LocaleHelper.setLocale(MainActivity.this, "fr");
             resources = context.getResources();
             messageView.setText(resources.getString(R.string.classicmode));
-            messageView2.setText(resources.getString(R.string.dailymode));
         }
         test.setOnClickListener(v -> login());
 

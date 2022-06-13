@@ -8,6 +8,86 @@
     tools:context=".activity.MainActivity">
 
 
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="204dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatButton
+
+                android:id="@+id/classicmode"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginHorizontal="35dp"
+                android:layout_marginTop="35dp"
+                android:background="@drawable/whitebutton"
+                android:contentDescription="classicmode"
+                android:fontFamily="@font/muli_extrabold"
+                android:text="@string/classicmode"
+                android:textColor="@color/purplemenu"
+                android:textSize="24dp"
+                app:layout_constraintTop_toTopOf="@+id/textView2"
+                tools:layout_editor_absoluteX="48dp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/runfox"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginHorizontal="35dp"
+                android:layout_marginTop="35dp"
+                android:background="@drawable/whitebutton"
+                android:fontFamily="@font/muli_extrabold"
+                android:text="@string/adventuremode"
+                android:textColor="@color/purplemenu"
+                android:textSize="24dp"
+                app:layout_constraintEnd_toEndOf="@+id/test"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/classicmode"
+                app:layout_constraintTop_toBottomOf="@+id/classicmode" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/runfoxmulti"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginHorizontal="35dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginBottom="35dp"
+                android:background="@drawable/whitebutton"
+                android:fontFamily="@font/muli_extrabold"
+                android:text="@string/multimode"
+                android:textSize="24dp"
+                app:layout_constraintEnd_toEndOf="@+id/test"
+                app:layout_constraintStart_toStartOf="@+id/test"
+                app:layout_constraintTop_toBottomOf="@+id/button" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"/>
+
+            <pl.droidsonroids.gif.GifImageView
+                android:id="@+id/pic2"
+                android:layout_width="match_parent"
+                android:layout_height="168dp"
+                android:src="@drawable/foxplexus"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+        </LinearLayout>
+    </ScrollView>
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
@@ -123,11 +203,11 @@
             />
 
         <pl.droidsonroids.gif.GifImageView
-        android:id="@+id/pic"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:src="@drawable/foxprofil"
-        />
+            android:id="@+id/pic"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/foxprofil"
+            />
 
         <ImageView
             android:layout_width="80dp"
@@ -179,75 +259,6 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:progress="80" />
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="204dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <androidx.appcompat.widget.AppCompatButton
-
-                android:id="@+id/classicmode"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginHorizontal="35dp"
-                android:layout_marginTop="35dp"
-                android:text="@string/classicmode"
-                android:fontFamily="@font/muli_extrabold"
-                android:textSize="24dp"
-                android:textColor="@color/purplemenu"
-                android:background="@drawable/whitebutton"
-                android:contentDescription="classicmode"
-                app:layout_constraintTop_toTopOf="@+id/textView2"
-                tools:layout_editor_absoluteX="48dp" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/runfox"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginHorizontal="35dp"
-                android:layout_marginTop="35dp"
-                android:text="@string/adventuremode"
-                android:fontFamily="@font/muli_extrabold"
-                android:textSize="24dp"
-                android:textColor="@color/purplemenu"
-                android:background="@drawable/whitebutton"
-                app:layout_constraintEnd_toEndOf="@+id/test"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/classicmode"
-                app:layout_constraintTop_toBottomOf="@+id/classicmode" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/runfoxmulti"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginHorizontal="35dp"
-                android:layout_marginTop="35dp"
-                android:layout_marginBottom="35dp"
-                android:fontFamily="@font/muli_extrabold"
-                android:textSize="24dp"
-                android:text="@string/multimode"
-                android:background="@drawable/whitebutton"
-                app:layout_constraintEnd_toEndOf="@+id/test"
-                app:layout_constraintStart_toStartOf="@+id/test"
-                app:layout_constraintTop_toBottomOf="@+id/button" />
-
-        </LinearLayout>
-    </ScrollView>
 
 
 

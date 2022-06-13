@@ -142,14 +142,14 @@
                 android:paddingLeft="30dp"
                 android:text="@string/bruitage" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/credit"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginHorizontal="110dp"
                 android:background="@drawable/whitebutton"
                 android:backgroundTint="@color/orangemenu"
-                android:text="Crédit"
+                android:text="Crédits"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="20dp" />
