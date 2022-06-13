@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.text.Html;
 import android.text.SpannableStringBuilder;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,6 +21,8 @@ import android.media.MediaPlayer;
 
 import com.example.projets6.Equation;
 import com.example.projets6.R;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -40,13 +43,18 @@ public class activity_classicmode extends AppCompatActivity {
     private Handler handler = new Handler();
     private Timer timer = new Timer();
     int coordY,moovY;
+    String userName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_classicmode);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-        point=
+
+        SharedPreferences prefs = getSharedPreferences("MyApp", MODE_PRIVATE);
+        point= prefs.getInt("score", 0);
+         userName=prefs.getString("userName","UNKNOWN");
+
 
         ImageButton retour=findViewById(R.id.retour);
         retour.setOnClickListener(v -> retour());
@@ -70,6 +78,9 @@ public class activity_classicmode extends AppCompatActivity {
         generatEquation();
         textpoint = findViewById(R.id.points);
         textpoint.setText("Score : " +Integer.toString((int)(point)));
+        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("Player");
+        Log.i("LAA", String.valueOf(point));
+        mDatabase.child(userName).child("score").setValue(point);
     }
 
 
@@ -111,7 +122,7 @@ public class activity_classicmode extends AppCompatActivity {
             generatEquation();
             textpoint = findViewById(R.id.points);
             point+=10;
-            main.setPoint(point);
+
             SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
             if (sharedPreferences.getBoolean("value2",true)) {
                 MediaPlayer sound= MediaPlayer.create(activity_classicmode.this,R.raw.bonne_reponse);
@@ -192,7 +203,6 @@ public class activity_classicmode extends AppCompatActivity {
         generatEquation();
         if (point>0) {
             point -= 5;
-            main.setPoint(point);
             //animation -5
             handler = new Handler();
             timer = new Timer();
@@ -222,6 +232,7 @@ public class activity_classicmode extends AppCompatActivity {
         }
         textpoint = findViewById(R.id.points);
         textpoint.setText("Score : " +Integer.toString((int)(point)));
+
 
     }
 

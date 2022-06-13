@@ -123,7 +123,6 @@ public class logInActivity extends AppCompatActivity {
 
     public void logIn( String userName) {
                 mDatabase.child(userName).addListenerForSingleValueEvent(valueEventListener); //listner on userName he msut be unique
-
     }
     ValueEventListener valueEventListener =new ValueEventListener() {
         @Override
