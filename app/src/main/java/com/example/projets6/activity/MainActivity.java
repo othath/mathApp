@@ -51,8 +51,8 @@ public class MainActivity extends AppCompatActivity {
         if (sharedPreferences.getBoolean("langue2",true)) {
             context = LocaleHelper.setLocale(MainActivity.this, "hi");
             resources = context.getResources();
-            //messageView.setText(resources.getString(R.string.classicmode));
-            messageView.setText(String.valueOf(multi));
+            messageView.setText(resources.getString(R.string.classicmode));
+           // messageView.setText(String.valueOf(multi));
             messageView2.setText(resources.getString(R.string.dailymode));
 
         }

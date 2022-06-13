@@ -7,8 +7,8 @@
     <string name="fond">Background music</string>
     <string name="bruitage">Sound effects</string>
     <string name="start">Start Game !</string>
-    <string name="credit">Credit</string>
-    <string name="dailymode">Calculation of the day</string>
+    <string name="credit">Credits</string>
+    <string name="dailymode">Daily Mode</string>
     <string name="classicmode">Classic Mode</string>
     <string name="startgame">Start Game</string>
     <string name="developed">Developed by Group 6</string>

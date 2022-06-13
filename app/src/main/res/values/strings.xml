@@ -5,8 +5,8 @@
     <string name="musique">Musique</string>
     <string name="fond">Musique de fond</string>
     <string name="start">Démarrer le jeu</string>
-    <string name="bruitage">Bruitage</string>
-    <string name="credit">Crédit</string>
+    <string name="bruitage">Bruitages</string>
+    <string name="credit">Crédits</string>
     <string name="signInText2">Connecte toi et défis d\'autres utilisateurs !</string>
     <string name="singInTitle">Connexion</string>
     <string name="hintPassword">Mot de passe</string>
