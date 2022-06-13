@@ -12,4 +12,10 @@
     <string name="classicmode">Classic Mode</string>
     <string name="startgame">Start Game</string>
     <string name="developed">Developed by Group 6</string>
+    <string name="singInTitle">Connection</string>
+    <string name="hintPassword">Password</string>
+    <string name="logInBtn">Log in</string>
+    <string name="hintUser">Username</string>
+    <string name="toSignUp">Sign up</string>
+    <string name="signInText2">Log in and challenge \other users !</string>
 </resources>

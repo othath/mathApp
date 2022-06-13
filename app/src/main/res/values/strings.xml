@@ -9,10 +9,10 @@
     <string name="credit">Crédit</string>
     <string name="signInText2">Connecte toi et défis d\'autres utilisateurs !</string>
     <string name="singInTitle">Connexion</string>
-    <string name="hintPassword">Password</string>
+    <string name="hintPassword">Mot de passe</string>
     <string name="mailHint">Mail address</string>
     <string name="logInBtn">Se Connecter</string>
-    <string name="hintUser">Nom des utilisateurs</string>
+    <string name="hintUser">Nom d\'utilisateur</string>
     <string name="toSignUp">Créer un compte.</string>
     <string name="zero">0</string>
     <string name="one">1</string>

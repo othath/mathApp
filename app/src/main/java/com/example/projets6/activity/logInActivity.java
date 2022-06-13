@@ -5,6 +5,7 @@ package com.example.projets6.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceManager;
@@ -24,6 +25,7 @@ import java.util.regex.Pattern;
 
 import com.example.projets6.Player;
 import com.example.projets6.R;
+import com.example.projets6.loading_screen;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -45,11 +47,49 @@ public class logInActivity extends AppCompatActivity {
     private EditText signUpUser;
     private Context context;
     private DatabaseReference mDatabase;
+    Context context2;
+    Resources resources;
+    TextView messageView;
+    TextView messageView2;
+    TextView messageView3;
+    TextView messageView4;
+    TextView messageView5;
+    TextView messageView6;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_connexion);
+        messageView = (TextView) findViewById(R.id.signInText);
+        messageView2 = (TextView) findViewById(R.id.signInText2);
+        messageView3 = (TextView) findViewById(R.id.userField);
+        messageView4 = (TextView) findViewById(R.id.passwordField);
+        messageView5 = (TextView) findViewById(R.id.logInBtn);
+        messageView6 = (TextView) findViewById(R.id.toSignUp);
+        SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
+        if (sharedPreferences.getBoolean("langue2",true)) {
+            context2 = LocaleHelper.setLocale(logInActivity.this, "hi");
+            resources = context2.getResources();
+            messageView.setText(resources.getString(R.string.singInTitle));
+            messageView2.setText(resources.getString(R.string.signInText2));
+          /*  messageView3.setText(resources.getString(R.string.hintUser));
+            messageView4.setText(resources.getString(R.string.hintPassword));*/
+            messageView5.setText(resources.getString(R.string.logInBtn));
+            messageView6.setText(resources.getString(R.string.toSignUp));
+
+        }
+        else{
+            context2 = LocaleHelper.setLocale(logInActivity.this, "fr");
+            resources = context2.getResources();
+            messageView.setText(resources.getString(R.string.singInTitle));
+            messageView2.setText(resources.getString(R.string.signInText2));
+          /*  messageView3.setText(resources.getString(R.string.hintUser));
+            messageView4.setText(resources.getString(R.string.hintPassword));*/
+            messageView5.setText(resources.getString(R.string.logInBtn));
+            messageView6.setText(resources.getString(R.string.toSignUp));
+
+
+        }
         mDatabase = FirebaseDatabase.getInstance().getReference("Player");
         loginBtn=(Button)findViewById(R.id.logInBtn);
         toSignUp=(Button)findViewById(R.id.toSignUp) ;
