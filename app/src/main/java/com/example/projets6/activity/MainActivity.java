@@ -1,6 +1,9 @@
 package com.example.projets6.activity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -19,13 +22,33 @@ import com.example.projets6.activity.logInActivity;
 public class MainActivity extends AppCompatActivity {
     static int point;
     TextView pointtext;
+    TextView messageView;
+    TextView messageView2;
     Button classicmode;
+    Context context;
+    Resources resources;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
+        messageView = (TextView) findViewById(R.id.classicmode);
+        messageView2 = (TextView) findViewById(R.id.dailymode);
         ImageButton test=(ImageButton) findViewById(R.id.userprofile);
+        if (sharedPreferences.getBoolean("langue2",true)) {
+            context = LocaleHelper.setLocale(MainActivity.this, "hi");
+            resources = context.getResources();
+            messageView.setText(resources.getString(R.string.classicmode));
+            messageView2.setText(resources.getString(R.string.dailymode));
+
+        }
+        else{
+            context = LocaleHelper.setLocale(MainActivity.this, "fr");
+            resources = context.getResources();
+            messageView.setText(resources.getString(R.string.classicmode));
+            messageView2.setText(resources.getString(R.string.dailymode));
+
+        }
         test.setOnClickListener(v -> login());
 
         Button runfox=(Button) findViewById(R.id.runfox);
