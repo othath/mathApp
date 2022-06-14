@@ -138,7 +138,7 @@
         android:fontFamily="@font/muli_extrabold"
 
 
-        android:text="Débutant"
+        android:text="@string/beginner"
         android:textColor="@color/white"
         android:textSize="15dp"
         app:layout_constraintStart_toEndOf="@+id/progress_bar"

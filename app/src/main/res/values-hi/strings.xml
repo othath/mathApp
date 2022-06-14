@@ -25,5 +25,6 @@
     <string name="expert">Expert</string>
     <string name="adventuremode">Adventure mode</string>
     <string name="multimode">Multiplayer mode</string>
+    <string name="novice">Novice</string>
 
 </resources>
