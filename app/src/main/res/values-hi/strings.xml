@@ -23,5 +23,7 @@
     <string name="advanced">Advanced</string>
     <string name="confirmed">Confirmed</string>
     <string name="expert">Expert</string>
+    <string name="adventuremode">Adventure mode</string>
+    <string name="multimode">Multiplayer mode</string>
 
 </resources>

@@ -1,7 +1,9 @@
 package com.example.projets6.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Html;
@@ -45,13 +47,33 @@ public class activity_classicmode extends AppCompatActivity {
     private Timer timer = new Timer();
     int coordY,moovY;
     String userName;
+    TextView messageView;
+    Context context;
+    Resources resources;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_classicmode);
+        SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
+        messageView = (TextView) findViewById(R.id.textView);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
+
+        if (sharedPreferences.getBoolean("langue2",true)) {
+            context = LocaleHelper.setLocale(activity_classicmode.this, "hi");
+            resources = context.getResources();
+            messageView.setText(resources.getString(R.string.classicmode));
+
+
+        }
+        else{
+            context = LocaleHelper.setLocale(activity_classicmode.this, "fr");
+            resources = context.getResources();
+            messageView.setText(resources.getString(R.string.classicmode));
+
+        }
         SharedPreferences prefs = getSharedPreferences("MyApp", MODE_PRIVATE);
         point= prefs.getInt("score", 0);
          userName=prefs.getString("userName","UNKNOWN");

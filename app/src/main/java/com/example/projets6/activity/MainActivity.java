@@ -31,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
     TextView messageView2;
 
     TextView messageView3;
+    TextView messageView4;
+    TextView messageView5;
 
 
 
@@ -44,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
         messageView = (TextView) findViewById(R.id.classicmode);
         messageView3 = (TextView) findViewById(R.id.lvlplayer);
+        messageView4 = (TextView) findViewById(R.id.runfox);
+        messageView5 = (TextView) findViewById(R.id.runfoxmulti);
         pointtext = findViewById(R.id.pointNumber);
         TextView usertext = findViewById(R.id.username);
         TextView lvlplayer = findViewById(R.id.lvlplayer);
@@ -61,12 +65,16 @@ public class MainActivity extends AppCompatActivity {
             resources = context.getResources();
             messageView.setText(resources.getString(R.string.classicmode));
            // messageView.setText(String.valueOf(multi));
+            messageView4.setText(resources.getString(R.string.adventuremode));
+            messageView5.setText(resources.getString(R.string.multimode));
 
         }
         else{
             context = LocaleHelper.setLocale(MainActivity.this, "fr");
             resources = context.getResources();
             messageView.setText(resources.getString(R.string.classicmode));
+            messageView4.setText(resources.getString(R.string.adventuremode));
+            messageView5.setText(resources.getString(R.string.multimode));
         }
         test.setOnClickListener(v -> login());
 
