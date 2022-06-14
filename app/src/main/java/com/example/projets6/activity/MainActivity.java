@@ -131,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void openrunfox(){
-        Intent intent = new Intent(this, RunningFow.class);
+        Intent intent = new Intent(this, com.example.projets6.go.class);
         startActivity(intent);
     }
 

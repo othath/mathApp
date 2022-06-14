@@ -35,6 +35,7 @@
             android:exported="false" />
         <activity android:name=".activity.logInActivity" />
         <activity android:name=".credit" />
+        <activity android:name=".go" />
         <activity android:name=".activity.InscriptionActivity" />
         <activity android:name=".activity.activity_classicmode" />
         <activity android:name=".RunningFow" />
