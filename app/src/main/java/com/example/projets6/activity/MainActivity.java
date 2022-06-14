@@ -29,10 +29,8 @@ public class MainActivity extends AppCompatActivity {
     TextView pointtext;
     TextView messageView;
     TextView messageView2;
-
+    ImageButton didacticiel;
     TextView messageView3;
-    TextView messageView4;
-    TextView messageView5;
 
 
 
@@ -46,40 +44,41 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
         messageView = (TextView) findViewById(R.id.classicmode);
         messageView3 = (TextView) findViewById(R.id.lvlplayer);
-        messageView4 = (TextView) findViewById(R.id.runfox);
-        messageView5 = (TextView) findViewById(R.id.runfoxmulti);
         pointtext = findViewById(R.id.pointNumber);
         TextView usertext = findViewById(R.id.username);
         TextView lvlplayer = findViewById(R.id.lvlplayer);
         TextView pourcent = findViewById(R.id.pourcent);
         ImageButton test=(ImageButton) findViewById(R.id.userprofile);
-       // username = getIntent().getStringExtra("userName");
+        // username = getIntent().getStringExtra("userName");
+        didacticiel = (ImageButton) findViewById(R.id.tuto);
+        didacticiel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, activity_popup.class));
+            }
+        });
 
         SharedPreferences prefs = getSharedPreferences("MyApp", MODE_PRIVATE);
         username = prefs.getString("username", "UNKNOWN");
         point = prefs.getInt("score", 0);
         boolean multi=prefs.getBoolean("multijoueur",false);
-      //  point = getIntent().getIntExtra("score",100);
+        //  point = getIntent().getIntExtra("score",100);
         if (sharedPreferences.getBoolean("langue2",true)) {
             context = LocaleHelper.setLocale(MainActivity.this, "hi");
             resources = context.getResources();
             messageView.setText(resources.getString(R.string.classicmode));
-           // messageView.setText(String.valueOf(multi));
-            messageView4.setText(resources.getString(R.string.adventuremode));
-            messageView5.setText(resources.getString(R.string.multimode));
+            // messageView.setText(String.valueOf(multi));
 
         }
         else{
             context = LocaleHelper.setLocale(MainActivity.this, "fr");
             resources = context.getResources();
             messageView.setText(resources.getString(R.string.classicmode));
-            messageView4.setText(resources.getString(R.string.adventuremode));
-            messageView5.setText(resources.getString(R.string.multimode));
         }
         test.setOnClickListener(v -> login());
 
         Button runfox=(Button) findViewById(R.id.runfox);
-       // runfox.setOnClickListener(v -> openrunfox());
+        // runfox.setOnClickListener(v -> openrunfox());
         runfox.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -139,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void openrunfox(){
-        Intent intent = new Intent(this, com.example.projets6.go.class);
+        Intent intent = new Intent(this, RunningFow.class);
         startActivity(intent);
     }
 
@@ -172,7 +171,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public void setlvl(TextView lvlplayer,TextView pourcent){
         SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
-        if (point>=0){
+        if (point>0){
             lvlplayer.setText(R.string.novice);
             if (sharedPreferences.getBoolean("langue2",true)) {
                 context = LocaleHelper.setLocale(MainActivity.this, "hi");
