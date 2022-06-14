@@ -80,6 +80,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginHorizontal="70dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/orangebutton"
         android:fontFamily="@font/muli_extrabold"
         android:text="@string/replay"
@@ -87,6 +88,7 @@
         android:textSize="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.457"
         app:layout_constraintStart_toStartOf="parent" />
 
     <pl.droidsonroids.gif.GifImageView
