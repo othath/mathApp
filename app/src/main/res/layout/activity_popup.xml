@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.activity_popup">
+
+
+    <TextView
+        android:id="@+id/textview01"
+        android:layout_width="350dp"
+        android:layout_height="650dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginHorizontal="35dp"
+        android:background="@drawable/whitebutton"
+
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/explain_modeClass"
+        android:layout_width="300dp"
+        android:layout_height="180dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginHorizontal="35dp"
+
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/greybackground"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="@+id/textview01"
+        app:layout_constraintTop_toTopOf="@+id/textview01" />
+
+    <TextView
+        android:id="@+id/explain_modeAdven"
+        android:layout_width="300dp"
+        android:layout_height="180dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginHorizontal="35dp"
+
+        android:background="@drawable/greybackground"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/explain_modeMultiAdven"
+        app:layout_constraintEnd_toEndOf="@+id/textview01"
+        app:layout_constraintStart_toStartOf="@+id/textview01"
+        app:layout_constraintTop_toBottomOf="@+id/explain_modeClass" />
+
+    <TextView
+        android:id="@+id/explain_modeMultiAdven"
+        android:layout_width="300dp"
+        android:layout_height="180dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginHorizontal="35dp"
+
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/greybackground"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/textview01"
+        app:layout_constraintEnd_toEndOf="@+id/textview01"
+        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintStart_toStartOf="@+id/textview01" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/muli_extrabold"
+        android:text="@string/classicmode"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/explain_modeClass"
+        app:layout_constraintEnd_toEndOf="@+id/explain_modeClass"
+        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintStart_toStartOf="@+id/explain_modeClass"
+        app:layout_constraintTop_toTopOf="@+id/explain_modeClass"
+        app:layout_constraintVertical_bias="0.052" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="264dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="8dp"
+        android:text="Ce mode vous permet de tester vos capacité en calcul mental et de les améliorer. Chaque bonne réponse apporte 10 points et les mauvaises -5points. Les équations contenant des fractions attendent une réponse sous forme de fraction"
+        android:textSize="14dp"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="@+id/textView4"
+        app:layout_constraintHorizontal_bias="0.45"
+        app:layout_constraintStart_toStartOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="264dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="8dp"
+        android:text="Dans ce mode, vous devez mener votre renard le plus loin possible en répondant correctement aux equations proposées. Vous disposez de 20secondes pour répondre. Si votre réponse est bonne, le course continue, sinon vous perdez une vie. Le jeu s'arrête lorsque vous perdez 3 vies"
+        android:textSize="13dp"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="@+id/textView05"
+        app:layout_constraintHorizontal_bias="0.452"
+        app:layout_constraintStart_toStartOf="@+id/textView05"
+        app:layout_constraintTop_toBottomOf="@+id/textView05" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="264dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="8dp"
+        android:text="ce mini jeu est une version multijoueur du mode aventure. La partie s'arrête lorsque l'un des 2 joueurs a perdu toutes ses vies. Le joueur ayant répondu au plus d'équations correctement sera le gagnant"
+        android:textSize="15dp"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="@+id/textView16"
+        app:layout_constraintHorizontal_bias="0.431"
+        app:layout_constraintStart_toStartOf="@+id/textView16"
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+    <TextView
+        android:id="@+id/textView05"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/muli_extrabold"
+        android:text="@string/adventuremode"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/explain_modeAdven"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="@+id/explain_modeAdven"
+        app:layout_constraintTop_toTopOf="@+id/explain_modeAdven" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/muli_extrabold"
+        android:text="@string/multimode"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/explain_modeMultiAdven"
+        app:layout_constraintHorizontal_bias="0.435"
+        app:layout_constraintStart_toStartOf="@+id/explain_modeMultiAdven"
+        app:layout_constraintTop_toTopOf="@+id/explain_modeMultiAdven" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
