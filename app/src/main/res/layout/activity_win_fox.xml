@@ -25,7 +25,7 @@
         android:layout_marginTop="20dp"
         android:fontFamily="@font/muli_extrabold"
         android:gravity="center"
-        android:text="Mode Aventure"
+        android:text="@string/adventuremode"
         android:textColor="@color/white"
         android:textSize="36dp" />
 
@@ -61,25 +61,9 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="136dp" />
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="113dp"
-        android:layout_height="102dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="@+id/runfox"
-        app:layout_constraintTop_toTopOf="@+id/runfox"
-        app:srcCompat="@drawable/circle" />
 
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="113dp"
-        android:layout_height="102dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toEndOf="@+id/runfox"
-        app:layout_constraintTop_toTopOf="@+id/runfox"
-        app:srcCompat="@drawable/circle" />
+
+
 
     <TextView
         android:id="@+id/textView4"
@@ -168,15 +152,7 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="520dp" />
 
-    <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="115dp"
-        android:layout_height="115dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
-        app:layout_constraintStart_toStartOf="@+id/winplayer"
-        app:layout_constraintTop_toTopOf="@+id/winplayer"
-        app:srcCompat="@drawable/circle" />
+
 
     <TextView
         android:id="@+id/textView12"
@@ -202,16 +178,6 @@
         app:layout_constraintTop_toTopOf="@+id/textView12"
         tools:layout_editor_absoluteX="272dp" />
 
-
-    <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="115dp"
-        android:layout_height="115dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="4dp"
-        app:layout_constraintStart_toStartOf="@+id/loseplayer"
-        app:layout_constraintTop_toTopOf="@+id/loseplayer"
-        app:srcCompat="@drawable/circle" />
 
     <TextView
         android:id="@+id/textView14"
@@ -290,15 +256,7 @@
         tools:layout_editor_absoluteX="67dp"
         tools:layout_editor_absoluteY="396dp" />
 
-    <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="wrap_content"
-        android:layout_height="45dp"
-        android:layout_marginTop="376dp"
-        android:rotation="327"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/crown"
-        tools:layout_editor_absoluteX="-122dp" />
+
 
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/pic3"
@@ -314,5 +272,55 @@
         android:src="@drawable/fond_blanc"
         tools:layout_editor_absoluteX="67dp"
         tools:layout_editor_absoluteY="545dp" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="113dp"
+        android:layout_height="102dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/runfox"
+        app:layout_constraintTop_toTopOf="@+id/runfox"
+        app:srcCompat="@drawable/circle" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="113dp"
+        android:layout_height="102dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/runfox"
+        app:layout_constraintTop_toTopOf="@+id/runfox"
+        app:srcCompat="@drawable/circle" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="115dp"
+        android:layout_height="115dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintStart_toStartOf="@+id/winplayer"
+        app:layout_constraintTop_toTopOf="@+id/winplayer"
+        app:srcCompat="@drawable/circle" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:layout_marginTop="376dp"
+        android:rotation="327"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/crown"
+        tools:layout_editor_absoluteX="-122dp" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="115dp"
+        android:layout_height="115dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintStart_toStartOf="@+id/loseplayer"
+        app:layout_constraintTop_toTopOf="@+id/loseplayer"
+        app:srcCompat="@drawable/circle" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

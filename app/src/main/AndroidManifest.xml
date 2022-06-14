@@ -16,10 +16,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjetS6">
         <activity
+            android:name=".activity_end_fox"
+            android:exported="false" />
+        <activity
             android:name=".loading_screen"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".activity.MainActivity"
             android:exported="true">
@@ -32,15 +33,14 @@
         <activity
             android:name=".activity.DailyMode"
             android:exported="false" />
-        <activity android:name=".activity.logInActivity"></activity>
-        <activity android:name=".credit"></activity>
+        <activity android:name=".activity.logInActivity" />
+        <activity android:name=".credit" />
         <activity android:name=".activity.InscriptionActivity" />
-        <activity android:name=".activity.activity_classicmode"></activity>
-        <activity android:name=".RunningFow"/>
+        <activity android:name=".activity.activity_classicmode" />
+        <activity android:name=".RunningFow" />
         <activity
             android:name=".activity.activity_settings"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
     </application>
-
 
 </manifest>
