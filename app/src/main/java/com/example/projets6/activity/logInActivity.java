@@ -117,6 +117,7 @@ public class logInActivity extends AppCompatActivity {
                         logIn(userField.getText().toString());
                     }
             }
+
         });
 
     }

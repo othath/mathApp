@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Handler;
+import android.renderscript.Sampler;
 import android.text.Html;
 import android.text.SpannableStringBuilder;
 import android.util.Log;
@@ -50,6 +51,8 @@ public class activity_classicmode extends AppCompatActivity {
     TextView messageView;
     Context context;
     Resources resources;
+    SharedPreferences prefs;
+    DatabaseReference mDatabase ;
 
 
     @Override
@@ -60,6 +63,8 @@ public class activity_classicmode extends AppCompatActivity {
         messageView = (TextView) findViewById(R.id.textView);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
+         mDatabase = FirebaseDatabase.getInstance().getReference("Player");
+         prefs = getSharedPreferences("MyApp", MODE_PRIVATE);
 
         if (sharedPreferences.getBoolean("langue2",true)) {
             context = LocaleHelper.setLocale(activity_classicmode.this, "hi");
@@ -74,9 +79,9 @@ public class activity_classicmode extends AppCompatActivity {
             messageView.setText(resources.getString(R.string.classicmode));
 
         }
-        SharedPreferences prefs = getSharedPreferences("MyApp", MODE_PRIVATE);
-        point= prefs.getInt("score", 0);
-         userName=prefs.getString("userName","UNKNOWN");
+
+         point= prefs.getInt("score", 0);
+         userName=prefs.getString("username","UNKNOWN");
 
 
         ImageButton retour=findViewById(R.id.retour);
@@ -100,10 +105,9 @@ public class activity_classicmode extends AppCompatActivity {
         //equation = new Equation(point);
         generatEquation();
         textpoint = findViewById(R.id.points);
-        textpoint.setText("Score : " +Integer.toString((int)(point)));
-        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("Player");
-        Log.i("LAA", String.valueOf(point));
-        mDatabase.child(userName).child("score").setValue(point);
+        textpoint.setText("Score : " + String.valueOf(point));
+        Log.i("user",userName);
+
     }
 
 
@@ -151,7 +155,9 @@ public class activity_classicmode extends AppCompatActivity {
                 MediaPlayer sound= MediaPlayer.create(activity_classicmode.this,R.raw.bonne_reponse);
                 sound.start();
             }
-            textpoint.setText("Score : "+Integer.toString((int)(point)));
+            mDatabase.child(userName).child("score").setValue(point);
+            prefs.edit().putInt("score", point).commit();
+            textpoint.setText("Score : "+String.valueOf(point));
 
 
 
@@ -267,6 +273,10 @@ public class activity_classicmode extends AppCompatActivity {
             timer = new Timer();
             coordY = moovY;
             count = 0;
+
+            mDatabase.child(userName).child("score").setValue(point);
+            prefs.edit().putInt("score", point).commit();
+
             minusFive.setVisibility(View.VISIBLE);
             timer.schedule(new TimerTask() {
                 @Override
@@ -290,7 +300,8 @@ public class activity_classicmode extends AppCompatActivity {
             point = 0;
         }
         textpoint = findViewById(R.id.points);
-        textpoint.setText("Score : " +Integer.toString((int)(point)));
+        textpoint.setText("Score : " +String.valueOf(point));
+
 
 
     }
