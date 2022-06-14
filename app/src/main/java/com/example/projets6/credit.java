@@ -45,10 +45,10 @@ public class credit extends AppCompatActivity {
         }
         if (sharedPreferences.getBoolean("langue2",true)) {
 
-            textView_credit.setText("CREDITS \n" + "\n" + "Project manager - HASSAINI Abdelkader \n" + "\n" + "Software engineer - AUMARD Max \n" + "\n" + "Design engineer - RUDEAU Agathe \n" + "\n" + "Data engineer - TAHRI Othmane \n" + "\n" + "Sound engineer - GÖKER Batuhan \n" + "\n" + "Animation engineer - GIOVANNETTI Alex \n");
+            textView_credit.setText("CREDITS \n" + "\n" + "\n" + "AUMARD Max \n" + "\n" + "HASSAINI Abdelkader \n" +"\n" + "RUDEAU Agathe \n" + "\n" + "TAHRI Othmane \n" + "\n" + "GÖKER Batuhan \n" + "\n" + "GIOVANNETTI Alex \n"+"\n"+ "Musiques/Bruitages : DJSIRNA \n");
         }
         else{
-            textView_credit.setText("CREDITS \n" + "\n" + "Chef de projet - HASSAINI Abdelkader \n" + "\n" + "Ingénieur logiciel - AUMARD Max \n" + "\n" + "Ingénieure design - RUDEAU Agathe \n" + "\n" + "Ingénieur data - TAHRI Othmane \n" + "\n" + "Ingénieur son - GÖKER Batuhan \n" + "\n" + "Ingénieur animation - GIOVANNETTI Alex \n");
+            textView_credit.setText("CREDITS \n" + "\n" + "AUMARD Max \n" + "\n" + "TAHRI Othmane  \n" + "\n" + "RUDEAU Agathe \n" + "\n" + "HASSAINI Abdelkader \n" + "\n" + "GÖKER Batuhan \n" + "\n" + "GIOVANNETTI Alex \n" +"\n"+ "Musiques/Bruitages : DJSIRNA \n");
 
         }
 
