@@ -25,13 +25,16 @@ import com.airbnb.lottie.LottieAnimationView;
 
 public class go extends AppCompatActivity{
     LottieAnimationView lottie;
+
     MediaPlayer sound;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.go);
         lottie=findViewById(R.id.lottie);
+
         lottie.playAnimation();
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

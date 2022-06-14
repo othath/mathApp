@@ -10,6 +10,7 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.widget.Button;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.example.projets6.activity.LocaleHelper;
 import com.example.projets6.activity.MainActivity;
 import com.example.projets6.activity.activity_settings;
@@ -21,6 +22,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class loading_screen extends AppCompatActivity{
+    LottieAnimationView lottie;
+    LottieAnimationView lottie2;
     Button start_button;
     MediaPlayer sound;
     TextView messageView;
@@ -34,8 +37,15 @@ public class loading_screen extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.loading);
+        lottie=findViewById(R.id.lottie);
+        lottie2=findViewById(R.id.lottie2);
+        lottie.playAnimation();
+        lottie2.playAnimation();
         messageView = (TextView) findViewById(R.id.textView5);
         messageView2 = (Button) findViewById(R.id.button_start);
+
+
+
 
         SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
         if (sharedPreferences.getBoolean("langue2",true)) {
