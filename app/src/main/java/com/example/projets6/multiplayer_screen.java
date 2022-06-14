@@ -25,6 +25,7 @@ public class multiplayer_screen extends AppCompatActivity{
 
     LottieAnimationView lottie2;
     LottieAnimationView lottie3;
+    MediaPlayer sound;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +36,16 @@ public class multiplayer_screen extends AppCompatActivity{
 
         lottie2.playAnimation();
         lottie3.playAnimation();
+        /*SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
+        if (sharedPreferences.getBoolean("value",true)) {
+            sound = MediaPlayer.create(multiplayer_screen.this, R.raw.);
+            sound.start();
+        }*/
+    }
+    public void finish() {
+        super.finish();
+       // sound.stop();
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
 
     }
 }
