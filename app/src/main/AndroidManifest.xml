@@ -19,8 +19,13 @@
             android:name=".activity_end_fox"
             android:exported="false" />
         <activity
-            android:name=".activity.MainActivity">
-            </activity>
+            android:name=".activity.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".loading_screen"
             android:exported="true">
@@ -31,10 +36,8 @@
             android:exported="false" />
         <activity android:name=".activity.logInActivity"
             android:exported="true">
-            <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter></activity>
+
+        </activity>
 
         <activity android:name=".go" />
         <activity android:name=".multiplayer_screen" />
@@ -45,7 +48,10 @@
         <activity
             android:name=".activity.activity_settings"
             android:screenOrientation="portrait" />
-        <activity android:name=".activity_winFox"/>
+
+        <activity android:name=".activity.activity_popup"
+
+            android:theme="@style/AppTheme.CustomTheme"/>
     </application>
 
 </manifest>
