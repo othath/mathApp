@@ -190,14 +190,14 @@ public class activity_classicmode extends AppCompatActivity {
     }
     public void sound_ui(){
         SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
-        if (sharedPreferences.getBoolean("value",true)) {
+        if (sharedPreferences.getBoolean("value2",true)) {
             MediaPlayer sound = MediaPlayer.create(activity_classicmode.this, R.raw.ui_sound);
             sound.start();
         }
     }
     public void button0(View view){
         SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
-        if (sharedPreferences.getBoolean("value",true)) {
+        if (sharedPreferences.getBoolean("value2",true)) {
             MediaPlayer sound = MediaPlayer.create(activity_classicmode.this, R.raw.ui_sound);
             sound.start();
         }
@@ -397,7 +397,7 @@ public class activity_classicmode extends AppCompatActivity {
 
     public void finish() {
         SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
-        if (sharedPreferences.getBoolean("value",true)) {
+        if (sharedPreferences.getBoolean("value2",true)) {
             MediaPlayer sound = MediaPlayer.create(activity_classicmode.this, R.raw.ui_sound);
             sound.start();
         }

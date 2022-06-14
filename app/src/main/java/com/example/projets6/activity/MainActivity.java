@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
-                if (sharedPreferences.getBoolean("value",true)) {
+                if (sharedPreferences.getBoolean("value2",true)) {
                     MediaPlayer sound = MediaPlayer.create(MainActivity.this, R.raw.ui_sound);
                     sound.start();
                 }
@@ -109,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
-                if (sharedPreferences.getBoolean("value",true)) {
+                if (sharedPreferences.getBoolean("value2",true)) {
                     MediaPlayer sound = MediaPlayer.create(MainActivity.this, R.raw.ui_sound);
                     sound.start();
                 }
@@ -124,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
-                if (sharedPreferences.getBoolean("value",true)) {
+                if (sharedPreferences.getBoolean("value2",true)) {
                     MediaPlayer sound = MediaPlayer.create(MainActivity.this, R.raw.ui_sound);
                     sound.start();
                 }
@@ -137,7 +137,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
-                if (sharedPreferences.getBoolean("value",true)) {
+                if (sharedPreferences.getBoolean("value2",true)) {
                     MediaPlayer sound = MediaPlayer.create(MainActivity.this, R.raw.ui_sound);
                     sound.start();
                 }

@@ -232,7 +232,7 @@ public class activity_settings extends AppCompatActivity {
 
     public void finish() {
         SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
-        if (sharedPreferences.getBoolean("value",true)) {
+        if (sharedPreferences.getBoolean("value2",true)) {
             MediaPlayer sound = MediaPlayer.create(activity_settings.this, R.raw.ui_sound);
             sound.start();
         }

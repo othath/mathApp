@@ -236,7 +236,7 @@ public void goodAnswer(){
 
     public void sound_ui(){
         SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
-        if (sharedPreferences.getBoolean("value",true)) {
+        if (sharedPreferences.getBoolean("value2",true)) {
             MediaPlayer sound = MediaPlayer.create(RunningFow.this, R.raw.ui_sound);
             sound.start();
         }
@@ -321,7 +321,7 @@ public void goodAnswer(){
 
     public void finish() {
         SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
-        if (sharedPreferences.getBoolean("value",true)) {
+        if (sharedPreferences.getBoolean("value2",true)) {
             MediaPlayer sound = MediaPlayer.create(RunningFow.this, R.raw.ui_sound);
             sound.start();
         }
