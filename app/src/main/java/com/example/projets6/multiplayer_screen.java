@@ -22,15 +22,19 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class multiplayer_screen extends AppCompatActivity{
-    LottieAnimationView lottie;
+
     LottieAnimationView lottie2;
+    LottieAnimationView lottie3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.multiplayer_screen);
-        lottie = findViewById(R.id.lottie);
+
         lottie2 = findViewById(R.id.lottie2);
-        lottie.playAnimation();
+        lottie3 = findViewById(R.id.lottie3);
+
         lottie2.playAnimation();
+        lottie3.playAnimation();
+
     }
 }
