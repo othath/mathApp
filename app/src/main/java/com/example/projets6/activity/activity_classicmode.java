@@ -21,6 +21,7 @@ import android.media.MediaPlayer;
 
 import com.example.projets6.Equation;
 import com.example.projets6.R;
+import com.example.projets6.RunningFow;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -159,46 +160,82 @@ public class activity_classicmode extends AppCompatActivity {
 
         }
     }
+    public void sound_ui(){
+        SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
+        if (sharedPreferences.getBoolean("value",true)) {
+            MediaPlayer sound = MediaPlayer.create(activity_classicmode.this, R.raw.ui_sound);
+            sound.start();
+        }
+    }
     public void button0(View view){
+        SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
+        if (sharedPreferences.getBoolean("value",true)) {
+            MediaPlayer sound = MediaPlayer.create(activity_classicmode.this, R.raw.ui_sound);
+            sound.start();
+        }
         updateAnswer("0");
     }
     public void button1(View view){
+        sound_ui();
         updateAnswer("1");
     }
     public void button2(View view){
+
+        sound_ui();
         updateAnswer("2");
     }
     public void button3(View view){
+
+        sound_ui();
         updateAnswer("3");
     }
     public void button4(View view){
+
+        sound_ui();
         updateAnswer("4");
     }
     public void button5(View view){
+
+        sound_ui();
         updateAnswer("5");
     }
     public void button6(View view){
+
+        sound_ui();
         updateAnswer("6");
     }
     public void button7(View view){
+
+        sound_ui();
         updateAnswer("7");
     }
     public void button8(View view){
+
+        sound_ui();
         updateAnswer("8");
     }
     public void button9(View view){
+
+        sound_ui();
         updateAnswer("9");
     }
     public void buttonminus(View view){
+
+        sound_ui();
         updateAnswer("-");
     }
     public void buttoncomma(View view){
+
+        sound_ui();
         updateAnswer(",");
     }
     public void buttondivision(View view){
+
+        sound_ui();
         updateAnswer("/");
     }
     public void buttonskip(View view){
+        sound_ui();
         updateAnswer("");
         generatEquation();
         if (point>0) {
@@ -239,6 +276,7 @@ public class activity_classicmode extends AppCompatActivity {
 
 
     public void buttondel(View view){
+        sound_ui();
         int textLen = answer.getText().length();
         if(textLen!=0){
             SpannableStringBuilder selection = (SpannableStringBuilder)  answer.getText();
@@ -247,6 +285,8 @@ public class activity_classicmode extends AppCompatActivity {
         }
     }
     public void buttondelall(View view){
+
+        sound_ui();
         answer.setText("");
     }
 
@@ -275,11 +315,7 @@ public class activity_classicmode extends AppCompatActivity {
         //int res = Integer.parseInt(result);
         return result;
     }
-    public void finish() {
-        super.finish();
-        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
 
-    }
 
     public String affichageEquation(String equation){
 
@@ -324,5 +360,16 @@ public class activity_classicmode extends AppCompatActivity {
             if(Character.digit(s.charAt(i),radix) < 0) return false;
         }
         return true;
+    }
+
+    public void finish() {
+        SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
+        if (sharedPreferences.getBoolean("value",true)) {
+            MediaPlayer sound = MediaPlayer.create(activity_classicmode.this, R.raw.ui_sound);
+            sound.start();
+        }
+        super.finish();
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+
     }
 }

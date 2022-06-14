@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +18,7 @@ import com.example.projets6.R;
 import com.example.projets6.RunningFow;
 import com.example.projets6.activity.activity_settings;
 import com.example.projets6.activity.logInActivity;
+import com.example.projets6.credit;
 import com.example.projets6.loading_screen;
 
 
@@ -69,13 +71,33 @@ public class MainActivity extends AppCompatActivity {
         test.setOnClickListener(v -> login());
 
         Button runfox=(Button) findViewById(R.id.runfox);
-        runfox.setOnClickListener(v -> openrunfox());
+       // runfox.setOnClickListener(v -> openrunfox());
+        runfox.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
+                if (sharedPreferences.getBoolean("value",true)) {
+                    MediaPlayer sound = MediaPlayer.create(MainActivity.this, R.raw.ui_sound);
+                    sound.start();
+                }
+
+                openrunfox();
+            }
+        });
 
 
         classicmode=(Button) findViewById(R.id.classicmode);
         classicmode.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
+                SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
+                if (sharedPreferences.getBoolean("value",true)) {
+                    MediaPlayer sound = MediaPlayer.create(MainActivity.this, R.raw.ui_sound);
+                    sound.start();
+                }
+
                 openclassicmode();
             }
         });
@@ -84,6 +106,13 @@ public class MainActivity extends AppCompatActivity {
         settings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
+                if (sharedPreferences.getBoolean("value",true)) {
+                    MediaPlayer sound = MediaPlayer.create(MainActivity.this, R.raw.ui_sound);
+                    sound.start();
+                }
+
                 openSettings();
             }
         });
@@ -146,7 +175,7 @@ public class MainActivity extends AppCompatActivity {
             else{
                 context = LocaleHelper.setLocale(MainActivity.this, "fr");
                 resources = context.getResources();
-                messageView3.setText(resources.getString(R.string.beginner));
+                messageView3.setText(resources.getString(R.string.novice));
 
 
             }

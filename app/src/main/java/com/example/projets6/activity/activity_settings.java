@@ -90,7 +90,11 @@ public class activity_settings extends AppCompatActivity {
         btn_credit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
+                if (sharedPreferences.getBoolean("value",true)) {
+                    MediaPlayer sound = MediaPlayer.create(activity_settings.this, R.raw.ui_sound);
+                    sound.start();
+                }
                 credit();
 
             }
@@ -100,6 +104,11 @@ public class activity_settings extends AppCompatActivity {
         btnEn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
+                if (sharedPreferences.getBoolean("value",true)) {
+                    MediaPlayer sound = MediaPlayer.create(activity_settings.this, R.raw.ui_sound);
+                    sound.start();
+                }
                 SharedPreferences.Editor editor=getSharedPreferences("save",MODE_PRIVATE).edit();
                 editor.putBoolean("langue2",true);
                 editor.apply();
@@ -118,6 +127,11 @@ public class activity_settings extends AppCompatActivity {
         btnFr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
+                if (sharedPreferences.getBoolean("value",true)) {
+                    MediaPlayer sound = MediaPlayer.create(activity_settings.this, R.raw.ui_sound);
+                    sound.start();
+                }
                 SharedPreferences.Editor editor=getSharedPreferences("save",MODE_PRIVATE).edit();
                 editor.putBoolean("langue2",false);
                 editor.apply();
@@ -198,6 +212,11 @@ public class activity_settings extends AppCompatActivity {
 
 
     private void retour() {
+        SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
+        if (sharedPreferences.getBoolean("value",true)) {
+            MediaPlayer sound = MediaPlayer.create(activity_settings.this, R.raw.ui_sound);
+            sound.start();
+        }
         Intent intent = new Intent(this, com.example.projets6.activity.MainActivity.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
@@ -212,6 +231,11 @@ public class activity_settings extends AppCompatActivity {
 
 
     public void finish() {
+        SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
+        if (sharedPreferences.getBoolean("value",true)) {
+            MediaPlayer sound = MediaPlayer.create(activity_settings.this, R.raw.ui_sound);
+            sound.start();
+        }
         super.finish();
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
 
