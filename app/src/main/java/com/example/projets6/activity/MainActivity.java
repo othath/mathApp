@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     TextView messageView3;
     TextView messageView4;
     TextView messageView5;
-
+    MediaPlayer sound;
     private DatabaseReference mDatabase;
     SharedPreferences prefs;
 
@@ -63,6 +63,12 @@ public class MainActivity extends AppCompatActivity {
         ImageButton test=(ImageButton) findViewById(R.id.userprofile);
         // username = getIntent().getStringExtra("userName");
         didacticiel = (ImageButton) findViewById(R.id.tuto);
+
+        if (sharedPreferences.getBoolean("value",true)) {
+            sound = MediaPlayer.create(MainActivity.this, R.raw.menu);
+            sound.start();
+        }
+
         didacticiel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -170,38 +176,51 @@ public class MainActivity extends AppCompatActivity {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
     }
 
+    public void stop_menu_song(){
+        SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
+        if (sharedPreferences.getBoolean("value",true)) {
+            sound.stop();
+        }
+    }
     private void openrunfox(){
         Intent intent = new Intent(this, com.example.projets6.go.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        stop_menu_song();
+
     }
 
     private void openclassicmode() {
         Intent intent = new Intent(this, com.example.projets6.activity.activity_classicmode.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        stop_menu_song();
     }
 
     private void openSettings() {
         Intent intent = new Intent(this, activity_settings.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        stop_menu_song();
     }
     private void openMultiplayer() {
         Intent intent = new Intent(this, com.example.projets6.multiplayer_screen.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        stop_menu_song();
     }
 
     public void login(){
         Intent intent=new Intent(this,logInActivity.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        stop_menu_song();
     }
 
     public void finish() {
         super.finish();
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+        stop_menu_song();
 
     }
 

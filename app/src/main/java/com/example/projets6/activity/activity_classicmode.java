@@ -53,6 +53,7 @@ public class activity_classicmode extends AppCompatActivity {
     Resources resources;
     SharedPreferences prefs;
     DatabaseReference mDatabase ;
+    MediaPlayer sound2;
 
 
     @Override
@@ -60,6 +61,11 @@ public class activity_classicmode extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_classicmode);
         SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
+        if (sharedPreferences.getBoolean("value",true)) {
+            sound2 = MediaPlayer.create(activity_classicmode.this, R.raw.classic);
+            sound2.start();
+        }
+
         messageView = (TextView) findViewById(R.id.textView);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
@@ -133,6 +139,15 @@ public class activity_classicmode extends AppCompatActivity {
     private void retour() {
         Intent intent = new Intent(this, com.example.projets6.activity.MainActivity.class);
         startActivity(intent);
+        SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
+        if (sharedPreferences.getBoolean("value2",true)) {
+            MediaPlayer sound = MediaPlayer.create(activity_classicmode.this, R.raw.ui_sound);
+            sound.start();
+        }
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+        if (sharedPreferences.getBoolean("value",true)) {
+            sound2.stop();
+        }
     }
 
     public void updateAnswer(String strToAdd){
@@ -403,6 +418,8 @@ public class activity_classicmode extends AppCompatActivity {
         }
         super.finish();
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
-
+        if (sharedPreferences.getBoolean("value",true)) {
+            sound2.stop();
+        }
     }
 }

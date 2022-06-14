@@ -40,7 +40,7 @@ public class credit extends AppCompatActivity {
 
         textView_credit=(TextView) findViewById(R.id.textViewCredit);
         if (sharedPreferences.getBoolean("value",true)) {
-            sound = MediaPlayer.create(credit.this, R.raw.musique_menu);
+            sound = MediaPlayer.create(credit.this, R.raw.credit);
             sound.start();
         }
         if (sharedPreferences.getBoolean("langue2",true)) {

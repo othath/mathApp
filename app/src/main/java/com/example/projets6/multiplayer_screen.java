@@ -9,6 +9,7 @@ import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.widget.Button;
 
@@ -47,6 +48,8 @@ public class multiplayer_screen extends AppCompatActivity{
         lottie2 = findViewById(R.id.lottie3);
         lottie.playAnimation();
         lottie2.playAnimation();
+
+
         mDatabase = FirebaseDatabase.getInstance().getReference("Player");
         prefs = getSharedPreferences("MyApp", MODE_PRIVATE);
         username = prefs.getString("username", "UNKNOWN");
