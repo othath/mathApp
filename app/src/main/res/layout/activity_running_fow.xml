@@ -6,6 +6,31 @@
     android:layout_height="match_parent">
 
 
+
+        <ImageView
+            android:id="@+id/backgroundfox3"
+            android:layout_width="wrap_content"
+            android:layout_height="300dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/backgroundfox" />
+
+    <ImageView
+        android:id="@+id/backgroundfox2"
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/backgroundfox" />
+
+    <ImageView
+        android:id="@+id/backgroundfox1"
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/backgroundfox" />
+
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="match_parent"
@@ -13,6 +38,7 @@
         android:background="@drawable/background"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 
     <TableLayout
         android:id="@+id/tableLayout"
@@ -274,8 +300,6 @@
                 android:textSize="30dp" />
 
             <androidx.appcompat.widget.AppCompatButton
-
-                android:id="@+id/buttondot"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:layout_below="@+id/passwordField"
@@ -285,7 +309,7 @@
                 android:background="@drawable/greybutton"
                 android:fontFamily="@font/muli_semibold"
                 android:gravity="center"
-                android:text="@string/comma"
+                android:text=""
                 android:textSize="30dp" />
 
             <androidx.appcompat.widget.AppCompatButton
@@ -321,7 +345,8 @@
         android:textSize="35dp"
         app:layout_constraintBottom_toTopOf="@+id/inputanswer"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <EditText
 
@@ -350,7 +375,7 @@
         android:layout_height="201dp"
         android:layout_centerInParent="true"
         android:layout_marginStart="36dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="110dp"
         android:src="@drawable/foxrunning"
         android:visibility="visible"
         app:layout_constraintStart_toStartOf="parent"
@@ -360,12 +385,12 @@
         android:id="@+id/foxjump"
         android:layout_width="273dp"
         android:layout_height="204dp"
+        android:layout_marginTop="8dp"
         android:layout_centerInParent="true"
-        android:layout_marginTop="72dp"
         android:src="@drawable/jump_fox"
         android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/foxrunning" />
 
     <ImageView
         android:id="@+id/life1"
@@ -458,7 +483,7 @@
         android:layout_marginTop="96dp"
         android:background="@drawable/whitebutton"
         android:fontFamily="@font/muli_extrabold"
-        android:padding="5dp"
+        android:padding="10dp"
         android:text="count"
         android:textAlignment="center"
         android:textColor="@color/orangemenu"

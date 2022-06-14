@@ -3,7 +3,10 @@ package com.example.projets6;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.Point;
 import android.icu.text.DecimalFormat;
 import android.icu.text.NumberFormat;
 import android.media.MediaPlayer;
@@ -13,24 +16,37 @@ import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.SystemClock;
 import android.text.SpannableStringBuilder;
+import android.view.Display;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.projets6.activity.activity_classicmode;
 import com.example.projets6.activity.activity_settings;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import pl.droidsonroids.gif.GifImageView;
 
 public class RunningFow extends AppCompatActivity {
     activity_classicmode classicmode = new activity_classicmode();
-    TextView answer, timer, textEquation, goodAnswertext;
-    int lives = 3, point, count = 0, goodAnswer = 0;
+    TextView answer, timertext, textEquation, goodAnswertext;
+    int lives = 3;
+    int point,screenWidth, screenHeight;
+    static int count = 0;
+    int goodAnswer = 0;
+    float backgroundleftX;
+    Timer timer;
     String res, an;
     Equation eq;
     GifImageView foxjump, foxrunning;
-    ImageView death1,death2,death3;
+    ImageView death1,death2,death3, backgroundfox1,backgroundfox2, backgroundfox3;
     Handler handler;
+    Bitmap background;
+
+
     CountDownTimer cdtimer;
 
     @Override
@@ -46,9 +62,36 @@ public class RunningFow extends AppCompatActivity {
         death1 = findViewById(R.id.death1);
         death2 = findViewById(R.id.death2);
         death3 = findViewById(R.id.death3);
+
+
+        WindowManager wm = getWindowManager();
+        Display disp = wm.getDefaultDisplay();
+        Point size = new Point();
+        disp.getSize(size);
+        screenHeight = size.x;
+        screenWidth = size.y;
+        backgroundfox1 = findViewById(R.id.backgroundfox1);
+        backgroundfox2 = findViewById(R.id.backgroundfox2);
+        backgroundfox3 = findViewById(R.id.backgroundfox3);
+        //backgroundfox1.setVisibility(View.INVISIBLE);
+        //backgroundfox2.setVisibility(View.INVISIBLE);
+        timer = new Timer();
+        handler = new Handler();
+
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        changePos();
+                    }
+                });
+            }
+        },0,20);
         goodAnswertext = findViewById(R.id.count);
         goodAnswertext.setText(Integer.toString(goodAnswer));
-        timer = findViewById(R.id.timer);
+        timertext = findViewById(R.id.timer);
         answer = findViewById(R.id.inputanswer);
         answer.setShowSoftInputOnFocus(false);
         answer.setOnClickListener(new View.OnClickListener() {
@@ -61,6 +104,23 @@ public class RunningFow extends AppCompatActivity {
         displayGame();
 
     }
+
+    private void changePos() {
+        backgroundleftX-=20;
+        if (backgroundfox1.getX()+backgroundfox1.getWidth()*2 < 1){
+            backgroundleftX = screenWidth-2*backgroundfox1.getWidth();
+            backgroundfox1.setX(backgroundleftX);
+            backgroundfox2.setX(backgroundleftX+backgroundfox1.getWidth());
+            backgroundfox3.setX(backgroundleftX+backgroundfox1.getWidth()*2);
+        }
+        backgroundfox1.setX(backgroundleftX);
+        backgroundfox2.setX(backgroundleftX+backgroundfox1.getWidth());
+        backgroundfox3.setX(backgroundleftX+backgroundfox1.getWidth()*2);
+
+
+
+    }
+
     public void generateEquation() {
         if (count < 5) {
             eq = new Equation(1);
@@ -108,7 +168,7 @@ public class RunningFow extends AppCompatActivity {
             cdtimer.cancel();
         }
         generateEquation();
-        timer.setVisibility(View.VISIBLE);
+        timertext.setVisibility(View.VISIBLE);
         cdtimer = new CountDownTimer(20000, 10) {
 
             public void onTick(long millisUntilFinished) {
@@ -119,7 +179,7 @@ public class RunningFow extends AppCompatActivity {
                 long sec = (millisUntilFinished / 1000) % 60;
                 long ms = (millisUntilFinished) / 10 % 60;
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                    timer.setText(f.format(sec) + ":" + f.format(ms));
+                    timertext.setText(f.format(sec) + ":" + f.format(ms));
                 }
 
                 if (an.equals(res)) {
@@ -128,6 +188,7 @@ public class RunningFow extends AppCompatActivity {
             }
 
             public void onFinish() {
+                answer.setText("");
                 lives-=1;
                 if (lives == 2){
                     death3.setVisibility(View.VISIBLE);
@@ -137,6 +198,7 @@ public class RunningFow extends AppCompatActivity {
                 }
                 if (lives == 0){
                     death1.setVisibility(View.VISIBLE);
+                    gotoend();
                 }
                 if (lives !=0){
                     displayGame();
@@ -155,7 +217,7 @@ public void goodAnswer(){
     }
     goodAnswertext.setText(Integer.toString(goodAnswer));
     answer.setText("");
-    timer.setVisibility(View.INVISIBLE);
+    timertext.setVisibility(View.INVISIBLE);
     foxrunning.setVisibility(View.INVISIBLE);
     foxjump.setVisibility(View.VISIBLE);
 
@@ -267,5 +329,22 @@ public void goodAnswer(){
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
 
     }
+
+    public void gotoend(){
+        Intent intent = new Intent(this, activity_end_fox.class);
+        startActivity(intent);
+    }
+    public static int getcount(){
+        return count;
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        cdtimer.cancel();
+    }
+
+
+
 
 }

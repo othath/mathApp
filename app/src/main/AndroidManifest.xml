@@ -39,13 +39,13 @@
         <activity android:name=".go" />
         <activity android:name=".multiplayer_screen" />
         <activity android:name=".credit" />
-        <activity android:name=".go" />
         <activity android:name=".activity.InscriptionActivity" />
         <activity android:name=".activity.activity_classicmode" />
         <activity android:name=".RunningFow" />
         <activity
             android:name=".activity.activity_settings"
             android:screenOrientation="portrait" />
+        <activity android:name=".activity_winFox"/>
     </application>
 
 </manifest>

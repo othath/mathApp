@@ -80,7 +80,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginHorizontal="70dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="40dp"
         android:background="@drawable/orangebutton"
         android:fontFamily="@font/muli_extrabold"
         android:text="@string/replay"
@@ -88,7 +88,7 @@
         android:textSize="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.457"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent" />
 
     <pl.droidsonroids.gif.GifImageView
@@ -97,7 +97,7 @@
         android:layout_height="80dp"
         android:layout_marginStart="15dp"
         android:layout_marginTop="16dp"
-        android:src="@drawable/foxprofil"
+        android:src="@drawable/scraryfox"
         app:layout_constraintStart_toStartOf="@+id/imageView10"
         app:layout_constraintTop_toTopOf="@+id/imageView10" />
 
@@ -105,9 +105,9 @@
         android:id="@+id/imageView3"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:src="@drawable/fond_blanc"
+        app:layout_constraintEnd_toEndOf="@+id/imageView10"
         app:layout_constraintStart_toStartOf="@+id/imageView10"
         app:layout_constraintTop_toTopOf="@+id/imageView10" />
 
@@ -123,7 +123,7 @@
         app:srcCompat="@drawable/circle" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/muli_extrabold"
@@ -135,27 +135,27 @@
         app:layout_constraintTop_toBottomOf="@+id/pic1" />
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/points"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:text="200 points"
         android:textColor="@color/orangemenu"
         android:textSize="22dp"
-        app:layout_constraintEnd_toEndOf="@+id/textView6"
-        app:layout_constraintStart_toStartOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintEnd_toEndOf="@+id/username"
+        app:layout_constraintStart_toStartOf="@+id/username"
+        app:layout_constraintTop_toBottomOf="@+id/username" />
 
     <TextView
-        android:id="@+id/textView20"
+        android:id="@+id/stat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="40dp"
         android:fontFamily="@font/muli_extrabold"
-        android:text="Statistique : "
+        android:text="Succès : "
         android:textColor="@color/black"
         android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textview19"
         app:layout_constraintStart_toStartOf="@+id/textview19"
         app:layout_constraintTop_toTopOf="@+id/textview19" />
 
@@ -163,24 +163,23 @@
         android:id="@+id/stat_fox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="220dp"
-        android:layout_marginTop="20dp"
         android:text="24/27"
         android:textColor="@color/black"
         android:textSize="30dp"
-        app:layout_constraintStart_toStartOf="@+id/textview19"
+        app:layout_constraintBottom_toBottomOf="@+id/textview19"
+        app:layout_constraintStart_toEndOf="@+id/stat"
         app:layout_constraintTop_toTopOf="@+id/textview19" />
 
     <TextView
         android:id="@+id/textView20"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="40dp"
         android:fontFamily="@font/muli_extrabold"
         android:text="Score : "
         android:textColor="@color/black"
         android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textview18"
         app:layout_constraintStart_toStartOf="@+id/textview18"
         app:layout_constraintTop_toTopOf="@+id/textview18" />
 
@@ -188,13 +187,12 @@
         android:id="@+id/score_fox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="164dp"
-        android:layout_marginTop="24dp"
 
         android:text="20 "
         android:textColor="@color/black"
         android:textSize="30dp"
-        app:layout_constraintStart_toStartOf="@+id/textview18"
+        app:layout_constraintBottom_toBottomOf="@+id/textview18"
+        app:layout_constraintStart_toEndOf="@+id/textView20"
         app:layout_constraintTop_toTopOf="@+id/textview18" />
 
     <TextView
@@ -202,12 +200,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_marginTop="24dp"
         android:layout_marginEnd="44dp"
-        android:text="points "
+        android:text="points"
         android:textColor="@color/black"
         android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textview18"
         app:layout_constraintEnd_toEndOf="@+id/textview18"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/score_fox"
         app:layout_constraintTop_toTopOf="@+id/textview18" />
 
 
