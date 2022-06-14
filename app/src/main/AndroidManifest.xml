@@ -34,6 +34,8 @@
             android:name=".activity.DailyMode"
             android:exported="false" />
         <activity android:name=".activity.logInActivity" />
+        <activity android:name=".go" />
+        <activity android:name=".multiplayer_screen" />
         <activity android:name=".credit" />
         <activity android:name=".activity.InscriptionActivity" />
         <activity android:name=".activity.activity_classicmode" />

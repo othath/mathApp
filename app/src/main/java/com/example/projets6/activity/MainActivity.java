@@ -123,6 +123,18 @@ public class MainActivity extends AppCompatActivity {
                 openSettings();
             }
         });
+        Button btn_multi=(Button) findViewById(R.id.runfoxmulti) ;
+        btn_multi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
+                if (sharedPreferences.getBoolean("value",true)) {
+                    MediaPlayer sound = MediaPlayer.create(MainActivity.this, R.raw.ui_sound);
+                    sound.start();
+                }
+                openMultiplayer();
+            }
+        });
 
 
 
@@ -138,8 +150,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void openrunfox(){
-        Intent intent = new Intent(this, RunningFow.class);
+        Intent intent = new Intent(this, com.example.projets6.go.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
     private void openclassicmode() {
@@ -150,6 +163,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void openSettings() {
         Intent intent = new Intent(this, activity_settings.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+    }
+    private void openMultiplayer() {
+        Intent intent = new Intent(this, com.example.projets6.multiplayer_screen.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
