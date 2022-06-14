@@ -1,5 +1,6 @@
 package com.example.projets6;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -8,6 +9,7 @@ import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 
 import com.airbnb.lottie.LottieAnimationView;
@@ -15,37 +17,106 @@ import com.example.projets6.activity.LocaleHelper;
 import com.example.projets6.activity.MainActivity;
 import com.example.projets6.activity.activity_settings;
 import com.example.projets6.activity.logInActivity;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class multiplayer_screen extends AppCompatActivity{
+import java.util.ArrayList;
+import java.util.List;
 
+public class multiplayer_screen extends AppCompatActivity{
+    static int count=0;
+    LottieAnimationView lottie;
     LottieAnimationView lottie2;
-    LottieAnimationView lottie3;
-    MediaPlayer sound;
+    String username;
+    private DatabaseReference mDatabase;
+    private SharedPreferences prefs;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.multiplayer_screen);
-
-        lottie2 = findViewById(R.id.lottie2);
-        lottie3 = findViewById(R.id.lottie3);
-
+        count++;
+        lottie = findViewById(R.id.lottie2);
+        lottie2 = findViewById(R.id.lottie3);
+        lottie.playAnimation();
         lottie2.playAnimation();
-        lottie3.playAnimation();
-        /*SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
-        if (sharedPreferences.getBoolean("value",true)) {
-            sound = MediaPlayer.create(multiplayer_screen.this, R.raw.);
-            sound.start();
-        }*/
-    }
-    public void finish() {
-        super.finish();
-       // sound.stop();
-        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+        mDatabase = FirebaseDatabase.getInstance().getReference("Player");
+        prefs = getSharedPreferences("MyApp", MODE_PRIVATE);
+        username = prefs.getString("username", "UNKNOWN");
+        mDatabase.addListenerForSingleValueEvent(valueEventListener);
+
 
     }
+    ValueEventListener valueEventListener =new ValueEventListener() {
+        @Override
+        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            Log.i("DEBUG",dataSnapshot.toString());
+            List<String> userList =getAllUserName(dataSnapshot);
+            if(userList!=null){
+                for(int i=0;i<userList.size();i++) {
+                    if(userList.get(i) != username) {
+                        Log.i("DEBUGMULTIP", userList.get(i));
+                        boolean multij = dataSnapshot.child(userList.get(i)).child("multijoueur").getValue(Boolean.class);
+                        String adversaire = dataSnapshot.child(userList.get(i)).child("userName").getValue(String.class);
+                        int score = dataSnapshot.child(userList.get(i)).child("score").getValue(Integer.class);
+                         Log.i("DEBUGMULTIP",adversaire);
+                        Log.i("DEBUGMULTIP", String.valueOf(multij));
+                        if (multij == true) {
+                            prefs.edit().putInt("score2",score).commit();
+                            updateFireBase(username,adversaire);
+                            Intent intent = new Intent(multiplayer_screen.this, RunningFow.class);
+                            startActivity(intent);
+                            break;
+                            //overridePendingTransition(R.anim.slide_in_right, R.anim.slide_in_left);
+                        }
+                    }
+                }
+            }
+
+            }
+
+        @Override
+        public void onCancelled(@NonNull DatabaseError error) {
+
+        }
+        };
+
+    private void updateFireBase(String p1,String p2) {
+        DatabaseReference db;
+        db = FirebaseDatabase.getInstance().getReference("games/"+count);
+        db.child("player1").setValue(p1);
+        db.child("player2").setValue(p2);
+    }
+
+
+    public int getScoreP1(){
+        return prefs.getInt("score",0);
+    }
+    public int getScoreP2(){
+        return prefs.getInt("score2",0);
+    }
+    public List<String> getAllUserName(DataSnapshot dataSnapshot) {
+        List<String> userList = new ArrayList<>();
+        if (dataSnapshot.exists()) {
+
+            for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                // String user = ds.getValue(String.class);
+                String user = ds.child("userName").getValue(String.class);
+                userList.add(user);
+                Log.d("DEBUG", user + " / " + user);
+            }
+            return userList;
+        }
+        return null;
+
+    }
+
+
 }

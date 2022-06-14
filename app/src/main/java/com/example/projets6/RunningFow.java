@@ -24,6 +24,7 @@ import android.widget.TextView;
 
 import com.example.projets6.activity.activity_classicmode;
 import com.example.projets6.activity.activity_settings;
+import com.google.firebase.database.DatabaseReference;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -48,6 +49,9 @@ public class RunningFow extends AppCompatActivity {
 
 
     CountDownTimer cdtimer;
+    SharedPreferences prefs;
+    DatabaseReference mDatabase ;
+    String username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +61,7 @@ public class RunningFow extends AppCompatActivity {
         SharedPreferences prefs = getSharedPreferences("MyApp", MODE_PRIVATE);
         an="";
         point = prefs.getInt("score", 100);
+        username=prefs.getString("username","UNKNOWN");
         foxjump = (GifImageView) findViewById(R.id.foxjump);
         foxrunning = (GifImageView) findViewById(R.id.foxrunning);
         death1 = findViewById(R.id.death1);
@@ -169,7 +174,7 @@ public class RunningFow extends AppCompatActivity {
         }
         generateEquation();
         timertext.setVisibility(View.VISIBLE);
-        cdtimer = new CountDownTimer(20000, 10) {
+        cdtimer = new CountDownTimer(100, 10) {
 
             public void onTick(long millisUntilFinished) {
                 NumberFormat f = null;
@@ -184,14 +189,16 @@ public class RunningFow extends AppCompatActivity {
 
                 if (an.equals(res)) {
                     goodAnswer();
+
                 }
             }
 
-            public void onFinish() {
+            public void onFinish() {//faut tester si on est en mode multip pour afficher la bonne activite
                 answer.setText("");
                 lives-=1;
                 if (lives == 2){
                     death3.setVisibility(View.VISIBLE);
+
                 }
                 if (lives == 1){
                     death2.setVisibility(View.VISIBLE);
@@ -215,6 +222,9 @@ public void goodAnswer(){
         MediaPlayer sound= MediaPlayer.create(RunningFow.this,R.raw.bonne_reponse);
         sound.start();
     }
+
+    mDatabase.child(username).child("score").setValue(point);
+    prefs.edit().putInt("score", point).commit();
     goodAnswertext.setText(Integer.toString(goodAnswer));
     answer.setText("");
     timertext.setVisibility(View.INVISIBLE);

@@ -20,6 +20,8 @@ import com.example.projets6.activity.activity_settings;
 import com.example.projets6.activity.logInActivity;
 import com.example.projets6.credit;
 import com.example.projets6.loading_screen;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -34,6 +36,9 @@ public class MainActivity extends AppCompatActivity {
     TextView messageView4;
     TextView messageView5;
 
+    private DatabaseReference mDatabase;
+    SharedPreferences prefs;
+
 
 
     Button classicmode;
@@ -43,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mDatabase = FirebaseDatabase.getInstance().getReference("Player");
+         prefs = getSharedPreferences("MyApp", MODE_PRIVATE);
         SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
         messageView = (TextView) findViewById(R.id.classicmode);
         messageView3 = (TextView) findViewById(R.id.lvlplayer);
@@ -129,6 +136,8 @@ public class MainActivity extends AppCompatActivity {
                     sound.start();
                 }
 
+
+
                 openSettings();
             }
         });
@@ -141,7 +150,10 @@ public class MainActivity extends AppCompatActivity {
                     MediaPlayer sound = MediaPlayer.create(MainActivity.this, R.raw.ui_sound);
                     sound.start();
                 }
+                mDatabase.child(username).child("multijoueur").setValue(true);
+                prefs.edit().putBoolean("multijoueur", true).commit();
                 openMultiplayer();
+
             }
         });
 

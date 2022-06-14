@@ -3,14 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Alex/Desktop/MathsApp/app/src/main/res/layout/activity_classicmode.xml" value="0.176" />
+        <entry key="..\:/Users/Alex/Desktop/MathsApp/app/src/main/res/layout/activity_classicmode.xml" value="0.6" />
         <entry key="..\:/Users/Alex/Desktop/MathsApp/app/src/main/res/layout/activity_connexion.xml" value="0.20652173913043478" />
-        <entry key="..\:/Users/Alex/Desktop/MathsApp/app/src/main/res/layout/activity_main.xml" value="0.12360688956433637" />
-        <entry key="..\:/Users/Alex/Desktop/MathsApp/app/src/main/res/layout/activity_profile.xml" value="0.264" />
-        <entry key="..\:/Users/Alex/Desktop/MathsApp/app/src/main/res/layout/activity_running_fow.xml" value="0.21784420289855072" />
         <entry key="..\:/Users/Alex/Desktop/MathsApp/app/src/main/res/layout/activity_settings.xml" value="0.264" />
         <entry key="..\:/Users/Alex/Desktop/MathsApp/app/src/main/res/layout/loading.xml" value="0.1" />
-        <entry key="..\:/Users/Alex/Desktop/MathsApp/app/src/main/res/layout/multiplayer_screen.xml" value="0.1" />
         <entry key="..\:/Users/Max/AndroidStudioProjects/MathsApp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1535" />
         <entry key="..\:/Users/Max/AndroidStudioProjects/MathsApp/app/src/main/res/drawable/box.xml" value="0.1805" />
         <entry key="..\:/Users/Max/AndroidStudioProjects/MathsApp/app/src/main/res/drawable/circle.xml" value="0.1535" />
@@ -47,9 +43,14 @@
         <entry key="..\:/Users/othma/AndroidStudioProjects/MathsApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1945" />
         <entry key="..\:/Users/othma/AndroidStudioProjects/MathsApp/app/src/main/res/layout/activity_classicmode.xml" value="0.1" />
         <entry key="..\:/Users/othma/AndroidStudioProjects/MathsApp/app/src/main/res/layout/activity_connexion.xml" value="0.1" />
+        <entry key="..\:/Users/othma/AndroidStudioProjects/MathsApp/app/src/main/res/layout/activity_end_fox.xml" value="0.1" />
         <entry key="..\:/Users/othma/AndroidStudioProjects/MathsApp/app/src/main/res/layout/activity_inscription.xml" value="0.19157608695652173" />
         <entry key="..\:/Users/othma/AndroidStudioProjects/MathsApp/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/othma/AndroidStudioProjects/MathsApp/app/src/main/res/layout/activity_multimode.xml" value="0.2" />
+        <entry key="..\:/Users/othma/AndroidStudioProjects/MathsApp/app/src/main/res/layout/activity_running_fow.xml" value="0.22" />
+        <entry key="..\:/Users/othma/AndroidStudioProjects/MathsApp/app/src/main/res/layout/activity_win_fox.xml" value="0.25" />
         <entry key="..\:/Users/othma/AndroidStudioProjects/MathsApp/app/src/main/res/layout/login_activity.xml" value="0.1" />
+        <entry key="..\:/Users/othma/AndroidStudioProjects/MathsApp/app/src/main/res/layout/multiplayer_screen.xml" value="0.2" />
       </map>
     </option>
   </component>

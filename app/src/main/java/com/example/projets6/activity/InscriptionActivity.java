@@ -2,6 +2,7 @@ package com.example.projets6.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -57,7 +58,7 @@ public class InscriptionActivity extends Activity {
             public void onClick(View v) {
                 if(signupFormIsValid()){
                     Player j=new Player(userField.getText().toString()
-                    ,passEncrypted,10,false);
+                    ,passEncrypted,100,false);
                     mDatabase.orderByChild("userName").equalTo(userField.getText().toString()). ///where username= usr
                             addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
@@ -84,6 +85,7 @@ public class InscriptionActivity extends Activity {
         toLogIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent=new Intent(InscriptionActivity.this,logInActivity.class);
                 startActivity(intent);
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
@@ -98,6 +100,10 @@ public void switchMainActivity(int timeout){ //timeout = 4000 make the activity 
         @Override
         public void run() {
             finish();
+            SharedPreferences prefs = getSharedPreferences("MyApp", MODE_PRIVATE);
+            prefs.edit().putString("username", userField.getText().toString()).commit();
+            prefs.edit().putInt("score", 100).commit();
+            prefs.edit().putBoolean("multijoueur",false).commit();
             Intent i = new Intent(InscriptionActivity.this, MainActivity.class);
             startActivity(i);
         }
