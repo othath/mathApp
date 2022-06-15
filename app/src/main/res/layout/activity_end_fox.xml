@@ -6,6 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".activity_end_fox">
 
+
+
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
@@ -209,6 +212,24 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/score_fox"
         app:layout_constraintTop_toTopOf="@+id/textview18" />
+
+    <ImageButton
+        android:id="@+id/retour"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginHorizontal="35dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="4dp"
+
+        android:background="@color/purplemenu"
+        android:scaleType="fitCenter"
+        android:src="@drawable/retour"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

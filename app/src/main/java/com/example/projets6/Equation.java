@@ -129,7 +129,7 @@ public class Equation {
     }
 
     public String generate2(){
-        int r = (new Random()).nextInt(5)+1;
+        int r = (new Random()).nextInt(4)+1;
         String res="";
         switch(r){
             case 1:
@@ -142,16 +142,12 @@ public class Equation {
                 res = Xmodulo2();
                 break;
             case 4:
-                res = timesXmodulo10();
-                break;
-            case 5:
                 res = times2();
-                break;
         }
         return res;
     }
     public String generate3(){
-        int r = (new Random()).nextInt(3)+1;
+        int r = (new Random()).nextInt(4)+1;
         String res="";
         switch(r) {
             case 1:
@@ -162,6 +158,9 @@ public class Equation {
                 break;
             case 3:
                 res = minusXmodulo10();
+                break;
+            case 4:
+                res = timesXmodulo10();
                 break;
         }
         return res;

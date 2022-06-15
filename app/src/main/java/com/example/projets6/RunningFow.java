@@ -19,12 +19,16 @@ import android.text.SpannableStringBuilder;
 import android.view.Display;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LinearInterpolator;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.projets6.activity.activity_classicmode;
 import com.example.projets6.activity.activity_settings;
-import com.google.firebase.database.DatabaseReference;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -38,20 +42,17 @@ public class RunningFow extends AppCompatActivity {
     int point,screenWidth, screenHeight;
     static int count = 0;
     int goodAnswer = 0;
-    float backgroundleftX;
+    float backgroundleftX,backgroundleftBarriereX;
     Timer timer;
     String res, an;
     Equation eq;
     GifImageView foxjump, foxrunning;
-    ImageView death1,death2,death3, backgroundfox1,backgroundfox2, backgroundfox3;
+    ImageView death1,death2,death3, backgroundfox1,backgroundfox2, backgroundfox3, backgroundfoxbarriere, retour;
     Handler handler;
-    Bitmap background;
 
+    Animation animSlide, clignotant;
 
     CountDownTimer cdtimer;
-    SharedPreferences prefs;
-    DatabaseReference mDatabase ;
-    String username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,9 +60,14 @@ public class RunningFow extends AppCompatActivity {
         setContentView(R.layout.activity_running_fow);
 
         SharedPreferences prefs = getSharedPreferences("MyApp", MODE_PRIVATE);
+
+
+        retour= (ImageButton) findViewById(R.id.retour);
+        retour.setOnClickListener(v -> retour());
+
+
         an="";
         point = prefs.getInt("score", 100);
-        username=prefs.getString("username","UNKNOWN");
         foxjump = (GifImageView) findViewById(R.id.foxjump);
         foxrunning = (GifImageView) findViewById(R.id.foxrunning);
         death1 = findViewById(R.id.death1);
@@ -78,8 +84,20 @@ public class RunningFow extends AppCompatActivity {
         backgroundfox1 = findViewById(R.id.backgroundfox1);
         backgroundfox2 = findViewById(R.id.backgroundfox2);
         backgroundfox3 = findViewById(R.id.backgroundfox3);
-        //backgroundfox1.setVisibility(View.INVISIBLE);
+        backgroundfoxbarriere = findViewById(R.id.barriere);
+        backgroundfoxbarriere.setVisibility(View.INVISIBLE);
+        backgroundfoxbarriere.setX(-100f);
         //backgroundfox2.setVisibility(View.INVISIBLE);
+
+        animSlide = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide);
+
+        clignotant = new AlphaAnimation(1, 0); //to change visibility from visible to invisible
+        clignotant.setDuration(100); //1 second duration for each animation cycle
+        clignotant.setInterpolator(new LinearInterpolator());
+        clignotant.setRepeatCount(3); //repeating indefinitely
+        clignotant.setRepeatMode(Animation.REVERSE); //animation will start from end point once ended.
+
+
         timer = new Timer();
         handler = new Handler();
 
@@ -107,13 +125,12 @@ public class RunningFow extends AppCompatActivity {
 
         });
         displayGame();
-
     }
 
     private void changePos() {
-        backgroundleftX-=20;
-        if (backgroundfox1.getX()+backgroundfox1.getWidth()*2 < 1){
-            backgroundleftX = screenWidth-2*backgroundfox1.getWidth();
+        backgroundleftX-=10;
+        if (backgroundfox1.getX() + backgroundfox1.getWidth()*2 < 0){
+            backgroundleftX = screenWidth-2*backgroundfox1.getWidth()+80;
             backgroundfox1.setX(backgroundleftX);
             backgroundfox2.setX(backgroundleftX+backgroundfox1.getWidth());
             backgroundfox3.setX(backgroundleftX+backgroundfox1.getWidth()*2);
@@ -122,8 +139,13 @@ public class RunningFow extends AppCompatActivity {
         backgroundfox2.setX(backgroundleftX+backgroundfox1.getWidth());
         backgroundfox3.setX(backgroundleftX+backgroundfox1.getWidth()*2);
 
-
-
+    }
+    public void changePosBarriere(){
+        backgroundleftBarriereX-=10;
+        if (backgroundfoxbarriere.getX()<0){
+            backgroundleftBarriereX = screenWidth;
+        }
+        backgroundfoxbarriere.setX(backgroundleftBarriereX);
     }
 
     public void generateEquation() {
@@ -157,6 +179,7 @@ public class RunningFow extends AppCompatActivity {
         res = classicmode.StringToCalcul(eq.equations);
         textEquation = findViewById(R.id.textequation);
         textEquation.setText(classicmode.affichageEquation(eq.equations));
+
     }
 
     private void updateAnswer(String strToAdd) {
@@ -174,7 +197,7 @@ public class RunningFow extends AppCompatActivity {
         }
         generateEquation();
         timertext.setVisibility(View.VISIBLE);
-        cdtimer = new CountDownTimer(100, 10) {
+        cdtimer = new CountDownTimer(20000, 1) {
 
             public void onTick(long millisUntilFinished) {
                 NumberFormat f = null;
@@ -189,16 +212,24 @@ public class RunningFow extends AppCompatActivity {
 
                 if (an.equals(res)) {
                     goodAnswer();
-
                 }
             }
 
-            public void onFinish() {//faut tester si on est en mode multip pour afficher la bonne activite
+            public void onFinish() {
                 answer.setText("");
+                final Handler handler3 = new Handler();
+
+                handler3.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        foxrunning.startAnimation(clignotant);
+                    }
+                }, 1500);
+
+                backgroundfoxbarriere.startAnimation(animSlide);
                 lives-=1;
                 if (lives == 2){
                     death3.setVisibility(View.VISIBLE);
-
                 }
                 if (lives == 1){
                     death2.setVisibility(View.VISIBLE);
@@ -215,34 +246,42 @@ public class RunningFow extends AppCompatActivity {
     }
 
 
-public void goodAnswer(){
-    goodAnswer+=1;
-    SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
-    if (sharedPreferences.getBoolean("value2",true)) {
-        MediaPlayer sound= MediaPlayer.create(RunningFow.this,R.raw.bonne_reponse);
-        sound.start();
-    }
 
-    mDatabase.child(username).child("score").setValue(point);
-    prefs.edit().putInt("score", point).commit();
-    goodAnswertext.setText(Integer.toString(goodAnswer));
-    answer.setText("");
-    timertext.setVisibility(View.INVISIBLE);
-    foxrunning.setVisibility(View.INVISIBLE);
-    foxjump.setVisibility(View.VISIBLE);
-
-    final Handler handler = new Handler();
-    handler.postDelayed(new Runnable() {
-        @Override
-        public void run() {
-            foxjump.setVisibility(View.GONE);
-            foxrunning.setVisibility(View.VISIBLE);
-
+    public void goodAnswer(){
+        goodAnswer+=1;
+        backgroundfoxbarriere.startAnimation(animSlide);
+        SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
+        if (sharedPreferences.getBoolean("value2",true)) {
+            MediaPlayer sound= MediaPlayer.create(RunningFow.this,R.raw.bonne_reponse);
+            sound.start();
         }
-    }, 1000);
-    count++;
-    displayGame();
-}
+        goodAnswertext.setText(Integer.toString(goodAnswer));
+        answer.setText("");
+        timertext.setVisibility(View.INVISIBLE);
+
+        final Handler handler = new Handler();
+
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                foxrunning.setVisibility(View.INVISIBLE);
+                foxjump.setVisibility(View.VISIBLE);
+            }
+        }, 1100);
+        final Handler handler2 = new Handler();
+
+        handler2.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                foxrunning.setVisibility(View.VISIBLE);
+                foxjump.setVisibility(View.GONE);
+
+
+            }
+        }, 2100);
+        count++;
+        displayGame();
+    }
 
     public void sound_ui(){
         SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
@@ -355,6 +394,15 @@ public void goodAnswer(){
     }
 
 
-
+    private void retour() {
+        SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
+        if (sharedPreferences.getBoolean("value",true)) {
+            MediaPlayer sound = MediaPlayer.create(RunningFow.this, R.raw.ui_sound);
+            sound.start();
+        }
+        Intent intent = new Intent(this, com.example.projets6.activity.MainActivity.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+    }
 
 }

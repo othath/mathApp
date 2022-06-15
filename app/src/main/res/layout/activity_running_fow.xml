@@ -5,31 +5,58 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@+id/backgroundfox6"
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        android:background="@drawable/backgroundfox"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/backgroundfox2" />
 
+    <ImageView
+        android:id="@+id/backgroundfox5"
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        android:background="@drawable/backgroundfox"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="@+id/backgroundfox3"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/backgroundfox3"
-            android:layout_width="wrap_content"
-            android:layout_height="300dp"
-            android:orientation="horizontal"
-            android:layout_marginTop="50dp"
-            android:background="@drawable/backgroundfox" />
+    <ImageView
+        android:id="@+id/backgroundfox4"
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        android:background="@drawable/backgroundfox"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="@+id/backgroundfox3"
+        app:layout_constraintTop_toTopOf="@+id/backgroundfox3" />
+    <ImageView
+        android:id="@+id/backgroundfox3"
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        android:background="@drawable/backgroundfox"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/backgroundfox2" />
 
     <ImageView
         android:id="@+id/backgroundfox2"
         android:layout_width="wrap_content"
         android:layout_height="300dp"
+        android:background="@drawable/backgroundfox"
         android:orientation="horizontal"
-        android:layout_marginTop="50dp"
-        android:background="@drawable/backgroundfox" />
+        app:layout_constraintStart_toStartOf="@+id/backgroundfox3"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/backgroundfox1"
         android:layout_width="wrap_content"
         android:layout_height="300dp"
+        android:background="@drawable/backgroundfox"
         android:orientation="horizontal"
-        android:layout_marginTop="50dp"
-        android:background="@drawable/backgroundfox" />
+        app:layout_constraintStart_toStartOf="@+id/backgroundfox3"
+        app:layout_constraintTop_toTopOf="@+id/backgroundfox3" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -339,14 +366,14 @@
         android:focusedByDefault="true"
         android:fontFamily="@font/muli_regular"
         android:inputType="textPersonName"
-        android:text="equation"
+        android:text="équation"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="35dp"
         app:layout_constraintBottom_toTopOf="@+id/inputanswer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/backgroundfox3" />
 
     <EditText
 
@@ -368,6 +395,17 @@
         app:layout_constraintStart_toStartOf="parent"
 
         />
+
+
+
+    <ImageView
+        android:id="@+id/barriere"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="55dp"
+        android:src="@drawable/barriere"
+        app:layout_constraintBottom_toBottomOf="@+id/backgroundfox3"
+        app:layout_constraintStart_toEndOf="parent" />
 
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/foxrunning"
@@ -391,7 +429,6 @@
         android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/foxrunning" />
-
     <ImageView
         android:id="@+id/life1"
         android:layout_width="23dp"
@@ -489,6 +526,23 @@
         android:textColor="@color/orangemenu"
         android:textSize="17dp"
         android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <ImageButton
+        android:id="@+id/retour"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginHorizontal="35dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="4dp"
+
+        android:background="@color/purplemenu"
+        android:scaleType="fitCenter"
+        android:src="@drawable/retour"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
