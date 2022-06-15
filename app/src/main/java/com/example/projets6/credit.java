@@ -10,6 +10,7 @@ import android.graphics.drawable.AnimationDrawable;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
@@ -60,6 +61,13 @@ public class credit extends AppCompatActivity {
         textView_credit.setTextSize(20);
         fox.startAnimation(animation);
         textView_credit.startAnimation(animation);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                finish();
+
+            }
+        },25000);
     }
     public void finish() {
         SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
