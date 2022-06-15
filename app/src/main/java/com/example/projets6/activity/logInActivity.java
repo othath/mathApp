@@ -44,6 +44,7 @@ public class logInActivity extends AppCompatActivity {
     private Button toSignUp;
     private TextView userMessage;
     private DatabaseReference mDatabase;
+    TextView a;
     Context context2;
     Resources resources;
     TextView messageView;
@@ -81,7 +82,7 @@ public class logInActivity extends AppCompatActivity {
         else{
             context2 = LocaleHelper.setLocale(logInActivity.this, "fr");
             resources = context2.getResources();
-            messageView.setText(resources.getString(R.string.singInTitle));
+            //messageView.setText(resources.getString(R.string.singInTitle));
             messageView2.setText(resources.getString(R.string.signInText2));
           /*  messageView3.setText(resources.getString(R.string.hintUser));
             messageView4.setText(resources.getString(R.string.hintPassword));*/

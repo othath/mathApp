@@ -17,17 +17,19 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-
     <TextView
         android:id="@+id/winfox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/muli_extrabold"
         android:gravity="center"
-        android:text="@string/adventuremode"
+        android:text="@string/multimode"
         android:textColor="@color/white"
-        android:textSize="36dp" />
+        android:textSize="36dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
     <ImageButton
         android:id="@+id/retour"
@@ -38,9 +40,9 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginHorizontal="35dp"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="12dp"
 
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="4dp"
         android:background="@color/purplemenu"
         android:scaleType="fitCenter"
         android:src="@drawable/retour"
@@ -54,19 +56,16 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginHorizontal="35dp"
-        android:background="@drawable/greybackground"
+        android:layout_marginTop="152dp"
 
+        android:background="@drawable/greybackground"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="136dp" />
-
-
-
-
+        app:layout_constraintTop_toTopOf="@+id/textview3" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/player1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/muli_extrabold"
@@ -74,11 +73,12 @@
         android:textColor="@color/black"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="@+id/imageView4"
+        app:layout_constraintHorizontal_bias="0.535"
         app:layout_constraintStart_toStartOf="@+id/imageView4"
-        tools:layout_editor_absoluteY="248dp" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/player2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/muli_extrabold"
@@ -87,7 +87,7 @@
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="@+id/imageView5"
         app:layout_constraintStart_toStartOf="@+id/imageView5"
-        tools:layout_editor_absoluteY="248dp" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
     <TextView
         android:id="@+id/textView7"
@@ -103,7 +103,7 @@
         app:layout_constraintTop_toTopOf="@+id/runfox"/>
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/point1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="200 points"
@@ -111,10 +111,10 @@
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="@+id/imageView4"
         app:layout_constraintStart_toStartOf="@+id/imageView4"
-        tools:layout_editor_absoluteY="288dp" />
+        app:layout_constraintTop_toBottomOf="@+id/player1" />
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/point2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="200 points"
@@ -122,7 +122,7 @@
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="@+id/imageView5"
         app:layout_constraintStart_toStartOf="@+id/imageView5"
-        tools:layout_editor_absoluteY="288dp" />
+        app:layout_constraintTop_toBottomOf="@+id/player2" />
 
     <TextView
         android:id="@+id/winplayer"
@@ -131,12 +131,14 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginHorizontal="35dp"
-        android:background="@drawable/greybackground"
+        android:layout_marginTop="12dp"
 
+        android:background="@drawable/greybackground"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="365dp" />
+        app:layout_constraintTop_toBottomOf="@+id/runfox" />
+
 
     <TextView
         android:id="@+id/loseplayer"
@@ -145,17 +147,16 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginHorizontal="35dp"
-        android:background="@drawable/greybackground"
+        android:layout_marginTop="12dp"
 
+        android:background="@drawable/greybackground"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="520dp" />
-
-
+        app:layout_constraintTop_toBottomOf="@+id/winplayer" />
 
     <TextView
-        android:id="@+id/textView12"
+        android:id="@+id/player1_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/muli_extrabold"
@@ -163,24 +164,26 @@
         android:textColor="@color/black"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView8"
+        app:layout_constraintStart_toEndOf="@+id/imageView8"
         app:layout_constraintTop_toTopOf="@+id/imageView8"
-        app:layout_constraintVertical_bias="0.505"
-        tools:layout_editor_absoluteX="173dp" />
+        app:layout_constraintVertical_bias="0.505" />
+
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/point1_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
         android:text="500 points"
         android:textColor="@color/orangemenu"
         android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView12"
-        app:layout_constraintTop_toTopOf="@+id/textView12"
-        tools:layout_editor_absoluteX="272dp" />
-
+        app:layout_constraintBottom_toBottomOf="@+id/player1_2"
+        app:layout_constraintStart_toEndOf="@+id/player1_2"
+        app:layout_constraintTop_toTopOf="@+id/player1_2"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textView14"
+        android:id="@+id/player2_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/muli_extrabold"
@@ -188,20 +191,21 @@
         android:textColor="@color/black"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView10"
+        app:layout_constraintStart_toEndOf="@+id/imageView10"
         app:layout_constraintTop_toTopOf="@+id/imageView10"
-        app:layout_constraintVertical_bias="0.505"
-        tools:layout_editor_absoluteX="173dp" />
+        app:layout_constraintVertical_bias="0.505" />
 
     <TextView
-        android:id="@+id/textView15"
+        android:id="@+id/point2_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
         android:text="500 points"
         android:textColor="@color/orangemenu"
         android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView14"
-        app:layout_constraintTop_toTopOf="@+id/textView14"
-        tools:layout_editor_absoluteX="272dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/player2_2"
+        app:layout_constraintStart_toEndOf="@+id/player2_2"
+        app:layout_constraintTop_toTopOf="@+id/player2_2" />
 
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/pic1"
@@ -228,7 +232,7 @@
         android:layout_height="80dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
-        android:src="@drawable/foxprofil"
+        android:src="@drawable/scraryfox"
         app:layout_constraintEnd_toEndOf="@+id/runfox"
         app:layout_constraintTop_toTopOf="@+id/runfox" />
 
@@ -246,32 +250,41 @@
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:src="@drawable/foxprofil"
-        tools:layout_editor_absoluteX="67dp"
-        tools:layout_editor_absoluteY="396dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/imageView7"
+        app:layout_constraintEnd_toEndOf="@+id/imageView7"
+        app:layout_constraintStart_toStartOf="@+id/imageView8"
+        app:layout_constraintTop_toTopOf="@+id/imageView8" />
 
     <ImageView
+        android:id="@+id/imageView7"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:src="@drawable/fond_blanc"
-        tools:layout_editor_absoluteX="67dp"
-        tools:layout_editor_absoluteY="396dp" />
-
+        app:layout_constraintBottom_toBottomOf="@+id/imageView8"
+        app:layout_constraintEnd_toStartOf="@+id/player1_2"
+        app:layout_constraintStart_toStartOf="@+id/imageView8"
+        app:layout_constraintTop_toTopOf="@+id/imageView8" />
 
 
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/pic3"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:src="@drawable/foxprofil"
-        tools:layout_editor_absoluteX="67dp"
-        tools:layout_editor_absoluteY="545dp" />
+        android:src="@drawable/scraryfox"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView11"
+        app:layout_constraintEnd_toEndOf="@+id/imageView11"
+        app:layout_constraintStart_toStartOf="@+id/imageView11"
+        app:layout_constraintTop_toTopOf="@+id/imageView10" />
 
     <ImageView
+        android:id="@+id/imageView11"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:src="@drawable/fond_blanc"
-        tools:layout_editor_absoluteX="67dp"
-        tools:layout_editor_absoluteY="545dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/imageView10"
+        app:layout_constraintEnd_toStartOf="@+id/player1_2"
+        app:layout_constraintStart_toStartOf="@+id/imageView10"
+        app:layout_constraintTop_toTopOf="@+id/imageView10" />
 
     <ImageView
         android:id="@+id/imageView5"
@@ -305,13 +318,14 @@
 
     <ImageView
         android:id="@+id/imageView9"
-        android:layout_width="wrap_content"
-        android:layout_height="45dp"
-        android:layout_marginTop="376dp"
+        android:layout_width="78dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="396dp"
         android:rotation="327"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/crown"
-        tools:layout_editor_absoluteX="-122dp" />
+        app:srcCompat="@drawable/crown" />
 
     <ImageView
         android:id="@+id/imageView10"

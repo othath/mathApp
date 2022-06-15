@@ -6,4 +6,547 @@
     android:layout_height="match_parent"
     tools:context=".activity.Multimode">
 
+    <ImageView
+        android:id="@+id/backgroundfox3"
+        android:layout_width="wrap_content"
+        android:layout_height="250dp"
+        android:background="@drawable/backgroundfox"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/backgroundfox2" />
+
+    <ImageView
+        android:id="@+id/backgroundfox2"
+        android:layout_width="wrap_content"
+        android:layout_height="250dp"
+        android:background="@drawable/backgroundfox"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="@+id/backgroundfox3"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/backgroundfox1"
+        android:layout_width="wrap_content"
+        android:layout_height="250dp"
+        android:background="@drawable/backgroundfox"
+        android:orientation="horizontal"
+
+        app:layout_constraintStart_toStartOf="@+id/backgroundfox3"
+        app:layout_constraintTop_toTopOf="@+id/backgroundfox3" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="-35dp"
+        android:background="@drawable/background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="328dp"
+        android:layout_height="278dp"
+        android:layout_marginHorizontal="30dp"
+        android:weightSum="4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="71dp">
+
+            <androidx.appcompat.widget.AppCompatButton
+
+                android:id="@+id/button1"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_below="@+id/passwordField"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:background="@drawable/greybutton"
+                android:fontFamily="@font/muli_semibold"
+                android:gravity="center"
+                android:onClick="button1"
+                android:text="@string/one"
+                android:textSize="30dp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+
+                android:id="@+id/button2"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_below="@+id/passwordField"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:background="@drawable/greybutton"
+                android:fontFamily="@font/muli_semibold"
+                android:gravity="center"
+                android:onClick="button2"
+                android:text="@string/two"
+                android:textSize="30dp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+
+                android:id="@+id/button3"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_below="@+id/passwordField"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:background="@drawable/greybutton"
+                android:fontFamily="@font/muli_semibold"
+                android:gravity="center"
+                android:onClick="button3"
+                android:text="@string/three"
+                android:textSize="30dp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+
+                android:id="@+id/buttonclear"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_below="@+id/passwordField"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:background="@drawable/orangebutton"
+                android:fontFamily="@font/muli_semibold"
+                android:gravity="center"
+                android:onClick="buttondel"
+                android:text="@string/del"
+                android:textColor="@color/white"
+                android:textSize="30dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <androidx.appcompat.widget.AppCompatButton
+
+                android:id="@+id/button4"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_below="@+id/passwordField"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:background="@drawable/greybutton"
+                android:fontFamily="@font/muli_semibold"
+                android:gravity="center"
+                android:onClick="button4"
+                android:text="@string/four"
+                android:textSize="30dp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+
+                android:id="@+id/button5"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_below="@+id/passwordField"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:background="@drawable/greybutton"
+                android:fontFamily="@font/muli_semibold"
+                android:gravity="center"
+                android:onClick="button5"
+                android:text="@string/five"
+                android:textSize="30dp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+
+                android:id="@+id/button6"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_below="@+id/passwordField"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:background="@drawable/greybutton"
+                android:fontFamily="@font/muli_semibold"
+                android:gravity="center"
+                android:onClick="button6"
+                android:text="@string/six"
+                android:textSize="30dp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+
+                android:id="@+id/buttonclearall"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_below="@+id/passwordField"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:background="@drawable/orangebutton"
+                android:fontFamily="@font/muli_semibold"
+                android:gravity="center"
+                android:onClick="buttondelall"
+                android:text="@string/delall"
+                android:textColor="@color/white"
+                android:textSize="30dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="288dp">
+
+            <androidx.appcompat.widget.AppCompatButton
+
+                android:id="@+id/button7"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_below="@+id/passwordField"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:background="@drawable/greybutton"
+                android:fontFamily="@font/muli_semibold"
+                android:gravity="center"
+                android:onClick="button7"
+                android:text="@string/seven"
+                android:textSize="30dp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+
+                android:id="@+id/button8"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_below="@+id/passwordField"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:background="@drawable/greybutton"
+                android:fontFamily="@font/muli_semibold"
+                android:gravity="center"
+                android:onClick="button8"
+                android:text="@string/height"
+                android:textSize="30dp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+
+                android:id="@+id/button9"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_below="@+id/passwordField"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:background="@drawable/greybutton"
+                android:fontFamily="@font/muli_semibold"
+                android:gravity="center"
+                android:onClick="button9"
+                android:text="@string/nine"
+                android:textSize="30dp" />
+
+
+            <androidx.appcompat.widget.AppCompatButton
+
+                android:id="@+id/buttonc"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_below="@+id/passwordField"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:background="@drawable/orangebutton"
+                android:fontFamily="@font/muli_semibold"
+                android:gravity="center"
+                android:onClick="buttonminus"
+                android:text="@string/minus"
+                android:textColor="@color/white"
+                android:textSize="30dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatButton
+
+                android:id="@+id/button0"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_below="@+id/passwordField"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:background="@drawable/greybutton"
+                android:fontFamily="@font/muli_semibold"
+                android:gravity="center"
+                android:onClick="button0"
+                android:text="@string/zero"
+                android:textSize="30dp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+
+                android:id="@+id/buttoncomma"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_below="@+id/passwordField"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:background="@drawable/greybutton"
+                android:fontFamily="@font/muli_semibold"
+                android:gravity="center"
+                android:onClick="buttoncomma"
+                android:text="@string/comma"
+                android:textSize="30dp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_below="@+id/passwordField"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:background="@drawable/greybutton"
+                android:fontFamily="@font/muli_semibold"
+                android:gravity="center"
+                android:text=""
+                android:textSize="30dp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+
+                android:id="@+id/buttonenter"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_below="@+id/passwordField"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:background="@drawable/orangebutton"
+                android:fontFamily="@font/muli_semibold"
+                android:gravity="center"
+                android:onClick="buttondivision"
+                android:text="@string/division"
+                android:textColor="@color/white"
+                android:textSize="30dp" />
+        </TableRow>
+    </TableLayout>
+
+
+    <TextView
+        android:id="@+id/textequation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:focusedByDefault="true"
+        android:fontFamily="@font/muli_regular"
+        android:inputType="textPersonName"
+        android:text="équation"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="35dp"
+        app:layout_constraintBottom_toTopOf="@+id/inputanswer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/backgroundfox3" />
+
+
+    <EditText
+
+        android:id="@+id/inputanswer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:cursorVisible="true"
+        android:ems="10"
+        android:focusableInTouchMode="false"
+        android:focusedByDefault="true"
+        android:imeOptions="actionDone"
+        android:inputType="textPersonName"
+        android:text=""
+        android:textAlignment="center"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/tableLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/barriere"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="55dp"
+        android:src="@drawable/barriere"
+        app:layout_constraintBottom_toBottomOf="@+id/backgroundfox3"
+        app:layout_constraintStart_toEndOf="parent" />
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/foxrunning2"
+        android:layout_width="200dp"
+        android:layout_height="201dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/foxrunning"
+        android:layout_marginTop="-6dp"
+        android:layout_marginLeft="29dp"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="@+id/foxjump2"
+        app:layout_constraintTop_toTopOf="@+id/foxjump2" />
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/foxjump2"
+
+        android:layout_width="253dp"
+        android:layout_height="204dp"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="60dp"
+        android:src="@drawable/jump_fox"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/foxrunning"
+        android:layout_width="210dp"
+        android:layout_height="201dp"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="64dp"
+        android:src="@drawable/foxrunning"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/foxjump"
+        android:layout_width="273dp"
+        android:layout_height="204dp"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="12dp"
+        android:src="@drawable/jump_fox"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/foxrunning" />
+
+
+
+    <ImageView
+        android:id="@+id/life1"
+        android:layout_width="23dp"
+        android:layout_height="23dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/foxlives"
+        android:visibility="visible"
+        app:layout_constraintEnd_toStartOf="@+id/timer"
+        app:layout_constraintStart_toStartOf="@+id/timer"
+        app:layout_constraintTop_toBottomOf="@+id/timer" />
+
+    <ImageView
+        android:id="@+id/life3"
+        android:layout_width="23dp"
+        android:layout_height="23dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/foxlives"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="@+id/timer"
+        app:layout_constraintStart_toEndOf="@+id/timer"
+        app:layout_constraintTop_toTopOf="@+id/life2" />
+
+    <ImageView
+        android:id="@+id/life2"
+        android:layout_width="23dp"
+        android:layout_height="23dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/foxlives"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="@+id/timer"
+        app:layout_constraintStart_toStartOf="@+id/timer"
+        app:layout_constraintTop_toBottomOf="@+id/timer" />
+
+    <ImageView
+        android:id="@+id/death1"
+        android:layout_width="23dp"
+        android:layout_height="23dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/foxdeath"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/timer"
+        app:layout_constraintStart_toStartOf="@+id/timer"
+        app:layout_constraintTop_toBottomOf="@+id/timer" />
+
+    <ImageView
+        android:id="@+id/death3"
+        android:layout_width="23dp"
+        android:layout_height="23dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/foxdeath"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/timer"
+        app:layout_constraintStart_toEndOf="@+id/timer"
+        app:layout_constraintTop_toTopOf="@+id/life2" />
+
+    <ImageView
+        android:id="@+id/death2"
+        android:layout_width="23dp"
+        android:layout_height="23dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/foxdeath"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/timer"
+        app:layout_constraintStart_toStartOf="@+id/timer"
+        app:layout_constraintTop_toBottomOf="@+id/timer" />
+
+
+    <TextView
+        android:id="@+id/timer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="28dp"
+        android:background="@drawable/whitebutton"
+        android:padding="5dp"
+        android:text="Timer"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="17dp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/whitebutton"
+        android:fontFamily="@font/muli_extrabold"
+        android:padding="10dp"
+        android:text="count"
+        android:textAlignment="center"
+        android:textColor="@color/orangemenu"
+        android:textSize="17dp"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/retour"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginHorizontal="35dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="4dp"
+
+        android:background="@color/purplemenu"
+        android:scaleType="fitCenter"
+        android:src="@drawable/retour"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

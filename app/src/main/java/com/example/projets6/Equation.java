@@ -173,17 +173,20 @@ public class Equation {
                 res = minusX100();
                 break;
             case 2:
-                res = diveXmodulo2();
+                res= times3to9();
                 break;
         }
         return res;
     }
     public String generate5(){
-        int r = (new Random()).nextInt(1)+1;
+        int r = (new Random()).nextInt(2)+1;
         String res="";
         switch(r) {
             case 1:
                 res = timesminusX100();
+                break;
+            case 2:
+                res = diveXmodulo2();
                 break;
         }
         return res;
@@ -316,6 +319,12 @@ public class Equation {
     }*/
 
     //Niveau 4
+
+    public String times3to9(){
+        int res = (new Random()).nextInt(7)+3;
+        return "*"+res;
+    }
+
 
     public String minusX100(){
         int r = (new Random()).nextInt(90)+10;
@@ -491,5 +500,6 @@ public class Equation {
         String res= Integer.toString(r)+"^"+Integer.toString(coeff);
         return res;
     }
+
 
 }
