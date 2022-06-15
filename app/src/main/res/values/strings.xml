@@ -13,7 +13,7 @@
     <string name="mailHint">Mail address</string>
     <string name="logInBtn">Se Connecter</string>
     <string name="hintUser">Nom d\'utilisateur</string>
-    <string name="toSignUp">Créer un compte.</string>
+    <string name="toSignUp">Créer un compte</string>
     <string name="novice">Novice</string>
     <string name="beginner">Débutant</string>
     <string name="intermediary">Intermédiraire</string>
@@ -51,11 +51,10 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-    <string name="hintconfirmPassword">Confirm Password</string>
+    <string name="hintconfirmPassword">Confirmer le mot de passe</string>
     <string name="signInBtn">S\'inscrire</string>
     <string name="toLogIn">Avez vous un compte?</string>
-    <string name="singUpTitle">signUpTitle</string>
-    <string name="signUpTitle">Sign Up</string>
+    <string name="signUpTitle">Inscription</string>
     <string name="classicmode">Mode Classique</string>
     <string name="skip">skip</string>
     <string name="startgame">Démarrer le jeu</string>

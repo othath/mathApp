@@ -17,6 +17,7 @@
     <string name="logInBtn">Log in</string>
     <string name="hintUser">Username</string>
     <string name="toSignUp">Sign up</string>
+    <string name="signUpTitle">Sign up</string>
     <string name="signInText2">Log in and challenge \other users !</string>
     <string name="beginner">Beginner</string>
     <string name="intermediary">Intermediary</string>
