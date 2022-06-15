@@ -382,21 +382,18 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/sedeco"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginHorizontal="35dp"
-        android:layout_marginTop="168dp"
         android:background="@drawable/orangebutton"
         android:fontFamily="@font/muli_extrabold"
-        android:text="Se Deconnecter"
+        android:text=""
         android:textColor="@color/white"
-        android:textSize="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.514"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/classement_title2" />
+        android:textSize="14dp"
+        tools:layout_editor_absoluteX="338dp"
+        tools:layout_editor_absoluteY="13dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

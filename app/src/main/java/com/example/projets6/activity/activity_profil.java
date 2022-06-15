@@ -27,6 +27,15 @@ import com.example.projets6.R;
 public class activity_profil extends AppCompatActivity {
 
     Button deconnecter;
+    String username;
+    int point;
+    TextView pointtext;
+    SharedPreferences prefs;
+    TextView messageView3;
+
+    Context context;
+    Resources resources;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
@@ -43,6 +52,13 @@ public class activity_profil extends AppCompatActivity {
                 deconnexion();
             }
         });
+
+        pointtext = findViewById(R.id.pointNumber);
+        TextView usertext = findViewById(R.id.username);
+        TextView lvlplayer = findViewById(R.id.lvlplayer);
+        TextView pourcent = findViewById(R.id.pourcent);
+
+
     }
 
     private void retour() {
@@ -61,6 +77,7 @@ public class activity_profil extends AppCompatActivity {
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
+
 
 
 }
