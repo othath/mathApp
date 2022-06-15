@@ -1,8 +1,10 @@
 package com.example.projets6.activity;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -41,6 +43,12 @@ public class InscriptionActivity extends Activity {
     private String passEncrypted;
     private String confirmPassEncrypted;
     public Pattern p = Pattern.compile("^[A-Za-z]+[A-Za-z0-9._-]+");
+    Context context2;
+    Resources resources;
+    TextView messageView;
+    TextView messageView2;
+    TextView messageView3;
+    TextView messageView4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +56,30 @@ public class InscriptionActivity extends Activity {
         setContentView(R.layout.activity_inscription);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
+        messageView = (TextView) findViewById(R.id.signUpText);
+        messageView2 = (TextView) findViewById(R.id.signUpText2);
+        messageView3 = (TextView) findViewById(R.id.signUpButton);
+        messageView4 = (TextView) findViewById(R.id.tologIn);
+        SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
+        if (sharedPreferences.getBoolean("langue2",true)) {
+            context2 = LocaleHelper.setLocale(InscriptionActivity.this, "hi");
+            resources = context2.getResources();
+            messageView.setText(resources.getString(R.string.signUpTitle));
+            messageView2.setText(resources.getString(R.string.signInText2));
+            messageView3.setText(resources.getString(R.string.signInBtn));
+            messageView4.setText(resources.getString(R.string.toLogIn));
+
+        }
+        else{
+            context2 = LocaleHelper.setLocale(InscriptionActivity.this, "fr");
+            resources = context2.getResources();
+            messageView.setText(resources.getString(R.string.signUpTitle));
+            messageView2.setText(resources.getString(R.string.signInText2));
+            messageView3.setText(resources.getString(R.string.signInBtn));
+            messageView4.setText(resources.getString(R.string.toLogIn));
+
+
+        }
         signUp = (Button) findViewById(R.id.signUpButton);
         toLogIn = (Button) findViewById(R.id.tologIn);
         confirmPasswordField = (EditText) findViewById(R.id.confirmPasswordField);

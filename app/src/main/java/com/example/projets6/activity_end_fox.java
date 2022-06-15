@@ -47,6 +47,7 @@ public class activity_end_fox extends AppCompatActivity {
     private void openrunfox(){
         Intent intent = new Intent(this, RunningFow.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
     private void retour() {
         SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
