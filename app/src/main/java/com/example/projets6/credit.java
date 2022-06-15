@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
+import pl.droidsonroids.gif.GifImageView;
 
 import com.example.projets6.activity.LocaleHelper;
 import com.example.projets6.activity.activity_settings;
@@ -21,6 +22,7 @@ public class credit extends AppCompatActivity {
     Context context;
     Resources resources;
     MediaPlayer sound;
+    GifImageView fox;
 
     public TextView textView_credit;
     @Override
@@ -36,9 +38,12 @@ public class credit extends AppCompatActivity {
         animationDrawable.setEnterFadeDuration(2500);
         animationDrawable.setExitFadeDuration(5000);
         animationDrawable.start();
+
         Animation animation= AnimationUtils.loadAnimation(credit.this,R.anim.credits);
 
         textView_credit=(TextView) findViewById(R.id.textViewCredit);
+        fox=(GifImageView)  findViewById(R.id.fox_ground);
+
         if (sharedPreferences.getBoolean("value",true)) {
             sound = MediaPlayer.create(credit.this, R.raw.credit);
             sound.start();
@@ -53,7 +58,7 @@ public class credit extends AppCompatActivity {
         }
 
         textView_credit.setTextSize(20);
-
+        fox.startAnimation(animation);
         textView_credit.startAnimation(animation);
     }
     public void finish() {

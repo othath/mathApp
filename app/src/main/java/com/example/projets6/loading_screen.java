@@ -50,7 +50,6 @@ public class loading_screen extends AppCompatActivity{
         if (sharedPreferences.getBoolean("langue2",true)) {
             context = LocaleHelper.setLocale(loading_screen.this, "hi");
             resources = context.getResources();
-            messageView.setText(resources.getString(R.string.developed));
             messageView2.setText(resources.getString(R.string.startgame));
         }
         else{

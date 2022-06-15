@@ -226,6 +226,12 @@ public class MainActivity extends AppCompatActivity {
                 .setCancelable(false)
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
+
+                        SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
+                        if (sharedPreferences.getBoolean("value",true)) {
+                            MediaPlayer sound = MediaPlayer.create(MainActivity.this, R.raw.ui_sound);
+                            sound.start();
+                        }
                         moveTaskToBack(true);
                         android.os.Process.killProcess(android.os.Process.myPid());
                         System.exit(1);

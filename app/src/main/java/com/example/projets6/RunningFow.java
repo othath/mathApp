@@ -404,12 +404,19 @@ public class RunningFow extends AppCompatActivity {
         }
         super.finish();
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+        if (sharedPreferences.getBoolean("value",true)) {
+            sound.stop();
+        }
 
     }
 
     public void gotoend(){
         Intent intent = new Intent(this, activity_end_fox.class);
         startActivity(intent);
+        SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
+        if (sharedPreferences.getBoolean("value",true)) {
+            sound.stop();
+        }
     }
     public static int getcount(){
         return count;
