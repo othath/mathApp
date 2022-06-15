@@ -17,7 +17,6 @@ import android.widget.Button;
 import com.airbnb.lottie.LottieAnimationView;
 import com.example.projets6.activity.LocaleHelper;
 import com.example.projets6.activity.MainActivity;
-import com.example.projets6.activity.Multimode;
 import com.example.projets6.activity.activity_settings;
 import com.example.projets6.activity.logInActivity;
 import com.google.firebase.database.DataSnapshot;
@@ -63,7 +62,7 @@ public class multiplayer_screen extends AppCompatActivity{
         username = prefs.getString("username", "UNKNOWN");
 
         playerRef.addListenerForSingleValueEvent(listenerTrouver);
-         intent = new Intent(multiplayer_screen.this, Multimode.class);
+         intent = new Intent(multiplayer_screen.this, RunningFow.class);
 
 
 
