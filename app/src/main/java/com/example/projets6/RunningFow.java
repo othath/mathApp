@@ -448,5 +448,16 @@ public class RunningFow extends AppCompatActivity {
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (sound.isPlaying()){
+            sound.stop();
+            if (isFinishing()){
+                sound.stop();
+                sound.release();
+            }
+        }
+    }
 
 }

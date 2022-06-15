@@ -368,6 +368,18 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (sound.isPlaying()){
+            sound.stop();
+            if (isFinishing()){
+                sound.stop();
+                sound.release();
+            }
+        }
+    }
+
 
 
 }

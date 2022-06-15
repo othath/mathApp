@@ -427,4 +427,15 @@ public class activity_classicmode extends AppCompatActivity {
             sound2=null;
         }
     }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (sound2.isPlaying()){
+            sound2.stop();
+            if (isFinishing()){
+                sound2.stop();
+                sound2.release();
+            }
+        }
+    }
 }
