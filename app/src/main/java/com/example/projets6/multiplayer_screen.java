@@ -17,6 +17,7 @@ import android.widget.Button;
 import com.airbnb.lottie.LottieAnimationView;
 import com.example.projets6.activity.LocaleHelper;
 import com.example.projets6.activity.MainActivity;
+import com.example.projets6.activity.Multimode;
 import com.example.projets6.activity.activity_settings;
 import com.example.projets6.activity.logInActivity;
 import com.google.firebase.database.DataSnapshot;
@@ -35,10 +36,10 @@ import java.util.List;
 
 public class multiplayer_screen extends AppCompatActivity{
     static int count=0;
-    Intent intent ;
     LottieAnimationView lottie;
     LottieAnimationView lottie2;
     String username;
+    Intent intent;
     private DatabaseReference playerRef;
     private DatabaseReference gamesRef;
     private SharedPreferences prefs;
@@ -46,6 +47,7 @@ public class multiplayer_screen extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        intent = new Intent(multiplayer_screen.this, Multimode.class);
 
         setContentView(R.layout.multiplayer_screen);
         count++;
@@ -62,9 +64,6 @@ public class multiplayer_screen extends AppCompatActivity{
         username = prefs.getString("username", "UNKNOWN");
 
         playerRef.addListenerForSingleValueEvent(listenerTrouver);
-         intent = new Intent(multiplayer_screen.this, RunningFow.class);
-
-
 
     }
     ValueEventListener listenerGame=new ValueEventListener(){
@@ -74,6 +73,7 @@ public class multiplayer_screen extends AppCompatActivity{
             String game;
 
             if(isPlayerInGame(snapshot,username)){
+
                 startActivity(intent);
             }
 
