@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.widget.Button;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.example.projets6.activity.InscriptionActivity;
 import com.example.projets6.activity.LocaleHelper;
 import com.example.projets6.activity.MainActivity;
 import com.example.projets6.activity.activity_settings;
@@ -91,7 +92,7 @@ public class loading_screen extends AppCompatActivity{
             intent = new Intent(this, logInActivity.class);
         }
         else{
-            intent = new Intent(this,MainActivity.class);
+            intent = new Intent(this, MainActivity.class);
         }
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);

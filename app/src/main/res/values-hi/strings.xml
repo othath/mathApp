@@ -27,5 +27,11 @@
     <string name="adventuremode">Adventure mode</string>
     <string name="multimode">Multiplayer mode</string>
     <string name="novice">Novice</string>
+    <string name="signInBtn">Sign up</string>
+    <string name="toLogIn">Do you have an account ?</string>
+
+    <string name="classic_popup">"This mode allows you to test your mental calculation skills and improve them. Each correct answer is worth 10 points and wrong answers -5 points. Equations containing fractions expect an answer in fraction form"</string>
+    <string name="adventure_popup">"In this mode, you have to lead your fox as far as possible by answering correctly the proposed equations. You have 20 seconds to answer. If your answer is correct, the race continues, otherwise you lose a life. The game stops when you lose 3 lives"</string>
+    <string name="multi_popup">"This mini game is a multiplayer version of the adventure mode. The game ends when one of the 2 players has lost all his lives. The player who answers the most equations correctly will be the winner"</string>
 
 </resources>

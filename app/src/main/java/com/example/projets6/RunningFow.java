@@ -421,6 +421,7 @@ public class RunningFow extends AppCompatActivity {
             sound.release();
             sound=null;
         }
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
     public static int getcount(){
         return count;

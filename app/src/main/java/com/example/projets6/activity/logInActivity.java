@@ -62,7 +62,7 @@ public class logInActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         setContentView(R.layout.activity_connexion);
-        messageView = (TextView) findViewById(R.id.signInText);
+        messageView = (TextView) findViewById(R.id.signUpText);
         messageView2 = (TextView) findViewById(R.id.signInText2);
         messageView3 = (TextView) findViewById(R.id.userField);
         messageView4 = (TextView) findViewById(R.id.passwordField);

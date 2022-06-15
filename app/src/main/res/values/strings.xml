@@ -65,4 +65,12 @@
     <string name="adventuremode">Mode Aventure</string>
     <string name="multimode">Mode Multijoueur</string>
 
+    <string name="classic_popup">"Ce mode vous permet de tester vos capacité en calcul mental et de les améliorer. Chaque bonne réponse apporte 10 points et les mauvaises -5points. Les équations contenant des fractions attendent une réponse sous forme de fraction"</string>
+    <string name="adventure_popup">"Dans ce mode, vous devez mener votre renard le plus loin possible en répondant correctement aux equations proposées. Vous disposez de 20secondes pour répondre. Si votre réponse est bonne, le course continue, sinon vous perdez une vie. Le jeu s'arrête lorsque vous perdez 3 vies"</string>
+    <string name="multi_popup">"Ce mini jeu est une version multijoueur du mode aventure. La partie s'arrête lorsque l'un des 2 joueurs a perdu toutes ses vies. Le joueur ayant répondu au plus d'équations correctement sera le gagnant"</string>
+
+
+
+
+
 </resources>
