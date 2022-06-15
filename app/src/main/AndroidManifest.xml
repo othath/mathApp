@@ -20,6 +20,8 @@
             android:exported="false" />
         <activity
             android:name=".activity.MainActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation"
           >
         </activity>
         <activity
@@ -29,29 +31,59 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            android:screenOrientation="portrait"
+            android:configChanges="orientation"
 
         </activity>
         <activity
             android:name=".activity.DailyMode"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation"
+            />
         <activity android:name=".activity.logInActivity"
-            android:exported="true">
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation"
+            >
 
         </activity>
 
-        <activity android:name=".go" />
-        <activity android:name=".multiplayer_screen" />
-        <activity android:name=".credit" />
-        <activity android:name=".activity.InscriptionActivity" />
-        <activity android:name=".activity.activity_classicmode" />
-        <activity android:name=".RunningFow" />
+        <activity android:name=".go"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation"
+            />
+        <activity android:name=".multiplayer_screen"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation"
+            />
+        <activity android:name=".credit"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation"
+            />
+        <activity android:name=".activity.InscriptionActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation"
+            />
+        <activity android:name=".activity.activity_classicmode"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation"
+            />
+        <activity android:name=".RunningFow"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation"
+            />
         <activity
             android:name=".activity.activity_settings"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:configChanges="orientation" />
 
         <activity android:name=".activity.activity_popup"
 
-            android:theme="@style/AppTheme.CustomTheme"/>
+            android:theme="@style/AppTheme.CustomTheme"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation"
+            />
     </application>
 
 </manifest>
