@@ -27,6 +27,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.projets6.activity.MainActivity;
 import com.example.projets6.activity.activity_classicmode;
 import com.example.projets6.activity.activity_settings;
 
@@ -230,12 +231,28 @@ public class RunningFow extends AppCompatActivity {
                 lives-=1;
                 if (lives == 2){
                     death3.setVisibility(View.VISIBLE);
+                    SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
+                    if (sharedPreferences.getBoolean("value2",true)) {
+                        MediaPlayer sound = MediaPlayer.create(RunningFow.this, R.raw.lose_life);
+                        sound.start();
+                    }
                 }
                 if (lives == 1){
+
                     death2.setVisibility(View.VISIBLE);
+                    SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
+                    if (sharedPreferences.getBoolean("value2",true)) {
+                        MediaPlayer sound = MediaPlayer.create(RunningFow.this, R.raw.lose_life);
+                        sound.start();
+                    }
                 }
                 if (lives == 0){
                     death1.setVisibility(View.VISIBLE);
+                    SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
+                    if (sharedPreferences.getBoolean("value2",true)) {
+                        MediaPlayer sound = MediaPlayer.create(RunningFow.this, R.raw.lose_life);
+                        sound.start();
+                    }
                     gotoend();
                 }
                 if (lives !=0){

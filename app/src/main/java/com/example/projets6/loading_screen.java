@@ -65,6 +65,7 @@ public class loading_screen extends AppCompatActivity{
         if (sharedPreferences.getBoolean("value",true)) {
             sound = MediaPlayer.create(loading_screen.this, R.raw.musique_menu);
             sound.start();
+            sound.setLooping(true);
         }
 
 

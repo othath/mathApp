@@ -39,7 +39,7 @@ public class go extends AppCompatActivity{
             @Override
             public void run() {
                 SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
-                if (sharedPreferences.getBoolean("value",true)) {
+                if (sharedPreferences.getBoolean("value2",true)) {
                     sound = MediaPlayer.create(go.this, R.raw.bip_bip_bip);
                     sound.start();
                 }

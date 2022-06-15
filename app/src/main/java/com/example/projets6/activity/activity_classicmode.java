@@ -64,6 +64,7 @@ public class activity_classicmode extends AppCompatActivity {
         if (sharedPreferences.getBoolean("value",true)) {
             sound2 = MediaPlayer.create(activity_classicmode.this, R.raw.classic);
             sound2.start();
+            sound2.setLooping(true);
         }
 
         messageView = (TextView) findViewById(R.id.textView);
