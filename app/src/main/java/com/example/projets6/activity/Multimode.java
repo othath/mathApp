@@ -30,6 +30,7 @@ import com.example.projets6.R;
 import com.example.projets6.RunningFow;
 import com.example.projets6.activity_end_fox;
 import com.example.projets6.activity_winFox;
+import com.example.projets6.multiplayer_wait;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -48,7 +49,7 @@ public class Multimode extends AppCompatActivity {
     int goodAnswer = 0;
     float backgroundleftX,backgroundleftBarriereX;
     Timer timer;
-    String res, an;
+    String res, an, adversaire;
     Equation eq = new Equation(5);
     GifImageView foxjump, foxrunning;
     ImageView death1,death2,death3, backgroundfox1,backgroundfox2, backgroundfox3, backgroundfoxbarriere, retour;
@@ -68,10 +69,20 @@ public class Multimode extends AppCompatActivity {
         SharedPreferences prefs = getSharedPreferences("MyApp", MODE_PRIVATE);
 
         SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
+
+        adversaire = prefs.getString("adversaire", "UNKNOWN");
+
+        TextView adversairetext = (TextView) findViewById(R.id.adversaire);
+        adversairetext.setText(adversaire);
+
+
+
         if (sharedPreferences.getBoolean("value",true)) {
             sound = MediaPlayer.create(com.example.projets6.activity.Multimode.this, R.raw.runningfox);
             sound.start();
             sound.setLooping(true);
+
+
         }
 
 
@@ -249,11 +260,16 @@ public class Multimode extends AppCompatActivity {
                     }
                 }
                 if (lives == 0){
+
+
+
                     death1.setVisibility(View.VISIBLE);
                     SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
                     if (sharedPreferences.getBoolean("value2",true)) {
                         MediaPlayer sound = MediaPlayer.create(com.example.projets6.activity.Multimode.this, R.raw.lose_life);
                         sound.start();
+
+
                     }
                     gotoend();
                 }
@@ -382,7 +398,6 @@ public class Multimode extends AppCompatActivity {
         }
     }
     public void buttondelall(View view){
-
         sound_ui();
         answer.setText("");
     }
@@ -402,7 +417,7 @@ public class Multimode extends AppCompatActivity {
     }
 
     public void gotoend(){
-        Intent intent = new Intent(this, activity_winFox.class);
+        Intent intent = new Intent(this, multiplayer_wait.class);
         startActivity(intent);
         SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
         if (sharedPreferences.getBoolean("value",true)) {

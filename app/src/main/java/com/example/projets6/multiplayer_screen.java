@@ -37,7 +37,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class multiplayer_screen extends AppCompatActivity{
-    static int count=0;
+    int count=0;
     Intent intent ;
     String adversaire;
     boolean multijTest;
@@ -55,9 +55,6 @@ public class multiplayer_screen extends AppCompatActivity{
         setContentView(R.layout.multiplayer_screen);
         intent = new Intent(multiplayer_screen.this, Multimode.class);
 
-
-
-        count++;
         lottie = findViewById(R.id.lottie2);
         lottie2 = findViewById(R.id.lottie3);
         lottie.playAnimation();
@@ -78,7 +75,6 @@ public class multiplayer_screen extends AppCompatActivity{
 
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Log.i("snap", snapshot.toString());
                 if(isPlayerInGame(snapshot,username)) {
                     startActivity(intent);
                     gamesRef.removeEventListener(this);
@@ -91,8 +87,22 @@ public class multiplayer_screen extends AppCompatActivity{
             }
         });
 
-        playerRef.addListenerForSingleValueEvent(listenerTrouver);
+        playerRef.addValueEventListener(listenerTrouver);
+        gamesRef.addValueEventListener(new ValueEventListener(){
 
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(isPlayerInGame(snapshot,username)) {
+                    startActivity(intent);
+                    gamesRef.removeEventListener(this);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
     }
 
@@ -112,14 +122,15 @@ public class multiplayer_screen extends AppCompatActivity{
                         adversaire = dataSnapshot.child(userList.get(i)).child("userName").getValue(String.class);
                         int score = dataSnapshot.child(userList.get(i)).child("score").getValue(Integer.class);
                         if (multij == true) {
-                            Log.i("user",username);
-                            Log.i("adv",adversaire);
+                            prefs.edit().putString("adversaire", adversaire).commit();
+                            int scoreAdv = dataSnapshot.child(userList.get(i)).child("score").getValue(Integer.class);
+                            prefs.edit().putInt("scoreAdv", scoreAdv).commit();
                             updateFireBase(username,adversaire);
                             playerRef.child(username).child("multijoueur").setValue(false);
-                            prefs.edit().putInt("score2",score).commit();//score d'adversaire
                             playerRef.child(adversaire).child("multijoueur").setValue(false);
+                            prefs.edit().putInt("score2",score).commit();//score d'adversaire
                             startActivity(intent);
-                            break;
+                            playerRef.removeEventListener(this);
                             //overridePendingTransition(R.anim.slide_in_right, R.anim.slide_in_left);
                         }
                     }
@@ -138,31 +149,29 @@ public class multiplayer_screen extends AppCompatActivity{
         String player2=null,player1 = null;
         Log.i("snap",snapshot.toString());
         if (snapshot.exists()) {
-            count+=snapshot.getChildrenCount();
+            count= (int) snapshot.getChildrenCount();
             for (DataSnapshot ds : snapshot.getChildren()) {
                 // String user = ds.getValue(String.class);
 
-                player1 = ds.child("player1").getValue(String.class);
                 player2 = ds.child("player2").getValue(String.class);
                 if (player2.equals(player)) nb++;
             }
-            Log.i("player2",player2);
         }
         if(nb==1) {
                 playerRef.child(player2).child("multijoueur").setValue(false);
-
+                prefs.edit().putInt("idGame",count).commit();
             return true;
         }
         return false;
     }
     private void updateFireBase(String p1,String p2) {
         DatabaseReference db;
+        count++;
         db = gamesRef.child(String.valueOf(count));
         db.child("player2").setValue(p2);
         db.child("player1").setValue(p1);
-
-
-
+        db.child("playerend1").setValue(false);
+        db.child("playerend2").setValue(false);
     }
 
 
@@ -180,13 +189,13 @@ public class multiplayer_screen extends AppCompatActivity{
                 // String user = ds.getValue(String.class);
                 String user = ds.child("userName").getValue(String.class);
                 userList.add(user);
-                Log.d("DEBUG", user + " / " + user);
             }
             return userList;
         }
         return null;
 
     }
+
 
 
 }
