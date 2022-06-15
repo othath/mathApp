@@ -60,7 +60,7 @@ public class logInActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         setContentView(R.layout.activity_connexion);
-        messageView = (TextView) findViewById(R.id.signUpText);
+        messageView = (TextView) findViewById(R.id.signInText);
         messageView2 = (TextView) findViewById(R.id.signInText2);
         messageView3 = (TextView) findViewById(R.id.userField);
         messageView4 = (TextView) findViewById(R.id.passwordField);
@@ -71,7 +71,7 @@ public class logInActivity extends AppCompatActivity {
         if (sharedPreferences.getBoolean("langue2",true)) {
             context2 = LocaleHelper.setLocale(logInActivity.this, "hi");
             resources = context2.getResources();
-          //  messageView.setText(resources.getString(R.string.singInTitle));
+            messageView.setText(resources.getString(R.string.singInTitle));
             messageView2.setText(resources.getString(R.string.signInText2));
           /*  messageView3.setText(resources.getString(R.string.hintUser));
             messageView4.setText(resources.getString(R.string.hintPassword));*/

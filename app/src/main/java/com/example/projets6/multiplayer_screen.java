@@ -36,10 +36,10 @@ import java.util.List;
 
 public class multiplayer_screen extends AppCompatActivity{
     static int count=0;
+    Intent intent ;
     LottieAnimationView lottie;
     LottieAnimationView lottie2;
     String username;
-    Intent intent;
     private DatabaseReference playerRef;
     private DatabaseReference gamesRef;
     private SharedPreferences prefs;
@@ -64,6 +64,9 @@ public class multiplayer_screen extends AppCompatActivity{
         username = prefs.getString("username", "UNKNOWN");
 
         playerRef.addListenerForSingleValueEvent(listenerTrouver);
+         intent = new Intent(multiplayer_screen.this, RunningFow.class);
+
+
 
     }
     ValueEventListener listenerGame=new ValueEventListener(){
@@ -73,7 +76,6 @@ public class multiplayer_screen extends AppCompatActivity{
             String game;
 
             if(isPlayerInGame(snapshot,username)){
-
                 startActivity(intent);
             }
 
