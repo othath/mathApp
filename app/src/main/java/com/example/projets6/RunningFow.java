@@ -31,6 +31,8 @@ import android.widget.TextView;
 import com.example.projets6.activity.MainActivity;
 import com.example.projets6.activity.activity_classicmode;
 import com.example.projets6.activity.activity_settings;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -54,6 +56,9 @@ public class RunningFow extends AppCompatActivity {
     MediaPlayer sound;
     Animation animSlide, clignotant;
 
+    SharedPreferences prefs;
+    DatabaseReference playerRef;
+
     CountDownTimer cdtimer;
 
     @Override
@@ -63,7 +68,8 @@ public class RunningFow extends AppCompatActivity {
 
         setContentView(R.layout.activity_running_fow);
 
-        SharedPreferences prefs = getSharedPreferences("MyApp", MODE_PRIVATE);
+         prefs = getSharedPreferences("MyApp", MODE_PRIVATE);
+         playerRef= FirebaseDatabase.getInstance().getReference("player");
 
         SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
         if (sharedPreferences.getBoolean("value",true)) {
@@ -209,7 +215,7 @@ public class RunningFow extends AppCompatActivity {
         }
         generateEquation();
         timertext.setVisibility(View.VISIBLE);
-        cdtimer = new CountDownTimer(20000, 1) {
+        cdtimer = new CountDownTimer(10000, 1) {
 
             public void onTick(long millisUntilFinished) {
                 NumberFormat f = null;
@@ -445,6 +451,7 @@ public class RunningFow extends AppCompatActivity {
             sound.release();
             sound=null;
         }
+
         Intent intent = new Intent(this, com.example.projets6.activity.MainActivity.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);

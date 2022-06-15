@@ -35,10 +35,12 @@ import java.util.List;
 
 public class multiplayer_screen extends AppCompatActivity{
     static int count=0;
+    Intent intent ;
     LottieAnimationView lottie;
     LottieAnimationView lottie2;
     String username;
-    private DatabaseReference mDatabase;
+    private DatabaseReference playerRef;
+    private DatabaseReference gamesRef;
     private SharedPreferences prefs;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,31 +55,59 @@ public class multiplayer_screen extends AppCompatActivity{
         lottie2.playAnimation();
 
 
-        mDatabase = FirebaseDatabase.getInstance().getReference("Player");
+        playerRef = FirebaseDatabase.getInstance().getReference("Player");
+        gamesRef = FirebaseDatabase.getInstance().getReference("games");
+
         prefs = getSharedPreferences("MyApp", MODE_PRIVATE);
         username = prefs.getString("username", "UNKNOWN");
-        mDatabase.addListenerForSingleValueEvent(valueEventListener);
+
+        playerRef.addListenerForSingleValueEvent(listenerTrouver);
+         intent = new Intent(multiplayer_screen.this, RunningFow.class);
+
 
 
     }
-    ValueEventListener valueEventListener =new ValueEventListener() {
+    ValueEventListener listenerGame=new ValueEventListener(){
+
+        @Override
+        public void onDataChange(@NonNull DataSnapshot snapshot) {
+            String game;
+
+            if(isPlayerInGame(snapshot,username)){
+                startActivity(intent);
+            }
+
+
+
+
+
+
+
+        }
+
+        @Override
+        public void onCancelled(@NonNull DatabaseError error) {
+
+        }
+    };
+    ValueEventListener listenerTrouver =new ValueEventListener() {
         @Override
         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
             Log.i("DEBUG",dataSnapshot.toString());
             List<String> userList =getAllUserName(dataSnapshot);
             if(userList!=null){
                 for(int i=0;i<userList.size();i++) {
-                    if(userList.get(i) != username) {
-                        Log.i("DEBUGMULTIP", userList.get(i));
+                    Log.i("userlist",userList.get(i));
+                    Log.i("username",username);
+
+                    if(!userList.get(i).equals(username)) {
                         boolean multij = dataSnapshot.child(userList.get(i)).child("multijoueur").getValue(Boolean.class);
                         String adversaire = dataSnapshot.child(userList.get(i)).child("userName").getValue(String.class);
                         int score = dataSnapshot.child(userList.get(i)).child("score").getValue(Integer.class);
-                         Log.i("DEBUGMULTIP",adversaire);
-                        Log.i("DEBUGMULTIP", String.valueOf(multij));
+
                         if (multij == true) {
-                            prefs.edit().putInt("score2",score).commit();
+                            prefs.edit().putInt("score2",score).commit();//score d'adversaire
                             updateFireBase(username,adversaire);
-                            Intent intent = new Intent(multiplayer_screen.this, RunningFow.class);
                             startActivity(intent);
                             break;
                             //overridePendingTransition(R.anim.slide_in_right, R.anim.slide_in_left);
@@ -93,10 +123,22 @@ public class multiplayer_screen extends AppCompatActivity{
 
         }
         };
-
+    private boolean isPlayerInGame(DataSnapshot snapshot,String player){
+        int nb=0;
+        if (snapshot.exists()) {
+            for (DataSnapshot ds : snapshot.getChildren()) {
+                // String user = ds.getValue(String.class);
+                String player1 = ds.child("player1").getValue(String.class);
+                String player2 = ds.child("player2").getValue(String.class);
+                if (player == player1 || player2 == player) nb++;
+            }
+        }
+        if(nb==1) return true;
+        return false;
+    }
     private void updateFireBase(String p1,String p2) {
         DatabaseReference db;
-        db = FirebaseDatabase.getInstance().getReference("games/"+count);
+        db = gamesRef.child(String.valueOf(count));
         db.child("player1").setValue(p1);
         db.child("player2").setValue(p2);
     }

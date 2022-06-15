@@ -19,7 +19,8 @@ import com.example.projets6.Equation;
 import com.example.projets6.R;
 
 
-public class DailyMode extends AppCompatActivity {
+public class
+DailyMode extends AppCompatActivity {
     EditText answer;
     Equation eq1,eq2,eq3;
     String res1,res2,res3;

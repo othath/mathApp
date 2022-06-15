@@ -43,10 +43,6 @@ public class logInActivity extends AppCompatActivity {
     public Pattern p=Pattern.compile("^[A-Za-z]+[A-Za-z0-9._-]+");
     private Button toSignUp;
     private TextView userMessage;
-    private TextView signUpMessage;
-    private EditText signUpName;
-    private EditText signUpUser;
-    private Context context;
     private DatabaseReference mDatabase;
     Context context2;
     Resources resources;
@@ -56,6 +52,7 @@ public class logInActivity extends AppCompatActivity {
     TextView messageView4;
     TextView messageView5;
     TextView messageView6;
+    SharedPreferences prefs ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,10 +66,11 @@ public class logInActivity extends AppCompatActivity {
         messageView5 = (TextView) findViewById(R.id.logInBtn);
         messageView6 = (TextView) findViewById(R.id.toSignUp);
         SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
+         prefs = getSharedPreferences("MyApp", MODE_PRIVATE);
         if (sharedPreferences.getBoolean("langue2",true)) {
             context2 = LocaleHelper.setLocale(logInActivity.this, "hi");
             resources = context2.getResources();
-            messageView.setText(resources.getString(R.string.singInTitle));
+          //  messageView.setText(resources.getString(R.string.singInTitle));
             messageView2.setText(resources.getString(R.string.signInText2));
           /*  messageView3.setText(resources.getString(R.string.hintUser));
             messageView4.setText(resources.getString(R.string.hintPassword));*/
@@ -116,6 +114,7 @@ public class logInActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                     if(loginFormIsValid()) {
+
                         logIn(userField.getText().toString());
                     }
             }
@@ -125,6 +124,7 @@ public class logInActivity extends AppCompatActivity {
     }
 
     public void logIn( String userName) {
+                Log.i("user",userName);
                 mDatabase.child(userName).addListenerForSingleValueEvent(valueEventListener); //listner on userName he msut be unique
     }
     ValueEventListener valueEventListener =new ValueEventListener() {
@@ -140,7 +140,7 @@ public class logInActivity extends AppCompatActivity {
                 Player p=new Player(userName,passDb, score,false);
                 if(passDb.equals(passEncrypted)){//passEncrypted
                     Intent i = new Intent(logInActivity.this, MainActivity.class);
-                    SharedPreferences prefs = getSharedPreferences("MyApp", MODE_PRIVATE);
+
                     prefs.edit().putString("username", userName).commit();
                     prefs.edit().putInt("score", score).commit();
                     prefs.edit().putBoolean("multijoueur",multij).commit();
@@ -152,10 +152,16 @@ public class logInActivity extends AppCompatActivity {
                 }
                 else {
                     Log.i("DEBUG","wrong");
+                    prefs.edit().putString("username", "").commit();
+                    prefs.edit().putInt("score", 100).commit();
+                    prefs.edit().putBoolean("multijoueur",multij).commit();
+
                     userMessage.setText("Wrong Password");
                 }
             }
             else {
+                prefs.edit().putString("username", "").commit();
+                prefs.edit().putInt("score", 100).commit();
                 Log.i("DEBUG","not found");
                 userMessage.setText("Account not found !");
             }

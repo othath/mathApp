@@ -88,12 +88,13 @@ public class loading_screen extends AppCompatActivity{
             sound.release();
             sound=null;
         }
-        if(username.equals("UNKNOWN")) {
+       /* if(username.equals("UNKNOWN")) {
             intent = new Intent(this, logInActivity.class);
         }
         else{
             intent = new Intent(this, MainActivity.class);
-        }
+        }*/
+        intent = new Intent(this, logInActivity.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
