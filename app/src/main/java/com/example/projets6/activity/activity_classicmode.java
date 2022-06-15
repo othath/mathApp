@@ -146,8 +146,10 @@ public class activity_classicmode extends AppCompatActivity {
             sound.start();
         }
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
-        if (sharedPreferences.getBoolean("value",true)) {
+        if (sound2.isPlaying()) {
             sound2.stop();
+            sound2.release();
+            sound2=null;
         }
     }
 
@@ -419,8 +421,10 @@ public class activity_classicmode extends AppCompatActivity {
         }
         super.finish();
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
-        if (sharedPreferences.getBoolean("value",true)) {
+        if (sound2.isPlaying()) {
             sound2.stop();
+            sound2.release();
+            sound2=null;
         }
     }
 }

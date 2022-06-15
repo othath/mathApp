@@ -404,8 +404,10 @@ public class RunningFow extends AppCompatActivity {
         }
         super.finish();
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
-        if (sharedPreferences.getBoolean("value",true)) {
+        if (sound.isPlaying()) {
             sound.stop();
+            sound.release();
+            sound=null;
         }
 
     }
@@ -414,8 +416,10 @@ public class RunningFow extends AppCompatActivity {
         Intent intent = new Intent(this, activity_end_fox.class);
         startActivity(intent);
         SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
-        if (sharedPreferences.getBoolean("value",true)) {
+        if (sound.isPlaying()) {
             sound.stop();
+            sound.release();
+            sound=null;
         }
     }
     public static int getcount(){
@@ -435,8 +439,10 @@ public class RunningFow extends AppCompatActivity {
             MediaPlayer sound2 = MediaPlayer.create(RunningFow.this, R.raw.ui_sound);
             sound2.start();
         }
-        if (sharedPreferences.getBoolean("value",true)) {
+        if (sound.isPlaying()) {
             sound.stop();
+            sound.release();
+            sound=null;
         }
         Intent intent = new Intent(this, com.example.projets6.activity.MainActivity.class);
         startActivity(intent);

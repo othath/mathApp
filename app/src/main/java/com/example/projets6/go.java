@@ -66,9 +66,10 @@ public class go extends AppCompatActivity{
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
-        if (sharedPreferences.getBoolean("value",true)) {
-
+        if (sound.isPlaying()) {
             sound.stop();
+            sound.release();
+            sound=null;
         }
         }
 

@@ -180,8 +180,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void stop_menu_song(){
         SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
-        if (sharedPreferences.getBoolean("value",true)) {
+        if (sound.isPlaying()) {
             sound.stop();
+            sound.release();
+            sound=null;
         }
     }
     private void openrunfox(){

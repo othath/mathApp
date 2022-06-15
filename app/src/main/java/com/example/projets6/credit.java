@@ -78,8 +78,10 @@ public class credit extends AppCompatActivity {
         super.finish();
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
 
-        if (sharedPreferences.getBoolean("value",true)) {
+        if (sound.isPlaying()) {
             sound.stop();
+            sound.release();
+            sound=null;
         }
 
     }

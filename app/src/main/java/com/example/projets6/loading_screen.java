@@ -81,6 +81,12 @@ public class loading_screen extends AppCompatActivity{
         SharedPreferences prefs = getSharedPreferences("MyApp", MODE_PRIVATE);
         String username = prefs.getString("username", "UNKNOWN");
         Intent intent;
+        SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
+        if (sound.isPlaying()) {
+            sound.stop();
+            sound.release();
+            sound=null;
+        }
         if(username.equals("UNKNOWN")) {
             intent = new Intent(this, logInActivity.class);
         }
@@ -89,10 +95,7 @@ public class loading_screen extends AppCompatActivity{
         }
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-        SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
-        if (sharedPreferences.getBoolean("value",true)) {
-            sound.stop();
-        }
+
     }
 
 
