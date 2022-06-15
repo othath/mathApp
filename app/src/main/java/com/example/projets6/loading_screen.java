@@ -98,7 +98,7 @@ public class loading_screen extends AppCompatActivity{
 
     }
 
-    @Override
+  /*  @Override
     protected void onPause() {
         super.onPause();
         if (sound.isPlaying()){
@@ -108,7 +108,7 @@ public class loading_screen extends AppCompatActivity{
                 sound.release();
             }
         }
-    }
+    }*/
 
 
 

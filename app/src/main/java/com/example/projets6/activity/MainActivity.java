@@ -368,7 +368,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    @Override
+  /*  @Override
     protected void onPause() {
         super.onPause();
         if (sound.isPlaying()){
@@ -379,7 +379,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-
+*/
 
 
 }

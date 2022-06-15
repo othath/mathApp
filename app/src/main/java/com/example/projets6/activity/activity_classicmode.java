@@ -427,6 +427,7 @@ public class activity_classicmode extends AppCompatActivity {
             sound2=null;
         }
     }
+    /*
     @Override
     protected void onPause() {
         super.onPause();
@@ -437,5 +438,5 @@ public class activity_classicmode extends AppCompatActivity {
                 sound2.release();
             }
         }
-    }
+    }*/
 }
