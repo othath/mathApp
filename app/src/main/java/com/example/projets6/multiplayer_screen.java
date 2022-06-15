@@ -33,10 +33,13 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class multiplayer_screen extends AppCompatActivity{
     static int count=0;
     Intent intent ;
+    boolean multijTest;
     LottieAnimationView lottie;
     LottieAnimationView lottie2;
     String username;
@@ -51,6 +54,8 @@ public class multiplayer_screen extends AppCompatActivity{
         setContentView(R.layout.multiplayer_screen);
         intent = new Intent(multiplayer_screen.this, Multimode.class);
 
+
+
         count++;
         lottie = findViewById(R.id.lottie2);
         lottie2 = findViewById(R.id.lottie3);
@@ -63,7 +68,8 @@ public class multiplayer_screen extends AppCompatActivity{
 
         prefs = getSharedPreferences("MyApp", MODE_PRIVATE);
         username = prefs.getString("username", "UNKNOWN");
-
+        multijTest=prefs.getBoolean("multij",false);
+        playerRef.child(username).child("multijoueur").setValue(true);
 
         playerRef.addListenerForSingleValueEvent(listenerTrouver);
         gamesRef.addListenerForSingleValueEvent(listenerGame);
@@ -76,13 +82,10 @@ public class multiplayer_screen extends AppCompatActivity{
 
         @Override
         public void onDataChange(@NonNull DataSnapshot snapshot) {
-            String game;
 
-            if(isPlayerInGame(snapshot,username)){
+            if(isPlayerInGame(snapshot,username)) {
                 startActivity(intent);
             }
-
-
         }
 
         @Override
@@ -97,16 +100,13 @@ public class multiplayer_screen extends AppCompatActivity{
             List<String> userList =getAllUserName(dataSnapshot);
             if(userList!=null){
                 for(int i=0;i<userList.size();i++) {
-                    Log.i("userlist",userList.get(i));
-                    Log.i("username",username);
-
                     if(!userList.get(i).equals(username)) {
                         boolean multij = dataSnapshot.child(userList.get(i)).child("multijoueur").getValue(Boolean.class);
+                        prefs.edit().putBoolean("multijPlayer2",multij).commit();//score d'adversaire
                         String adversaire = dataSnapshot.child(userList.get(i)).child("userName").getValue(String.class);
                         int score = dataSnapshot.child(userList.get(i)).child("score").getValue(Integer.class);
-                        playerRef.child(username).child("multijoueur").setValue(false);
-
                         if (multij == true) {
+                            playerRef.child(username).child("multijoueur").setValue(false);
                             prefs.edit().putInt("score2",score).commit();//score d'adversaire
                             updateFireBase(username,adversaire);
                             playerRef.child(adversaire).child("multijoueur").setValue(false);
@@ -128,19 +128,27 @@ public class multiplayer_screen extends AppCompatActivity{
     private boolean isPlayerInGame(DataSnapshot snapshot,String player){
         int nb=0;
         String player2=null,player1 = null;
+        Log.i("snap",snapshot.toString());
         if (snapshot.exists()) {
+            count+=snapshot.getChildrenCount();
+            Log.i("nb", String.valueOf(count));
             for (DataSnapshot ds : snapshot.getChildren()) {
                 // String user = ds.getValue(String.class);
+
                  player1 = ds.child("player1").getValue(String.class);
                  player2 = ds.child("player2").getValue(String.class);
+
                 if (player.equals(player1) || player2.equals(player)) nb++;
+
             }
+            Log.i("player1",player1);
+            Log.i("player2",player2);
+            Log.i("player",player);
         }
         if(nb==1) {
-            if(player1 !=null && player2!=null) {
                 playerRef.child(player1).child("multijoueur").setValue(false);
                 playerRef.child(player2).child("multijoueur").setValue(false);
-            }
+
             return true;
         }
         return false;
