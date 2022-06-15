@@ -50,7 +50,7 @@ public class RunningFow extends AppCompatActivity {
     GifImageView foxjump, foxrunning;
     ImageView death1,death2,death3, backgroundfox1,backgroundfox2, backgroundfox3, backgroundfoxbarriere, retour;
     Handler handler;
-
+    MediaPlayer sound;
     Animation animSlide, clignotant;
 
     CountDownTimer cdtimer;
@@ -61,6 +61,14 @@ public class RunningFow extends AppCompatActivity {
         setContentView(R.layout.activity_running_fow);
 
         SharedPreferences prefs = getSharedPreferences("MyApp", MODE_PRIVATE);
+
+        SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
+        if (sharedPreferences.getBoolean("value",true)) {
+            sound = MediaPlayer.create(RunningFow.this, R.raw.runningfox);
+            sound.start();
+            sound.setLooping(true);
+        }
+
 
 
         retour= (ImageButton) findViewById(R.id.retour);
@@ -413,9 +421,12 @@ public class RunningFow extends AppCompatActivity {
 
     private void retour() {
         SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
+        if (sharedPreferences.getBoolean("value2",true)) {
+            MediaPlayer sound2 = MediaPlayer.create(RunningFow.this, R.raw.ui_sound);
+            sound2.start();
+        }
         if (sharedPreferences.getBoolean("value",true)) {
-            MediaPlayer sound = MediaPlayer.create(RunningFow.this, R.raw.ui_sound);
-            sound.start();
+            sound.stop();
         }
         Intent intent = new Intent(this, com.example.projets6.activity.MainActivity.class);
         startActivity(intent);
