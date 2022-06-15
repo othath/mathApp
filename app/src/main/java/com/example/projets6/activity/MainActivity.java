@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mDatabase = FirebaseDatabase.getInstance().getReference("Player");
-         prefs = getSharedPreferences("MyApp", MODE_PRIVATE);
+        prefs = getSharedPreferences("MyApp", MODE_PRIVATE);
         SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
         messageView = (TextView) findViewById(R.id.classicmode);
         messageView3 = (TextView) findViewById(R.id.lvlplayer);
@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
             messageView4.setText(resources.getString(R.string.adventuremode));
             messageView5.setText(resources.getString(R.string.multimode));
         }
-        test.setOnClickListener(v -> login());
+        test.setOnClickListener(v -> Profil());
 
         Button runfox=(Button) findViewById(R.id.runfox);
         // runfox.setOnClickListener(v -> openrunfox());
@@ -216,6 +216,13 @@ public class MainActivity extends AppCompatActivity {
 
     public void login(){
         Intent intent=new Intent(this,logInActivity.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        stop_menu_song();
+    }
+
+    public void Profil(){
+        Intent intent=new Intent(this,activity_profil.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         stop_menu_song();
@@ -368,18 +375,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-  /*  @Override
-    protected void onPause() {
-        super.onPause();
-        if (sound.isPlaying()){
-            sound.stop();
-            if (isFinishing()){
-                sound.stop();
-                sound.release();
-            }
-        }
-    }
-*/
 
 
 }
