@@ -19,9 +19,14 @@
 
     <color name="colorTransparent">#00ffffff</color>
 
+    <color name="colorGradientStart">#07F4ED</color>
+    <color name="colorGradientCenter">#078FF4</color>
+    <color name="colorGradientEnd">#0764F4</color>
+    <!--
     <color name="colorGradientStart">#D9FF43</color>
     <color name="colorGradientCenter">#F67831</color>
     <color name="colorGradientEnd">#FF1493</color>
+     -->
 
     <color name="colorGradientStart2">#14FF18</color>
     <color name="colorGradientCenter2">#27CBFF</color>
