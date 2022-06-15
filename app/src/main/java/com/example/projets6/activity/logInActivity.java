@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;
@@ -59,6 +60,7 @@ public class logInActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         setContentView(R.layout.activity_connexion);
         messageView = (TextView) findViewById(R.id.signInText);
         messageView2 = (TextView) findViewById(R.id.signInText2);

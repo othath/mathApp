@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import com.example.projets6.Player;
 import com.example.projets6.R;
@@ -45,6 +46,8 @@ public class InscriptionActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inscription);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
         signUp = (Button) findViewById(R.id.signUpButton);
         toLogIn = (Button) findViewById(R.id.tologIn);
         confirmPasswordField = (EditText) findViewById(R.id.confirmPasswordField);

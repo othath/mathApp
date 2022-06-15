@@ -1,6 +1,7 @@
 package com.example.projets6;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Context;
 import android.content.Intent;
@@ -36,6 +37,7 @@ public class loading_screen extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         setContentView(R.layout.loading);
         lottie=findViewById(R.id.lottie);
         lottie2=findViewById(R.id.lottie2);
