@@ -37,7 +37,7 @@ public class activity_end_fox extends AppCompatActivity {
         pointtext.setText(Integer.toString(point)+" Points");
         Button replay=(Button) findViewById(R.id.btn_replay);
         replay.setOnClickListener(v -> openrunfox());
-        int score = point/10;
+        int score = count/10;
         score *= 10 ;
         scoretext.setText(score+" ");
         int plus3 = count+3;

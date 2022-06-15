@@ -6,35 +6,9 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/backgroundfox6"
-        android:layout_width="wrap_content"
-        android:layout_height="300dp"
-        android:background="@drawable/backgroundfox"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/backgroundfox2" />
-
-    <ImageView
-        android:id="@+id/backgroundfox5"
-        android:layout_width="wrap_content"
-        android:layout_height="300dp"
-        android:background="@drawable/backgroundfox"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="@+id/backgroundfox3"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/backgroundfox4"
-        android:layout_width="wrap_content"
-        android:layout_height="300dp"
-        android:background="@drawable/backgroundfox"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="@+id/backgroundfox3"
-        app:layout_constraintTop_toTopOf="@+id/backgroundfox3" />
-    <ImageView
         android:id="@+id/backgroundfox3"
         android:layout_width="wrap_content"
-        android:layout_height="300dp"
+        android:layout_height="250dp"
         android:background="@drawable/backgroundfox"
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,7 +17,7 @@
     <ImageView
         android:id="@+id/backgroundfox2"
         android:layout_width="wrap_content"
-        android:layout_height="300dp"
+        android:layout_height="250dp"
         android:background="@drawable/backgroundfox"
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="@+id/backgroundfox3"
@@ -52,9 +26,10 @@
     <ImageView
         android:id="@+id/backgroundfox1"
         android:layout_width="wrap_content"
-        android:layout_height="300dp"
+        android:layout_height="250dp"
         android:background="@drawable/backgroundfox"
         android:orientation="horizontal"
+
         app:layout_constraintStart_toStartOf="@+id/backgroundfox3"
         app:layout_constraintTop_toTopOf="@+id/backgroundfox3" />
 
@@ -62,6 +37,7 @@
         android:id="@+id/imageView2"
         android:layout_width="match_parent"
         android:layout_height="150dp"
+        android:layout_marginTop="-35dp"
         android:background="@drawable/background"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -413,7 +389,7 @@
         android:layout_height="201dp"
         android:layout_centerInParent="true"
         android:layout_marginStart="36dp"
-        android:layout_marginTop="110dp"
+        android:layout_marginTop="60dp"
         android:src="@drawable/foxrunning"
         android:visibility="visible"
         app:layout_constraintStart_toStartOf="parent"
@@ -500,7 +476,7 @@
         android:id="@+id/timer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="28dp"
         android:background="@drawable/whitebutton"
         android:padding="5dp"
@@ -516,8 +492,8 @@
         android:id="@+id/count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="96dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="60dp"
         android:background="@drawable/whitebutton"
         android:fontFamily="@font/muli_extrabold"
         android:padding="10dp"
@@ -528,6 +504,7 @@
         android:visibility="visible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <ImageButton
         android:id="@+id/retour"
         android:layout_width="30dp"

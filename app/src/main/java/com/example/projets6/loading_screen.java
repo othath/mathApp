@@ -1,7 +1,6 @@
 package com.example.projets6;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Context;
 import android.content.Intent;
@@ -37,13 +36,11 @@ public class loading_screen extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         setContentView(R.layout.loading);
         lottie=findViewById(R.id.lottie);
         lottie2=findViewById(R.id.lottie2);
         lottie.playAnimation();
         lottie2.playAnimation();
-        messageView = (TextView) findViewById(R.id.textView5);
         messageView2 = (Button) findViewById(R.id.button_start);
 
 
@@ -59,7 +56,6 @@ public class loading_screen extends AppCompatActivity{
         else{
             context = LocaleHelper.setLocale(loading_screen.this, "fr");
             resources = context.getResources();
-            messageView.setText(resources.getString(R.string.developed));
             messageView2.setText(resources.getString(R.string.startgame));
 
         }
@@ -67,7 +63,6 @@ public class loading_screen extends AppCompatActivity{
         if (sharedPreferences.getBoolean("value",true)) {
             sound = MediaPlayer.create(loading_screen.this, R.raw.musique_menu);
             sound.start();
-            sound.setLooping(true);
         }
 
 
@@ -79,13 +74,18 @@ public class loading_screen extends AppCompatActivity{
         start_button.startAnimation(animation);
         Toast.makeText(loading_screen.this, "Hello !", Toast.LENGTH_LONG).show();
 
-
     }
 
-
-
     public void change(){
-        Intent intent=new Intent(this, logInActivity.class);
+        SharedPreferences prefs = getSharedPreferences("MyApp", MODE_PRIVATE);
+        String username = prefs.getString("username", "UNKNOWN");
+        Intent intent;
+        if(username.equals("UNKNOWN")) {
+            intent = new Intent(this, logInActivity.class);
+        }
+        else{
+            intent = new Intent(this,MainActivity.class);
+        }
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
