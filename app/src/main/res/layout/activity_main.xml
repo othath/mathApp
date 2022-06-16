@@ -121,8 +121,6 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/muli_extrabold"
         android:text="username"
-
-
         android:textColor="@color/white"
         android:textSize="22dp"
         app:layout_constraintBottom_toBottomOf="@+id/progress_bar"

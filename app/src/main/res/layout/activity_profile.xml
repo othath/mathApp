@@ -143,14 +143,31 @@
         app:layout_constraintStart_toEndOf="@+id/imageView12"
         app:layout_constraintTop_toTopOf="@+id/imageView12" />
 
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="350dp"
         android:background="@drawable/background"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp" />
 
+    <ImageButton
+        android:id="@+id/sedeco"
+        android:layout_width="37dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="10dp"
+        android:adjustViewBounds="true"
+        android:background="@android:color/transparent"
+        android:maxWidth="24dp"
+
+        android:maxHeight="24dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/sedeco"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
 
     <ImageButton
         android:id="@+id/retour"
@@ -233,15 +250,32 @@
         android:id="@+id/pointNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="88dp"
         android:layout_marginTop="108dp"
-        android:layout_marginEnd="20dp"
         android:fontFamily="@font/muli_extrabold"
         android:gravity="center"
-        android:text="698 points"
+        android:text="698"
         android:textColor="@color/orangemenu"
         android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/username"
         app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/whitepoint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="48dp"
+        android:fontFamily="@font/muli_extrabold"
+        android:gravity="center"
+        android:text="points"
+        android:textColor="@color/white"
+        android:textSize="24dp"
+        app:layout_constraintEnd_toEndOf="@+id/pointNumber"
+        app:layout_constraintHorizontal_bias="0.164"
+        app:layout_constraintStart_toStartOf="@+id/pointNumber"
+        app:layout_constraintTop_toBottomOf="@+id/pointNumber"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -312,7 +346,7 @@
         app:layout_constraintTop_toBottomOf="@+id/classement_title" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/pointNumber1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
@@ -320,25 +354,25 @@
         android:fontFamily="@font/muli_extrabold"
         android:text="1000 points"
         android:textColor="@color/orangemenu"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView6"
         app:layout_constraintTop_toTopOf="@+id/imageView6"
         app:layout_constraintVertical_bias="0.228" />
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/classuser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="180dp"
+        android:layout_marginBottom="8dp"
         android:fontFamily="@font/muli_extrabold"
         android:text="Classement : 1er"
+        android:textSize="20dp"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/imageView6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/imageView6"
-        app:layout_constraintTop_toBottomOf="@+id/textView9"
-        app:layout_constraintVertical_bias="0.063" />
+        app:layout_constraintEnd_toEndOf="@+id/pointNumber1"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/pointNumber1" />
 
     <TextView
         android:id="@+id/classement_title2"
@@ -379,21 +413,6 @@
         app:barrierDirection="left"
         tools:layout_editor_absoluteX="207dp"
         tools:layout_editor_absoluteY="569dp" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/sedeco"
-        android:layout_width="42dp"
-        android:layout_height="42dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginHorizontal="35dp"
-        android:background="@drawable/orangebutton"
-        android:fontFamily="@font/muli_extrabold"
-        android:text=""
-        android:textColor="@color/white"
-        android:textSize="14dp"
-        tools:layout_editor_absoluteX="338dp"
-        tools:layout_editor_absoluteY="13dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

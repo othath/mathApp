@@ -40,6 +40,7 @@ public class activity_settings extends AppCompatActivity {
     Switch messageView5;
     Button messageView6;
     Button btn_credit;
+    Button btn_connexion;
 
 
 
@@ -103,6 +104,16 @@ public class activity_settings extends AppCompatActivity {
             }
         });
 
+        btn_connexion=(Button) findViewById(R.id.seco_btn);
+        btn_connexion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
+                connexion();
+
+            }
+        });
+
 
         btnEn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -126,6 +137,8 @@ public class activity_settings extends AppCompatActivity {
 
             }
         });
+
+
 
         btnFr.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -213,7 +226,13 @@ public class activity_settings extends AppCompatActivity {
     }
 
 
+    private void connexion(){
+        SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
+        Intent intent = new Intent(this, com.example.projets6.activity.logInActivity.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
 
+    }
     private void retour() {
         SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
         if (sharedPreferences.getBoolean("value",true)) {
