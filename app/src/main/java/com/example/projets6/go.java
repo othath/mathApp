@@ -75,9 +75,6 @@ public class go extends AppCompatActivity{
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(this, com.example.projets6.activity.MainActivity.class);
-        startActivity(intent);
-        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 
 }
