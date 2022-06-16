@@ -54,7 +54,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginHorizontal="35dp"
-        android:layout_marginTop="152dp"
+        android:layout_marginTop="136dp"
 
         android:background="@drawable/greybackground"
         android:visibility="visible"
@@ -70,9 +70,8 @@
         android:text="Player 1 "
         android:textColor="@color/black"
         android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView4"
-        app:layout_constraintHorizontal_bias="0.535"
-        app:layout_constraintStart_toStartOf="@+id/imageView4"
+        app:layout_constraintEnd_toEndOf="@+id/pic1"
+        app:layout_constraintStart_toStartOf="@+id/pic1"
         app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
     <TextView
@@ -83,8 +82,8 @@
         android:text="Player 2"
         android:textColor="@color/black"
         android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView5"
-        app:layout_constraintStart_toStartOf="@+id/imageView5"
+        app:layout_constraintEnd_toEndOf="@+id/pic2"
+        app:layout_constraintStart_toStartOf="@+id/pic2"
         app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
     <TextView
@@ -98,7 +97,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/runfox"
         app:layout_constraintEnd_toEndOf="@+id/runfox"
         app:layout_constraintStart_toStartOf="@+id/runfox"
-        app:layout_constraintTop_toTopOf="@+id/runfox"/>
+        app:layout_constraintTop_toTopOf="@+id/runfox" />
 
     <TextView
         android:id="@+id/point1"
@@ -107,8 +106,8 @@
         android:text="200 points"
         android:textColor="@color/orangemenu"
         android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView4"
-        app:layout_constraintStart_toStartOf="@+id/imageView4"
+        app:layout_constraintEnd_toEndOf="@+id/player1"
+        app:layout_constraintStart_toStartOf="@+id/player1"
         app:layout_constraintTop_toBottomOf="@+id/player1" />
 
     <TextView
@@ -118,8 +117,8 @@
         android:text="200 points"
         android:textColor="@color/orangemenu"
         android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView5"
-        app:layout_constraintStart_toStartOf="@+id/imageView5"
+        app:layout_constraintEnd_toEndOf="@+id/player2"
+        app:layout_constraintStart_toStartOf="@+id/player2"
         app:layout_constraintTop_toBottomOf="@+id/player2" />
 
     <TextView
@@ -153,6 +152,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/winplayer" />
 
+    <ImageView
+        android:id="@+id/imageView14"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/fond_blanc"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView8"
+        app:layout_constraintEnd_toStartOf="@+id/player1_2"
+        app:layout_constraintStart_toStartOf="@+id/imageView8"
+        app:layout_constraintTop_toTopOf="@+id/imageView8" />
+
     <TextView
         android:id="@+id/player1_2"
         android:layout_width="wrap_content"
@@ -176,6 +185,7 @@
         android:textColor="@color/orangemenu"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="@+id/player1_2"
+        app:layout_constraintEnd_toEndOf="@+id/winplayer"
         app:layout_constraintStart_toEndOf="@+id/player1_2"
         app:layout_constraintTop_toTopOf="@+id/player1_2"
         app:layout_constraintVertical_bias="0.0" />
@@ -202,6 +212,7 @@
         android:textColor="@color/orangemenu"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="@+id/player2_2"
+        app:layout_constraintEnd_toEndOf="@+id/loseplayer"
         app:layout_constraintStart_toEndOf="@+id/player2_2"
         app:layout_constraintTop_toTopOf="@+id/player2_2" />
 
@@ -318,8 +329,8 @@
         android:id="@+id/imageView9"
         android:layout_width="78dp"
         android:layout_height="32dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="396dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="388dp"
         android:rotation="327"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

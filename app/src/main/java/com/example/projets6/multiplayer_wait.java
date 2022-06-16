@@ -16,6 +16,7 @@ public class multiplayer_wait extends AppCompatActivity {
     LottieAnimationView lottie;
     DatabaseReference gamesRef;
     String adversaire;
+    int opponantscoregame;
 
     int idGame;
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,17 +42,29 @@ public class multiplayer_wait extends AppCompatActivity {
 
                     if (player1.equals(adversaire)){
                         gamesRef.child(idGame + "/playerend2").setValue(true);
+                        gamesRef.child(idGame + "/pointgamep2").setValue(prefs.getInt("myscoregame",0));
                         boolean playerend1 = snapshot.child(idGame + "/playerend1").getValue(Boolean.class);
+
                         if(playerend1 == true){
+                            int opponantscoregame =snapshot.child(idGame + "/pointgamep1").getValue(Integer.class) ;
+                            prefs.edit().putInt("opponantscoregame", opponantscoregame ).commit();
+
                             goscore();
                             gamesRef.child(String.valueOf(idGame)).removeValue();
                             gamesRef.removeEventListener(this);
 
                         }
+
+
                     }else {
                         gamesRef.child(idGame + "/playerend1").setValue(true);
+                        gamesRef.child(idGame + "/pointgamep1").setValue(prefs.getInt("myscoregame",0));
                         boolean playerend2 = snapshot.child(idGame + "/playerend2").getValue(Boolean.class);
+
                         if(playerend2 == true) {
+                            int opponantscoregame =snapshot.child(idGame + "/pointgamep2").getValue(Integer.class) ;
+                            prefs.edit().putInt("opponantscoregame", opponantscoregame ).commit();
+
                             goscore();
                             gamesRef.child(String.valueOf(idGame)).removeValue();
                             gamesRef.removeEventListener(this);

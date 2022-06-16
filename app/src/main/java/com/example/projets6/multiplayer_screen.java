@@ -110,12 +110,9 @@ public class multiplayer_screen extends AppCompatActivity{
     ValueEventListener listenerTrouver = new ValueEventListener() {
         @Override
         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-            Log.i("DEBUG",dataSnapshot.toString());
             List<String> userList =getAllUserName(dataSnapshot);
             if(userList!=null){
-                Log.i("userList", userList.toString());
                 for(int i=0;i<userList.size();i++) {
-                    Log.i("userList", userList.get(i).toString());
                     if(!userList.get(i).equals(username)) {
                         boolean multij = dataSnapshot.child(userList.get(i)).child("multijoueur").getValue(Boolean.class);
                         prefs.edit().putBoolean("multijPlayer2",multij).commit();//score d'adversaire
@@ -124,11 +121,12 @@ public class multiplayer_screen extends AppCompatActivity{
                         if (multij == true) {
                             prefs.edit().putString("adversaire", adversaire).commit();
                             int scoreAdv = dataSnapshot.child(userList.get(i)).child("score").getValue(Integer.class);
-                            prefs.edit().putInt("scoreAdv", scoreAdv).commit();
+                            prefs.edit().putInt("scoreadv", scoreAdv).commit();
                             updateFireBase(username,adversaire);
                             playerRef.child(username).child("multijoueur").setValue(false);
                             playerRef.child(adversaire).child("multijoueur").setValue(false);
                             prefs.edit().putInt("score2",score).commit();//score d'adversaire
+
                             startActivity(intent);
                             playerRef.removeEventListener(this);
                             //overridePendingTransition(R.anim.slide_in_right, R.anim.slide_in_left);
@@ -147,7 +145,6 @@ public class multiplayer_screen extends AppCompatActivity{
     private boolean isPlayerInGame(DataSnapshot snapshot,String player){
         int nb=0;
         String player2=null,player1 = null;
-        Log.i("snap",snapshot.toString());
         if (snapshot.exists()) {
             count= (int) snapshot.getChildrenCount();
             for (DataSnapshot ds : snapshot.getChildren()) {
@@ -172,6 +169,8 @@ public class multiplayer_screen extends AppCompatActivity{
         db.child("player1").setValue(p1);
         db.child("playerend1").setValue(false);
         db.child("playerend2").setValue(false);
+        db.child("pointgamep1").setValue(0);
+        db.child("pointgamep2").setValue(0);
     }
 
 
