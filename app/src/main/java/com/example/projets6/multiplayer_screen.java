@@ -37,7 +37,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class multiplayer_screen extends AppCompatActivity{
-    int count=0;
+    int count=1;
     Intent intent ;
     String adversaire;
     boolean multijTest;
@@ -50,6 +50,7 @@ public class multiplayer_screen extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
         setContentView(R.layout.multiplayer_screen);
         intent = new Intent(multiplayer_screen.this, Multimode.class);
@@ -134,13 +135,13 @@ public class multiplayer_screen extends AppCompatActivity{
                 }
             }
 
-            }
+        }
 
         @Override
         public void onCancelled(@NonNull DatabaseError error) {
 
         }
-        };
+    };
     private boolean isPlayerInGame(DataSnapshot snapshot,String player){
         int nb=0;
         String player2=null,player1 = null;
@@ -154,15 +155,14 @@ public class multiplayer_screen extends AppCompatActivity{
             }
         }
         if(nb==1) {
-                playerRef.child(player2).child("multijoueur").setValue(false);
-                prefs.edit().putInt("idGame",count).commit();
+            playerRef.child(player2).child("multijoueur").setValue(false);
+            prefs.edit().putInt("idGame",count).commit();
             return true;
         }
         return false;
     }
     private void updateFireBase(String p1,String p2) {
         DatabaseReference db;
-        count++;
         db = gamesRef.child(String.valueOf(count));
         db.child("player2").setValue(p2);
         db.child("player1").setValue(p1);
