@@ -71,6 +71,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="85dp"
         android:gravity="center"
+        android:singleLine="true"
         android:hint="@string/hintUser" />
 
     <androidx.appcompat.widget.AppCompatButton
