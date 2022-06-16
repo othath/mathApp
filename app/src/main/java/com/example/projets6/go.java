@@ -71,6 +71,10 @@ public class go extends AppCompatActivity{
             sound.release();
             sound=null;
         }
-        }
+    }
+
+    @Override
+    public void onBackPressed() {
+    }
 
 }

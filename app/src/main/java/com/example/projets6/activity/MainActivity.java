@@ -175,7 +175,6 @@ public class MainActivity extends AppCompatActivity {
         pointtext.setText(String.valueOf(point));
 
 
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
     }
 
     public void stop_menu_song(){

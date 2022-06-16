@@ -64,7 +64,6 @@ public class RunningFow extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
         setContentView(R.layout.activity_running_fow);
 
@@ -456,17 +455,23 @@ public class RunningFow extends AppCompatActivity {
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
-    /*
+
     @Override
-    protected void onPause() {
-        super.onPause();
-        if (sound.isPlaying()){
-            sound.stop();
-            if (isFinishing()){
-                sound.stop();
-                sound.release();
-            }
+    public void onBackPressed() {
+        SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
+        if (sharedPreferences.getBoolean("value2",true)) {
+            MediaPlayer sound2 = MediaPlayer.create(RunningFow.this, R.raw.ui_sound);
+            sound2.start();
         }
-    }*/
+        if (sound.isPlaying()) {
+            sound.stop();
+            sound.release();
+            sound=null;
+        }
+
+        Intent intent = new Intent(this, com.example.projets6.activity.MainActivity.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+    }
 
 }

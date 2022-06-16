@@ -68,7 +68,7 @@ public class activity_classicmode extends AppCompatActivity {
         }
 
         messageView = (TextView) findViewById(R.id.textView);
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
 
          mDatabase = FirebaseDatabase.getInstance().getReference("Player");
          prefs = getSharedPreferences("MyApp", MODE_PRIVATE);
@@ -427,16 +427,22 @@ public class activity_classicmode extends AppCompatActivity {
             sound2=null;
         }
     }
-    /*
+
     @Override
-    protected void onPause() {
-        super.onPause();
-        if (sound2.isPlaying()){
-            sound2.stop();
-            if (isFinishing()){
-                sound2.stop();
-                sound2.release();
-            }
+    public void onBackPressed() {
+        Intent intent = new Intent(this, com.example.projets6.activity.MainActivity.class);
+        startActivity(intent);
+        SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
+        if (sharedPreferences.getBoolean("value2",true)) {
+            MediaPlayer sound = MediaPlayer.create(activity_classicmode.this, R.raw.ui_sound);
+            sound.start();
         }
-    }*/
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+        if (sound2.isPlaying()) {
+            sound2.stop();
+            sound2.release();
+            sound2=null;
+        }
+    }
+
 }

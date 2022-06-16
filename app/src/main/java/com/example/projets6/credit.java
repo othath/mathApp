@@ -5,6 +5,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.AnimationDrawable;
 import android.content.SharedPreferences;
@@ -84,6 +85,23 @@ public class credit extends AppCompatActivity {
             sound=null;
         }
 
+    }
+
+    public void stop_credit_song(){
+        SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
+        if (sound.isPlaying()) {
+            sound.stop();
+            sound.release();
+            sound=null;
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, activity_settings.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        stop_credit_song();
     }
 
 

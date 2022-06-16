@@ -30,6 +30,7 @@ import com.example.projets6.R;
 import com.example.projets6.RunningFow;
 import com.example.projets6.activity_end_fox;
 import com.example.projets6.activity_winFox;
+import com.example.projets6.multiplayer_wait;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -48,30 +49,39 @@ public class Multimode extends AppCompatActivity {
     int goodAnswer = 0;
     float backgroundleftX,backgroundleftBarriereX;
     Timer timer;
-    String res, an;
+    String res, an, adversaire;
     Equation eq = new Equation(5);
-    GifImageView foxjump, foxrunning;
+    GifImageView foxjump, foxrunning, foxjump2, foxrunning2;
     ImageView death1,death2,death3, backgroundfox1,backgroundfox2, backgroundfox3, backgroundfoxbarriere, retour;
     Handler handler;
     MediaPlayer sound;
     Animation animSlide, clignotant;
-
+    SharedPreferences prefs;
     CountDownTimer cdtimer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_multimode);
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
 
-        SharedPreferences prefs = getSharedPreferences("MyApp", MODE_PRIVATE);
+        prefs = getSharedPreferences("MyApp", MODE_PRIVATE);
 
         SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
+
+        adversaire = prefs.getString("adversaire", "UNKNOWN");
+
+        TextView adversairetext = (TextView) findViewById(R.id.adversaire);
+        adversairetext.setText(adversaire);
+
+
+
         if (sharedPreferences.getBoolean("value",true)) {
             sound = MediaPlayer.create(com.example.projets6.activity.Multimode.this, R.raw.runningfox);
             sound.start();
             sound.setLooping(true);
+
+
         }
 
 
@@ -84,6 +94,8 @@ public class Multimode extends AppCompatActivity {
         point = prefs.getInt("score", 100);
         foxjump = (GifImageView) findViewById(R.id.foxjump);
         foxrunning = (GifImageView) findViewById(R.id.foxrunning);
+        foxjump2 = (GifImageView) findViewById(R.id.foxjump2);
+        foxrunning2 = (GifImageView) findViewById(R.id.foxrunning2);
         death1 = findViewById(R.id.death1);
         death2 = findViewById(R.id.death2);
         death3 = findViewById(R.id.death3);
@@ -200,7 +212,7 @@ public class Multimode extends AppCompatActivity {
         }
         generateEquation();
         timertext.setVisibility(View.VISIBLE);
-        cdtimer = new CountDownTimer(3000, 10) {
+        cdtimer = new CountDownTimer(20000, 10) {
 
             public void onTick(long millisUntilFinished) {
                 NumberFormat f = null;
@@ -229,6 +241,15 @@ public class Multimode extends AppCompatActivity {
                     }
                 }, 1500);
 
+                final Handler handler6 = new Handler();
+
+                handler6.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        foxrunning.startAnimation(clignotant);
+                    }
+                }, 1300);
+
                 backgroundfoxbarriere.startAnimation(animSlide);
                 lives-=1;
                 if (lives == 2){
@@ -249,7 +270,10 @@ public class Multimode extends AppCompatActivity {
                     }
                 }
                 if (lives == 0){
+
                     death1.setVisibility(View.VISIBLE);
+                    prefs.edit().putInt("myscoregame", counter).commit();
+
                     SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
                     if (sharedPreferences.getBoolean("value2",true)) {
                         MediaPlayer sound = MediaPlayer.create(com.example.projets6.activity.Multimode.this, R.raw.lose_life);
@@ -278,16 +302,16 @@ public class Multimode extends AppCompatActivity {
         answer.setText("");
         timertext.setVisibility(View.INVISIBLE);
 
-        final Handler handler = new Handler();
+        Handler handler = new Handler();
 
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                foxrunning.setVisibility(View.INVISIBLE);
+                foxrunning.setVisibility(View.GONE);
                 foxjump.setVisibility(View.VISIBLE);
             }
         }, 1100);
-        final Handler handler2 = new Handler();
+        Handler handler2 = new Handler();
 
         handler2.postDelayed(new Runnable() {
             @Override
@@ -298,6 +322,7 @@ public class Multimode extends AppCompatActivity {
 
             }
         }, 2100);
+
         counter++;
         displayGame();
     }
@@ -382,7 +407,6 @@ public class Multimode extends AppCompatActivity {
         }
     }
     public void buttondelall(View view){
-
         sound_ui();
         answer.setText("");
     }
@@ -402,7 +426,7 @@ public class Multimode extends AppCompatActivity {
     }
 
     public void gotoend(){
-        Intent intent = new Intent(this, activity_winFox.class);
+        Intent intent = new Intent(this, multiplayer_wait.class);
         startActivity(intent);
         SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
         if (sharedPreferences.getBoolean("value",true)) {
@@ -421,6 +445,21 @@ public class Multimode extends AppCompatActivity {
 
 
     private void retour() {
+        SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
+        if (sharedPreferences.getBoolean("value2",true)) {
+            MediaPlayer sound2 = MediaPlayer.create(com.example.projets6.activity.Multimode.this, R.raw.ui_sound);
+            sound2.start();
+        }
+        if (sharedPreferences.getBoolean("value",true)) {
+            sound.stop();
+        }
+        Intent intent = new Intent(this, com.example.projets6.activity.MainActivity.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+    }
+
+    @Override
+    public void onBackPressed() {
         SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
         if (sharedPreferences.getBoolean("value2",true)) {
             MediaPlayer sound2 = MediaPlayer.create(com.example.projets6.activity.Multimode.this, R.raw.ui_sound);
