@@ -54,7 +54,7 @@ public class InscriptionActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inscription);
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
 
         messageView = (TextView) findViewById(R.id.signUpText);
         messageView2 = (TextView) findViewById(R.id.signUpText2);
