@@ -68,7 +68,7 @@ public class activity_classicmode extends AppCompatActivity {
         }
 
         messageView = (TextView) findViewById(R.id.textView);
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
 
          mDatabase = FirebaseDatabase.getInstance().getReference("Player");
          prefs = getSharedPreferences("MyApp", MODE_PRIVATE);

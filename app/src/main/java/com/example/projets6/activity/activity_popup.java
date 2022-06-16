@@ -25,7 +25,6 @@ public class activity_popup extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         setContentView(R.layout.activity_popup);
         SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
         messageView = (TextView) findViewById(R.id.textView4);

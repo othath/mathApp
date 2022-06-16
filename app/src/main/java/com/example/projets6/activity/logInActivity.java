@@ -58,7 +58,6 @@ public class logInActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         setContentView(R.layout.activity_connexion);
         messageView = (TextView) findViewById(R.id.signInText);
         messageView2 = (TextView) findViewById(R.id.signInText2);

@@ -63,7 +63,6 @@ public class Multimode extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_multimode);
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
 
         prefs = getSharedPreferences("MyApp", MODE_PRIVATE);
