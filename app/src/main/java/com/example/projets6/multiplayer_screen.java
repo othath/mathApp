@@ -50,7 +50,6 @@ public class multiplayer_screen extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
         setContentView(R.layout.multiplayer_screen);
         intent = new Intent(multiplayer_screen.this, Multimode.class);

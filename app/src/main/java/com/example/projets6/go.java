@@ -28,8 +28,7 @@ public class go extends AppCompatActivity{
 
     MediaPlayer sound;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void onCreate(Bundle savedInstanceState) {nighsuper.onCreate(savedInstanceState);
         setContentView(R.layout.go);
         lottie=findViewById(R.id.lottie);
 
