@@ -139,8 +139,16 @@ public class activity_profil extends AppCompatActivity {
 
     }
 
-
-
-
+    @Override
+    public void onBackPressed() {
+        SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
+        if (sharedPreferences.getBoolean("value",true)) {
+            MediaPlayer sound = MediaPlayer.create(activity_profil.this, R.raw.ui_sound);
+            sound.start();
+        }
+        Intent intent = new Intent(this, com.example.projets6.activity.MainActivity.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+    }
 
 }

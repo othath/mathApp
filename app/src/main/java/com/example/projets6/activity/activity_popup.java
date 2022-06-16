@@ -2,8 +2,10 @@ package com.example.projets6.activity;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.widget.TextView;
@@ -68,4 +70,8 @@ public class activity_popup extends Activity {
 
         getWindow().setLayout((int)(width*.8),(int)(height*.770));
     }
+
+
+
+
 }

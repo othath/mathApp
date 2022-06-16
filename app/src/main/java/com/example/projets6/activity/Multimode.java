@@ -457,4 +457,19 @@ public class Multimode extends AppCompatActivity {
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
+
+    @Override
+    public void onBackPressed() {
+        SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
+        if (sharedPreferences.getBoolean("value2",true)) {
+            MediaPlayer sound2 = MediaPlayer.create(com.example.projets6.activity.Multimode.this, R.raw.ui_sound);
+            sound2.start();
+        }
+        if (sharedPreferences.getBoolean("value",true)) {
+            sound.stop();
+        }
+        Intent intent = new Intent(this, com.example.projets6.activity.MainActivity.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+    }
 }

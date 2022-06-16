@@ -98,18 +98,11 @@ public class loading_screen extends AppCompatActivity{
 
     }
 
-  /*  @Override
-    protected void onPause() {
-        super.onPause();
-        if (sound.isPlaying()){
-            sound.stop();
-            if (isFinishing()){
-                sound.stop();
-                sound.release();
-            }
-        }
-    }*/
-
+    @Override
+    public void onBackPressed() {
+        android.os.Process.killProcess(android.os.Process.myPid());
+        System.exit(1);
+    }
 
 
 
