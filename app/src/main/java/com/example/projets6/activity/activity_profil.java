@@ -8,22 +8,23 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
-import android.util.Log;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import com.example.projets6.R;
 import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
+import java.util.SortedSet;
+import java.util.TreeMap;
+import java.util.TreeSet;
 
 public class activity_profil extends AppCompatActivity {
 
@@ -35,11 +36,17 @@ public class activity_profil extends AppCompatActivity {
     TextView usertext1;
     int point;
     int point1;
+    Map<String,Integer> sortedMap;
+    List<String> userList = new ArrayList<>();
+    Map<String, Integer> unsortMap = new HashMap<String, Integer>();
     TextView pointtext;
+    List<Map.Entry<String, Integer> > entryList;
     TextView pointtext1;
     TextView lvlplayer;
     Context context;
     Resources resources;
+    String Key1,Key2,Key3,Key4;
+    Integer value1,value2,value3,value4;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +54,26 @@ public class activity_profil extends AppCompatActivity {
 
         mDatabase = FirebaseDatabase.getInstance().getReference("Player");
 
+        ValueEventListener listenerTrouver =new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                List<Map.Entry<String, Integer>> entryList = getAllUserName(dataSnapshot);
+                Key1 = (String) entryList.get(1).getKey();
+                value1 = entryList.get(1).getValue();
+                Key2 = (String)entryList.get(2).getKey();
+                value2 = entryList.get(2).getValue();
+                Key3 = (String) entryList.get(3).getKey();
+                value3 = entryList.get(3).getValue();
+                Key4 = (String) entryList.get(4).getKey();
+                value4 = entryList.get(4).getValue();
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        };
 
         ImageButton retour= (ImageButton) findViewById(R.id.retour);
         retour.setOnClickListener(v -> retour());
@@ -71,8 +98,27 @@ public class activity_profil extends AppCompatActivity {
         pointtext.setText(String.valueOf(point));
         pointtext1.setText(String.valueOf(point1)+" points");
         usertext1.setText(username1);
-
         setlvl(lvlplayer,pourcent);
+
+        TextView username1  = findViewById(R.id.textView18);
+        TextView username2  = findViewById(R.id.textView22);
+        TextView username3  = findViewById(R.id.textView25);
+        TextView username4  = findViewById(R.id.textView27);
+        TextView score1  = findViewById(R.id.textView19);
+        TextView score2  = findViewById(R.id.textView17);
+        TextView score3  = findViewById(R.id.textView26);
+        TextView score4  = findViewById(R.id.textView28);
+
+
+        username1.setText("max");
+        username2.setText("alex");
+        username3.setText("jeremy");
+        username4.setText("agathe");
+        score1.setText("1150 Points");
+        score2.setText("960 Points");
+        score3.setText("940 Points");
+        score4.setText("830 Points");
+
 
     }
 
@@ -96,6 +142,22 @@ public class activity_profil extends AppCompatActivity {
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
 
     }
+    public List<Map.Entry<String, Integer> > getAllUserName(DataSnapshot dataSnapshot) {
+        List<String> userList = new ArrayList<>();
+        if (dataSnapshot.exists()) {
+
+            for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                String user = ds.child("userName").getValue(String.class);
+                Integer score = ds.child("score").getValue(Integer.class);
+                unsortMap.put(user,score);
+                Map<String,Integer> treeMap = new TreeMap<String, Integer>(unsortMap);
+            }
+            return entryList;
+        }
+        return null;
+
+    }
+
 
     public void setlvl(TextView lvlplayer,TextView pourcent){
         SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
@@ -139,16 +201,8 @@ public class activity_profil extends AppCompatActivity {
 
     }
 
-    @Override
-    public void onBackPressed() {
-        SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
-        if (sharedPreferences.getBoolean("value",true)) {
-            MediaPlayer sound = MediaPlayer.create(activity_profil.this, R.raw.ui_sound);
-            sound.start();
-        }
-        Intent intent = new Intent(this, com.example.projets6.activity.MainActivity.class);
-        startActivity(intent);
-        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
-    }
+
+
+
 
 }

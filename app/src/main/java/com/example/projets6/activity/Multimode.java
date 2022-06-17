@@ -52,7 +52,7 @@ public class Multimode extends AppCompatActivity {
     String res, an, adversaire;
     Equation eq = new Equation(5);
     GifImageView foxjump, foxrunning, foxjump2, foxrunning2;
-    ImageView death1,death2,death3, backgroundfox1,backgroundfox2, backgroundfox3, backgroundfoxbarriere, retour;
+    ImageView death1,death2,death3, backgroundfox1,backgroundfox2, backgroundfox3, backgroundfoxbarriere;
     Handler handler;
     MediaPlayer sound;
     Animation animSlide, clignotant;
@@ -63,6 +63,7 @@ public class Multimode extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_multimode);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
 
         prefs = getSharedPreferences("MyApp", MODE_PRIVATE);
@@ -72,7 +73,7 @@ public class Multimode extends AppCompatActivity {
         adversaire = prefs.getString("adversaire", "UNKNOWN");
 
         TextView adversairetext = (TextView) findViewById(R.id.adversaire);
-        adversairetext.setText(adversaire);
+        adversairetext.setText("VS "+adversaire);
 
 
 
@@ -84,10 +85,6 @@ public class Multimode extends AppCompatActivity {
 
         }
 
-
-
-        retour= (ImageButton) findViewById(R.id.retour);
-        retour.setOnClickListener(v -> retour());
 
         textEquation = findViewById(R.id.textequation);
         an="";
@@ -307,7 +304,7 @@ public class Multimode extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                foxrunning.setVisibility(View.GONE);
+                foxrunning.setVisibility(View.INVISIBLE);
                 foxjump.setVisibility(View.VISIBLE);
             }
         }, 1100);
@@ -443,33 +440,4 @@ public class Multimode extends AppCompatActivity {
         cdtimer.cancel();
     }
 
-
-    private void retour() {
-        SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
-        if (sharedPreferences.getBoolean("value2",true)) {
-            MediaPlayer sound2 = MediaPlayer.create(com.example.projets6.activity.Multimode.this, R.raw.ui_sound);
-            sound2.start();
-        }
-        if (sharedPreferences.getBoolean("value",true)) {
-            sound.stop();
-        }
-        Intent intent = new Intent(this, com.example.projets6.activity.MainActivity.class);
-        startActivity(intent);
-        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
-    }
-
-    @Override
-    public void onBackPressed() {
-        SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
-        if (sharedPreferences.getBoolean("value2",true)) {
-            MediaPlayer sound2 = MediaPlayer.create(com.example.projets6.activity.Multimode.this, R.raw.ui_sound);
-            sound2.start();
-        }
-        if (sharedPreferences.getBoolean("value",true)) {
-            sound.stop();
-        }
-        Intent intent = new Intent(this, com.example.projets6.activity.MainActivity.class);
-        startActivity(intent);
-        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
-    }
 }

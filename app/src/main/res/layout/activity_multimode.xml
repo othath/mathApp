@@ -372,15 +372,6 @@
 
         app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageView
-        android:id="@+id/barriere"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_marginBottom="55dp"
-        android:src="@drawable/barriere"
-        app:layout_constraintBottom_toBottomOf="@+id/backgroundfox3"
-        app:layout_constraintStart_toEndOf="parent" />
-
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/foxrunning2"
         android:layout_width="200dp"
@@ -392,6 +383,8 @@
         android:visibility="visible"
         app:layout_constraintStart_toStartOf="@+id/foxjump2"
         app:layout_constraintTop_toTopOf="@+id/foxjump2" />
+
+
 
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/foxjump2"
@@ -405,6 +398,16 @@
         android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/barriere"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="55dp"
+        android:src="@drawable/barriere"
+        app:layout_constraintBottom_toBottomOf="@+id/backgroundfox3"
+        app:layout_constraintStart_toEndOf="parent" />
+
 
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/foxrunning"
@@ -545,23 +548,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/backgroundfox3" />
 
-    <ImageButton
-        android:id="@+id/retour"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginHorizontal="35dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="4dp"
-
-        android:background="@color/purplemenu"
-        android:scaleType="fitCenter"
-        android:src="@drawable/retour"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 
 

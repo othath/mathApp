@@ -48,6 +48,7 @@ public class activity_settings extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
 
         switch1 = (Switch) this.findViewById(R.id.fond);
@@ -103,15 +104,7 @@ public class activity_settings extends AppCompatActivity {
             }
         });
 
-        btn_connexion=(Button) findViewById(R.id.seco_btn);
-        btn_connexion.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
-                connexion();
 
-            }
-        });
 
 
         btnEn.setOnClickListener(new View.OnClickListener() {
@@ -260,17 +253,5 @@ public class activity_settings extends AppCompatActivity {
         super.finish();
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
 
-    }
-
-    @Override
-    public void onBackPressed() {
-        SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
-        if (sharedPreferences.getBoolean("value",true)) {
-            MediaPlayer sound = MediaPlayer.create(activity_settings.this, R.raw.ui_sound);
-            sound.start();
-        }
-        Intent intent = new Intent(this, com.example.projets6.activity.MainActivity.class);
-        startActivity(intent);
-        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 }
