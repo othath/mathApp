@@ -179,7 +179,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void stop_menu_song(){
         SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
-        if (sound.isPlaying()) {
+        if (sound.isPlaying() && sound!=null) {
             sound.stop();
             sound.release();
             sound=null;

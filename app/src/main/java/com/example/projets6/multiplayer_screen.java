@@ -32,9 +32,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.TreeMap;
 
 public class multiplayer_screen extends AppCompatActivity{
     int count=1;
@@ -118,6 +121,7 @@ public class multiplayer_screen extends AppCompatActivity{
                         prefs.edit().putBoolean("multijPlayer2",multij).commit();//score d'adversaire
                         adversaire = dataSnapshot.child(userList.get(i)).child("userName").getValue(String.class);
                         int score = dataSnapshot.child(userList.get(i)).child("score").getValue(Integer.class);
+
                         if (multij == true) {
                             prefs.edit().putString("adversaire", adversaire).commit();
                             int scoreAdv = dataSnapshot.child(userList.get(i)).child("score").getValue(Integer.class);
@@ -181,11 +185,17 @@ public class multiplayer_screen extends AppCompatActivity{
     }
     public List<String> getAllUserName(DataSnapshot dataSnapshot) {
         List<String> userList = new ArrayList<>();
+        Map<String, Integer> unsortMap = new HashMap<String, Integer>();
+
+
         if (dataSnapshot.exists()) {
 
             for (DataSnapshot ds : dataSnapshot.getChildren()) {
                 // String user = ds.getValue(String.class);
                 String user = ds.child("userName").getValue(String.class);
+                int score = ds.child("score").getValue(Integer.class);
+                unsortMap.put(user,score);
+                Map<String,Integer> treeMap = new TreeMap<String, Integer>(unsortMap);
                 userList.add(user);
             }
             return userList;

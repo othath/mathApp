@@ -96,7 +96,7 @@ public class InscriptionActivity extends Activity {
                     Player j=new Player(userField.getText().toString()
                     ,passEncrypted,100,false);
                     mDatabase.orderByChild("userName").equalTo(userField.getText().toString()). ///where username= usr
-                            addListenerForSingleValueEvent(new ValueEventListener() {
+                             addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             if(snapshot.exists()){
